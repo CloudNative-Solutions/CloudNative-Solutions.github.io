@@ -1,0 +1,81 @@
+#
+# Work based on https://github.com/mmistakes/minimal-mistakes/blob/master/_data/ui-text.yml
+#
+# Configuration: Add to _config.yml
+# locale: "en-US"  [YOUR PREFERRED LOCALE]
+#
+# How to use:
+# {{ site.data.ui-text[site.locale].<var_name> | default: 'text' }}
+
+# English (default)
+# -----------------
+en: &DEFAULT_EN
+  header:
+    title: Cloud Native Solutions - Romania
+    text: Elevate your business with our cloud native solutions.
+    buttonlink: "#services"
+
+  services:
+    title: "Services"
+    text: "Services that we offer"
+    section: services
+    horizontal-scrolling: "yes"
+    list:
+      - title: "Fully Managed DevOps Services "
+        desc: With our fully managed DevOps services, you can have your own in-house DevOps team without the hassle. Our experienced and efficient team will handle the architecture, operation, and maintenance of your infrastructure, whether you're starting from scratch or have an existing platform. We'll collaborate with your team to meet the needs and requirements of your business, incorporating best practices and sharing our recommendations as necessary. We have our own tooling recommendations, process checklists, and suggested ways of working, but we're flexible and will adapt to fit your organization, team, and preferences
+        icon: fas fa-shopping-cart #find more at https://fontawesome.com/icons
+      - title: "DevOps Augmentation"
+        desc: If your team is struggling to keep up with tasks or is lacking certain skills, our DevOps augmentation services can help. We can provide additional support for your dedicated DevOps team, work alongside other engineers who have shared product and DevOps responsibilities, or take on a specialist role focused on a specific aspect of your platform. Our team can ensure that important but non-urgent work, such as package updates, complex migrations, and disaster recovery exercises, is completed to keep your system reliable, secure, and fully tested. We can work with you on a flexible basis, providing support as needed for tasks such as log monitoring, key rotation, and more. We also have expertise in areas such as containerization, Kubernetes architecture, infrastructure as code setup, and cost optimization.
+        icon: fas fa-laptop
+      - title: "Infrastructure & Process Audit"
+        desc: "Our infrastructure and process audit service can help you assess the efficiency of your computing infrastructure. Within a few weeks, our team will run your infrastructure through our comprehensive checklists and identify areas that are working well and areas that need improvement. This audit is a valuable tool for executives to plan and budget, for engineering teams to identify overlooked areas, for investors to perform due diligence, and for customers to assess vendor risk. We often find issues such as unmitigated risks, missing processes or checks, unnecessary spending, and inefficiencies that can lead to serious problems such as downtime, data loss, security breaches, or financial loss. We provide prioritized recommendations for improvement based on our findings."
+        icon: fab fa-markdown
+      - title: "Early Stage & Ongoing Technical Advisory"
+        desc: Our team of experienced entrepreneurs, consultants, and operators not only have extensive technical knowledge, but also bring valuable perspective as outsourced CTOs and tech advisors. We can provide early stage entrepreneurs with guidance and support, act as a tech translator for non-technical leaders, and offer practical experience in technology management, processes, engineering, data, and risk assessment to executive teams, advisory committees, and boards.
+        icon: fas fa-laptop
+
+  about:
+    title: "About Us"
+    text: "Cloud Native Solutions"
+    body: |
+     At Cloud Native Solutions, we offer experienced infrastructure expertise to help you with your technology needs. Whether you are building a product, offering a service, or looking to improve the customer experience with technology, a strong underlying platform is crucial. From design and construction to maintenance, managing modern cloud infrastructure can be challenging, especially with the complexity of today's tools. Even small mistakes can have serious consequences.
+     
+     Cloud Native Solutions was created to provide a better, more reliable, and cost-effective way to manage cloud infrastructure. We have the skills and experience to make your platform agile, reliable, secure, flexible, and cost-efficient, while implementing structured processes and ways of working to minimize risk.
+     
+     Our clientele includes internet infrastructure providers, fintech companies, medical automation platforms, and social apps. With Cloud Native Solutions, our clients can rest easy knowing their platforms are performing well, backups are in place and validated, they are not dependent on any one DevOps engineer, and there will be no unexpected costs or surprise bills from cloud providers.
+
+
+  contact:
+    title: "Contact Us"
+    text: "Text or call 123456789"
+    section: contact
+    name: "Name*"
+    name-validation: "Please enter your name."
+    email: "Email*"
+    email-validation: "Please enter your email address."
+    phone: "Phone Number"
+    phone-validation: "Please enter your phone number."
+    message: "Message*"
+    message-validation: "Please enter a message."
+    subject: "Contact Form Submission"
+    submit: "Send Message"
+
+  footer:
+    legal: "Privacy Policy"
+    social:
+      - url: https://twitter.com/CNS_RO
+        icon: "fab fa-twitter"
+      - url: https://facebook.com/cloudnativesolutions
+        icon: "fab fa-facebook-f"
+      - url: https://linkedin.com/company/cloudnative-solutions
+        icon: "fab fa-linkedin-in"
+      - url: https://github.com/CloudNative-Solutions
+        icon: "fab fa-github"
+en-US:
+  <<: *DEFAULT_EN
+en-CA:
+  <<: *DEFAULT_EN
+en-GB:
+  <<: *DEFAULT_EN
+en-AU:
+  <<: *DEFAULT_EN

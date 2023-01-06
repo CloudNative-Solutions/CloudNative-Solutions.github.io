@@ -1,0 +1,242 @@
+baseURL: http://something-fresh.org/
+languageCode: en-us
+title: Cloud Native Solutions
+googleAnalytics: # Put in your tracking code without quotes like this: UA-XXXXXX...
+# Disables warnings
+disableKinds:
+- taxonomy
+- taxonomyTerm
+markup:
+  goldmark:
+    renderer:
+      unsafe: true # Allows you to write raw html in your md files
+
+params:
+  # Open graph allows easy social sharing. If you don't want it you can set it to false or just delete the variable
+  openGraph: true
+  # Used as meta data; describe your site to make Google Bots happy
+  description:
+  # Preloader ensures images are loaded before displaying to the user. If you don't want it uncomment to set it to false
+  # preloader: false
+  navbarlogo:
+  # Logo (from static/images/logos/___)
+    image: logos/cns-logo.png
+    link: /
+    # Default width/height. Uncomment if you need to change
+    width: 178
+    #height: 100
+  font:
+    name: "Clarity City"
+    sizes: [400,600]
+  hero:
+    # Main hero title
+    title: Cloud design, deployment, and management
+    # Hero subtitle (optional)
+    subtitle: Adopt powerful cloud solutions to improve efficiency, boost revenue, and create a scalable business.
+    # Button text
+    buttontext: Become our client
+    # Where the main hero button links to
+    buttonlink: "#contact"
+    # Hero image (from static/images/___)
+    image: cns.png
+    # Footer logos (from static/images/logos/clients/___.svg)
+    clientlogos:
+    - opslogic
+    - cloudbase
+    - vitalinteraction
+    - revivalhealth
+    - puresend
+    - stirista
+    - paloma
+  # Customizable navbar. For a dropdown, add a "sublinks" list.
+  navbar:
+  - title: Services
+    url: /#services
+  - title: About Us
+    url: /#about
+  #- title: How we work
+  #  url: /   
+  # - title: Careers
+  #   sublinks:
+  #   - title: AWS Cloud Engineer
+  #     url: /
+  #   - title: Azure DevOps Engineer
+  #     url: /
+  #   - title: Kubernetes Engineer
+  #     url: /
+  - title: Contact Us
+    url: /#contact
+    button: true
+  # sidebar:
+  #   # Logo (from /images/logos/___.svg)
+  #   logo: fresh-square
+  #   sections:
+  #   - title: User
+  #     icon: user
+  #     links:
+  #     - text: Profile
+  #       url: /
+  #     - text: Account
+  #       url: /
+  #     - text: Settings
+  #       url: /
+  #   - title: Messages
+  #     icon: envelope
+  #     links:
+  #     - text: Inbox
+  #       url: /
+  #     - text: Compose
+  #       url: /
+  #   - title: Images
+  #     icon: image
+  #     links:
+  #     - text: Library
+  #       url: /
+  #     - text: Upload
+  #       url: /
+  #   - title: Settings
+  #     icon: cog
+  #     links:
+  #     - text: User settings
+  #       url: /
+  #     - text: App settings
+  #       url: /
+  services:
+    title: Our Services
+    subtitle: with great responsibility
+    tiles:
+    - title: Site Reability Engineering
+      icon: mouse-globe
+      text: Improve the reliability of your systems and applications through expert consulting, implementation, and support of SRE best practices and processes.
+      url: /#services
+      buttonText: Get started
+    - title: Automated deployments
+      icon: laptop-cloud
+      text: Streamline application deployment by automating repetitive tasks and reducing errors, improving deployment speed, consistency, and agility.
+      url: /#services
+      buttonText: Get started
+    - title: Cloud migration
+      icon: plug-cloud
+      text: We help organizations move workloads and data to the cloud, minimizing downtime and ensuring a smooth transition.
+      url: /#services
+      buttonText: Get started
+    - title: Dev Enviornments
+      icon: mobile-feed
+      text: We provide support for setting up, managing, and maintaining development environments, helping teams collaborate and develop efficiently.
+      url: /#services
+      buttonText: Get started
+    - title: Security & Compliance
+      icon: doc-sync
+      text: We help organizations ensure the security and compliance of their systems and data, protecting against security threats and meeting regulatory requirements.
+      url: /#services
+      buttonText: Get started
+  stack:
+    title: Our Knowledge Stack
+    subtitle: We love open-source
+    tools:
+    - title: Kubernetes
+      #text: We love Kubernetes for its ability to manage containerized applications at scale with ease. It automates deployment, scaling, and management while providing features such as self-healing, rolling updates, and load balancing. Kubernetes also has a thriving community and a wealth of resources for integration, making it a valuable platform for organizations looking to streamline and optimize their application delivery pipeline.
+      # Icon (from /images/illustrations/icons/___.svg)
+      icon: k8s
+    - title: Terraform
+      #text: We like Terraform for its ability to manage infrastructure as code and automate deployment. It supports multiple cloud providers and on-premise environments, making it a versatile solution for managing infrastructure. Terraform enables version control, collaboration, and efficient resource management, improving the reliability and scalability of infrastructure.
+      icon: terraform
+    - title: Docker
+      #text: Docker is a popular platform for packaging and deploying applications in containers. It provides consistency and isolation, allowing applications to run consistently across different environments. Docker makes it easy to share and distribute applications, streamlining development and deployment processes. It has a vast ecosystem of tools and services, simplifying integration and automation.
+      icon: docker
+    - title: Ansible
+      #text: Ansible is a powerful automation tool for IT tasks and configuration management. It uses simple, human-readable language to automate complex tasks, reducing the need for manual intervention and improving efficiency. Ansible can manage multiple systems and is easy to integrate with other tools, making it a valuable tool for organizations looking to automate and streamline their IT operations.
+      icon: ansible
+  clouds:
+    title: Infrastructure providers
+    subtitle: We have expertise across all major cloud providers and bare metal
+    clouds:
+    - title: AWS
+      #text: We love AWS because it is a highly scalable and flexible cloud computing platform that provides a wide range of services for building and running applications. With AWS, organizations can easily deploy, manage, and scale their applications and services, and take advantage of advanced features such as machine learning, analytics, and security. AWS provides reliable and cost-effective infrastructure, making it a valuable platform for organizations looking to innovate and grow their business.
+      # Icon (from /images/illustrations/icons/___.svg)
+      icon: aws
+    - title: Azure
+      #text: Azure differentiates itself from other cloud providers with its strong focus on hybrid cloud solutions, allowing organizations to seamlessly integrate their on-premise and cloud-based resources. Azure also provides a broad range of services, including artificial intelligence and Internet of Things, and a strong commitment to security, making it a comprehensive platform for digital transformation. Additionally, Azure has a strong partner ecosystem, providing organizations with access to a wealth of resources and expertise for implementing and leveraging their cloud solutions.
+      icon: azure
+    - title: Google Cloud
+      #text: Google Cloud offers scalability, cutting-edge technology, strong security, a global network, a large ecosystem, and cost-effectiveness as its main advantages. It leverages Google's expertise in machine learning and big data, provides flexible infrastructure and a comprehensive security model, and has a growing ecosystem of partners and developers. These advantages make Google Cloud a valuable platform for organizations looking to drive digital transformation and leverage the cloud.
+      icon: gcp
+    - title: Openstack
+      #text: OpenStack is a free, open-source cloud computing platform that provides infrastructure-as-a-service (IaaS) capabilities. Its main features include scalability, compatibility, and modular architecture. OpenStack allows organizations to manage large pools of compute, storage, and networking resources, and supports a wide range of operating systems and hypervisors. With its open architecture, OpenStack provides organizations with the flexibility to integrate with existing IT systems and tools, making it a valuable platform for organizations looking to leverage the cloud.
+      icon: openstack
+  section3:
+    title: One platform
+    subtitle: To rule them all
+    image: k8s-logo.png
+    buttonText: Get started
+    buttonLink: "#"
+  testimonials:
+    title: Our Clients love us!
+    subtitle: "Hear it from Them: Success Stories from Satisfied Clients"
+    clients:
+    - name: Angela
+      quote: Cloud Native Solutions played a critical role in driving the success of our company. They transformed our outdated infrastructure into a robust, cloud-based solution that runs smoothly and efficiently. Their team's expertise and commitment to quality allowed us to make the transition without any disruptions to our 24/7 operations. Their constant monitoring and support give me peace of mind, knowing I have top-notch resources overseeing my infrastructure
+      job: Co-Founder
+      img: 1
+    - name: Bradly
+      quote: With Cloud Native Solutions at the helm of our cloud platform, we've experienced seamless operation and optimized cost efficiency. Their close collaboration with our development team has led to the introduction of innovative technologies and process improvements. They not only resolve issues promptly, but also implement preventative measures to ensure they don't reoccur. This level of attention to detail has elevated our product and allows me to have a worry-free release process and confidence in our ability to restore if needed. Thanks to Cloud Native Solutions, I now enjoy a peaceful night's rest.
+      job: Co-Founder & CEO
+      img: 2
+    - name: Peter
+      quote: We were skeptical about outsourcing our DevOps needs, but working with Cloud Native Solutions SRL has been a game changer for our company. Their team is incredibly knowledgeable and professional, and they have helped us improve our infrastructure in ways that we never thought possible. They have been a key partner in our success, and we are proud to recommend them to anyone looking to improve their DevOps process
+      job: HR Manager
+      img: 3
+  contact:
+    title: Contact Us
+    subtitle: We'd love to hear from you
+    buttonText: Send Message
+    action: https://formspree.io/f/xeqwqllj
+    method: POST
+  footer:
+    # Logo (from /images/logos/___)
+    logo: cns-logo.png
+    # Social Media Title
+    socialmediatitle: Follow Us
+    # Social media links (GitHub, Twitter, etc.). All are optional.
+    socialmedia:
+    - link: https://github.com/cloudnative-solutions
+      # Icons are from Font Awesome
+      icon: github
+    - link: https://linkedin.com/company/cloudnative-solutions
+      icon: linkedin
+    - link: https://facebook.com/CloudNativeSolutions
+      icon: facebook
+    - link: https://twitter.com/CNS_RO
+      icon: twitter
+    - link: https://cloudnativesolutions.ro
+      icon: globe
+    quicklinks:
+      column1:
+        title: "SITE"
+        links:
+        - text: Services
+          link: /#services
+        - text: About Us
+          link: /#aboutus
+    #    - text: How we work
+    #      link: /
+        - text: Contact Us
+          link: /agb
+      # column2:
+      #   title: "Docs"
+      #   links:
+      #   - text: Get started
+      #     link: /
+      #   - text: User guides
+      #     link: /
+      #   - text: Admin guide
+      #     link: /
+      #   - text: Developers
+      #     link: /
+      # column3:
+      #   title: "Blog"
+      #   links:
+      #   - text: Latest news
+      #     link: /blog/first
+      #   - text: Tech articles
+      #     link: /blog/second

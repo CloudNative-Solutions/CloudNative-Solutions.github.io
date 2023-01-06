@@ -1,0 +1,62 @@
+{{- $stack := .Site.Params.stack }}
+{{- $cloud := .Site.Params.clouds }}
+{{- $tools_title    := index $stack "title" }}
+{{- $tools_subtitle := index $stack "subtitle" }}
+{{- $cloud_title    := index $cloud "title" }}
+{{- $cloud_subtitle := index $cloud "subtitle" }}
+{{- $tools := index $stack "tools" }}
+{{- $clouds := index $cloud "clouds" }}
+<section class="section is-medium" id="stack">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title section-title">{{ $tools_title }}</h1>
+        <h3 class="subtitle is-5 is-muted">{{ $tools_subtitle }}</h3>
+        <div class="divider"></div>
+        <div class="column is-7 mt-60">
+          {{- range $tools }}
+          <article class="media icon-box">
+            <figure class="media-left">
+              <p class="image">
+                <img src="{{ printf "/images/illustrations/icons/%s.svg" .icon | relURL }}">
+              </p>
+            </figure>
+            <div class="media-content mt-50">
+              <div class="content">
+                <p>
+                  <span class="icon-box-title">{{ .title }}</span>
+                  <span class="icon-box-text">{{ .text | markdownify }}</span>
+                </p>
+              </div>
+            </div>
+          </article>
+          {{- end }}
+        </div>
+      </div>
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title section-title">{{ $cloud_title }}</h1>
+        <h3 class="subtitle is-5 is-muted">{{ $cloud_subtitle }}</h3>
+        <div class="divider"></div>
+        <div class="column is-7 mt-60">
+          {{- range $clouds }}
+          <article class="media icon-box">
+            <div class="media-content ml-30">
+              <div class="content">
+                <p>
+                  <span class="icon-box-title">{{ .title }}</span>
+                  <span class="icon-box-text">{{ .text | markdownify }}</span>
+                </p>
+              </div>
+            </div>
+            <figure class="media-right">
+              <p class="image">
+                <img src="{{ printf "/images/illustrations/icons/%s.svg" .icon | relURL }}">
+              </p>
+            </figure>
+          </article>
+          {{- end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

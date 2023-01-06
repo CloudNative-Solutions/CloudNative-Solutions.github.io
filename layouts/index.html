@@ -1,0 +1,37 @@
+{{ define "main" }}
+    {{ if .Site.Params.hero }}
+    {{ partial "hero.html" . }}
+    {{ end }}
+
+    {{ if .Site.Params.services }}
+    {{ partial "services.html" . }}
+    {{ end }}
+
+    {{ if .Site.Params.stack }}
+    {{ partial "stack.html" . }}
+    {{ end }}
+
+    {{ if .Site.Params.section3 }}
+    {{ partial "section3.html" . }}
+    {{ end }}
+
+    {{ if .Site.Params.testimonials }}
+    {{ partial "testimonials.html" . }}
+    {{ end }}
+
+    {{ if .Site.Params.contact }}
+    {{ partial "contact.html" . }}
+    {{ end }}
+
+    {{ if .Site.Params.footer }}
+    {{ partial "footer.html" . }}
+    {{ end }}
+
+    <!-- Back To Top Button -->
+    <div id="backtotop"><a href="#"></a></div>
+
+    {{ if .Site.Params.sidebar }}
+    {{ partial "sidebar.html" . }}
+    {{ end }}
+    
+{{ end }}

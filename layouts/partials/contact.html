@@ -1,0 +1,47 @@
+{{- $contact   := .Site.Params.contact }}
+{{- if eq $contact true }}
+{{- $contact = dict "_" "_" }}
+{{- end }}
+{{- $title      := index $contact "title" | default "Drop us a line or two "}}
+{{- $subtitle   := index $contact "subtitle" | default "We'd love to hear from you" }}
+{{- $action     := index $contact "action" }}
+{{- $method     := index $contact "method" }}
+{{- $buttonText := index $contact "buttontext" | default "Send Message" }}
+<section class="section section-light-grey is-medium" id="contact">
+  <div class="container">
+    <div class="title-wrapper has-text-centered">
+      <h2 class="title is-2 is-spaced">{{ $title }}</h2>
+      <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
+      <div class="divider is-centered"></div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="columns">
+        <div class="column is-6 is-offset-3">
+          <form{{ with $action }} action="{{ . }}"{{end}}{{ with $method }} method="{{ . }}"{{end}}>
+            <div class="columns is-multiline">
+              <div class="column is-6">
+                <input class="input is-medium" name="name" type="text" placeholder="First Name">
+              </div>
+              <div class="column is-6">
+                <input class="input is-medium" name="last_name" type="text" placeholder="Last Name">
+              </div>
+              <div class="column is-6">
+                <input class="input is-medium" name="email" type="email" placeholder="Email address">
+              </div>
+              <div class="column is-6">
+                <input class="input is-medium" name="phone" type="phone" placeholder="Phone Number">
+              </div>
+              <div class="column is-12">
+                <textarea class="textarea" name="message" rows="10" placeholder="How can we help?"></textarea>
+              </div>
+              <div class="form-footer has-text-centered mt-10">
+                <button class="button cta is-large primary-btn raised is-clear">{{ $buttonText }}</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

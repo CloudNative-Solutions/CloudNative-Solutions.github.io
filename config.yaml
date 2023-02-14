@@ -1,4 +1,4 @@
-baseURL: https://cloudnativesolutions.ro
+baseURL: http://something-fresh.org/
 languageCode: en-us
 title: Cloud Native Solutions
 googleAnalytics: # Put in your tracking code without quotes like this: UA-XXXXXX...
@@ -135,34 +135,34 @@ params:
     subtitle: We love open-source
     tools:
     - title: Kubernetes
-      #text: We love Kubernetes for its ability to manage containerized applications at scale with ease. It automates deployment, scaling, and management while providing features such as self-healing, rolling updates, and load balancing. Kubernetes also has a thriving community and a wealth of resources for integration, making it a valuable platform for organizations looking to streamline and optimize their application delivery pipeline.
+      text: We love Kubernetes for its ability to manage containerized applications at scale with ease. It automates deployment, scaling, and management while providing features such as self-healing, rolling updates, and load balancing. Kubernetes also has a thriving community and a wealth of resources for integration, making it a valuable platform for organizations looking to streamline and optimize their application delivery pipeline.
       # Icon (from /images/illustrations/icons/___.svg)
       icon: k8s
     - title: Terraform
-      #text: We like Terraform for its ability to manage infrastructure as code and automate deployment. It supports multiple cloud providers and on-premise environments, making it a versatile solution for managing infrastructure. Terraform enables version control, collaboration, and efficient resource management, improving the reliability and scalability of infrastructure.
+      text: We like Terraform for its ability to manage infrastructure as code and automate deployment. It supports multiple cloud providers and on-premise environments, making it a versatile solution for managing infrastructure. Terraform enables version control, collaboration, and efficient resource management, improving the reliability and scalability of infrastructure.
       icon: terraform
     - title: Docker
-      #text: Docker is a popular platform for packaging and deploying applications in containers. It provides consistency and isolation, allowing applications to run consistently across different environments. Docker makes it easy to share and distribute applications, streamlining development and deployment processes. It has a vast ecosystem of tools and services, simplifying integration and automation.
+      text: Docker is a popular platform for packaging and deploying applications in containers. It provides consistency and isolation, allowing applications to run consistently across different environments. Docker makes it easy to share and distribute applications, streamlining development and deployment processes. It has a vast ecosystem of tools and services, simplifying integration and automation.
       icon: docker
     - title: Ansible
-      #text: Ansible is a powerful automation tool for IT tasks and configuration management. It uses simple, human-readable language to automate complex tasks, reducing the need for manual intervention and improving efficiency. Ansible can manage multiple systems and is easy to integrate with other tools, making it a valuable tool for organizations looking to automate and streamline their IT operations.
+      text: Ansible is a powerful automation tool for IT tasks and configuration management. It uses simple, human-readable language to automate complex tasks, reducing the need for manual intervention and improving efficiency. Ansible can manage multiple systems and is easy to integrate with other tools, making it a valuable tool for organizations looking to automate and streamline their IT operations.
       icon: ansible
   clouds:
     title: Infrastructure providers
     subtitle: We have expertise across all major cloud providers and bare metal
     clouds:
     - title: AWS
-      #text: We love AWS because it is a highly scalable and flexible cloud computing platform that provides a wide range of services for building and running applications. With AWS, organizations can easily deploy, manage, and scale their applications and services, and take advantage of advanced features such as machine learning, analytics, and security. AWS provides reliable and cost-effective infrastructure, making it a valuable platform for organizations looking to innovate and grow their business.
+      text: We love AWS because it is a highly scalable and flexible cloud computing platform that provides a wide range of services for building and running applications. With AWS, organizations can easily deploy, manage, and scale their applications and services, and take advantage of advanced features such as machine learning, analytics, and security. AWS provides reliable and cost-effective infrastructure, making it a valuable platform for organizations looking to innovate and grow their business.
       # Icon (from /images/illustrations/icons/___.svg)
       icon: aws
     - title: Azure
-      #text: Azure differentiates itself from other cloud providers with its strong focus on hybrid cloud solutions, allowing organizations to seamlessly integrate their on-premise and cloud-based resources. Azure also provides a broad range of services, including artificial intelligence and Internet of Things, and a strong commitment to security, making it a comprehensive platform for digital transformation. Additionally, Azure has a strong partner ecosystem, providing organizations with access to a wealth of resources and expertise for implementing and leveraging their cloud solutions.
+      text: Azure differentiates itself from other cloud providers with its strong focus on hybrid cloud solutions, allowing organizations to seamlessly integrate their on-premise and cloud-based resources. Azure also provides a broad range of services, including artificial intelligence and Internet of Things, and a strong commitment to security, making it a comprehensive platform for digital transformation.
       icon: azure
     - title: Google Cloud
-      #text: Google Cloud offers scalability, cutting-edge technology, strong security, a global network, a large ecosystem, and cost-effectiveness as its main advantages. It leverages Google's expertise in machine learning and big data, provides flexible infrastructure and a comprehensive security model, and has a growing ecosystem of partners and developers. These advantages make Google Cloud a valuable platform for organizations looking to drive digital transformation and leverage the cloud.
+      text: Google Cloud offers scalability, cutting-edge technology, strong security, a global network, a large ecosystem, and cost-effectiveness as its main advantages. It leverages Google's expertise in machine learning and big data, provides flexible infrastructure and a comprehensive security model, and has a growing ecosystem of partners and developers. These advantages make Google Cloud a valuable platform for organizations looking to drive digital transformation and leverage the cloud.
       icon: gcp
     - title: Openstack
-      #text: OpenStack is a free, open-source cloud computing platform that provides infrastructure-as-a-service (IaaS) capabilities. Its main features include scalability, compatibility, and modular architecture. OpenStack allows organizations to manage large pools of compute, storage, and networking resources, and supports a wide range of operating systems and hypervisors. With its open architecture, OpenStack provides organizations with the flexibility to integrate with existing IT systems and tools, making it a valuable platform for organizations looking to leverage the cloud.
+      text: OpenStack is a free, open-source cloud computing platform that provides infrastructure-as-a-service (IaaS) capabilities. Its main features include scalability, compatibility, and modular architecture. OpenStack allows organizations to manage large pools of compute, storage, and networking resources, and supports a wide range of operating systems and hypervisors. 
       icon: openstack
   section3:
     title: One platform

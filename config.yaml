@@ -1,4 +1,4 @@
-baseURL: http://something-fresh.org/
+baseURL: https://cloudnativesolutions.ro
 languageCode: en-us
 title: Cloud Native Solutions
 googleAnalytics: # Put in your tracking code without quotes like this: UA-XXXXXX...

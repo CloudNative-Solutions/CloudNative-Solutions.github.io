@@ -2,6 +2,24 @@
 {{- $title    := index $services "title" }}
 {{- $subtitle := index $services "subtitle" }}
 {{- $tiles    := index $services "tiles" }}
+<style>
+  .columns:not(.is-desktop) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+    align-items: stretch;
+  }
+  .column.is-one-third, .column.is-one-third-tablet {
+    flex: auto;
+    width: 30%;
+    padding-top: 70px;
+  }
+  .feature-card {
+    height: 409px;
+  }
+</style>
 <section class="section section-feature-grey is-medium" id="services">
   <div class="container">
     <div class="title-wrapper has-text-centered">
@@ -10,7 +28,7 @@
       <div class="divider is-centered"></div>
     </div>
 
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="overflow:hidden">
       <div class="columns">
         {{- range $tiles }}
         

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cloud Native Solutions on Hugoplate</title>
+    <link>/</link>
+    <description>Recent content in Cloud Native Solutions on Hugoplate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 21 Jan 2024 21:01:59 +0500</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CI/CD Pipelines</title>
+      <link>/services/services5/</link>
+      <pubDate>Sun, 21 Jan 2024 12:02:35 +0500</pubDate>
+      <guid>/services/services5/</guid>
+      <description>Continuous Integration and Continuous Deployment (CI/CD) pipelines are at the heart of modern DevOps practices, enabling your development and operations teams to collaborate effectively and deliver software rapidly.</description>
+    </item>
+    <item>
+      <title>Container Solutions</title>
+      <link>/services/services4/</link>
+      <pubDate>Sun, 21 Jan 2024 12:02:35 +0500</pubDate>
+      <guid>/services/services4/</guid>
+      <description>In today’s fast-paced software development landscape, containerization has emerged as a game-changing technology that enables teams to build, deploy, and manage applications more efficiently.</description>
+    </item>
+    <item>
+      <title>Monitoring and Logs Management</title>
+      <link>/services/services6/</link>
+      <pubDate>Sun, 21 Jan 2024 12:02:35 +0500</pubDate>
+      <guid>/services/services6/</guid>
+      <description>Effective monitoring and logs management is critical for ensuring the performance, security, and reliability of your applications and infrastructure.</description>
+    </item>
+    <item>
+      <title>Kubernetes Managed Services</title>
+      <link>/services/services3/</link>
+      <pubDate>Sun, 21 Jan 2024 12:02:26 +0500</pubDate>
+      <guid>/services/services3/</guid>
+      <description>Kubernetes has emerged as the go-to solution for container orchestration, and major cloud providers are now offering managed Kubernetes services on their platforms.</description>
+    </item>
+    <item>
+      <title>How to build an Application with modern Technology</title>
+      <link>/blog/post-1/</link>
+      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
+      <guid>/blog/post-1/</guid>
+      <description>Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat.</description>
+    </item>
+    <item>
+      <title>How to build an Application with modern Technology</title>
+      <link>/blog/post-2/</link>
+      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
+      <guid>/blog/post-2/</guid>
+      <description>Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat.</description>
+    </item>
+    <item>
+      <title>How to build an Application with modern Technology</title>
+      <link>/blog/post-3/</link>
+      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
+      <guid>/blog/post-3/</guid>
+      <description>Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat.</description>
+    </item>
+    <item>
+      <title>How to build an Application with modern Technology</title>
+      <link>/blog/post-4/</link>
+      <pubDate>Mon, 04 Apr 2022 05:00:00 +0000</pubDate>
+      <guid>/blog/post-4/</guid>
+      <description>Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat.</description>
+    </item>
+    <item>
+      <title>AWS ECS to AWS EKS migration</title>
+      <link>/casestudies/casestudies3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/casestudies/casestudies3/</guid>
+      <description>Overview A leading software development company was using a container-based infrastructure deployed with Gitlab-CI in Amazon ECS and CloudWatch for logs and monitoring.</description>
+    </item>
+    <item>
+      <title>AWS OpsWorks to AWS Fargate Migration</title>
+      <link>/casestudies/casestudies1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/casestudies/casestudies1/</guid>
+      <description>Introduction This case study highlights how Cloud Native Solutions successfully migrated for our customer its existing Django-based infrastructure managed by AWS Opsworks (Chef) to a containerized infrastructure on AWS Fargate.</description>
+    </item>
+    <item>
+      <title>Elements</title>
+      <link>/elements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/elements/</guid>
+      <description>Table of Contents Heading 2 Heading 3 Heading 4 Heading 5 Emphasis Button Link Paragraph Ordered List Unordered List Notice Tab Accordions Code and Syntax Highlighting Blockquote Tables Image Gallery Slider Youtube video Custom video Here is an example of headings.</description>
+    </item>
+    <item>
+      <title>Infrastructure as a Code</title>
+      <link>/services/services2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/services/services2/</guid>
+      <description>Infrastructure as a Code (IaC) is a groundbreaking approach to managing and provisioning infrastructure through code, enabling you to automate and streamline your deployment processes.</description>
+    </item>
+    <item>
+      <title>Infrastructure Design</title>
+      <link>/services/services1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/services/services1/</guid>
+      <description>At our company, we specialize in helping businesses design and build cloud infrastructures that increase the maintainability, scalability, and security of their environments.</description>
+    </item>
+    <item>
+      <title>John Doe</title>
+      <link>/authors/john-doe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/john-doe/</guid>
+      <description>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
+    </item>
+    <item>
+      <title>Our Services</title>
+      <link>/sections/testimonial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/sections/testimonial/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Privacy</title>
+      <link>/privacy-policy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/privacy-policy/</guid>
+      <description>Responsibility of Contributors Lorem ipsum dolor sit amet, consectetur adipiscing elit.</description>
+    </item>
+    <item>
+      <title>Ready to build your next project with Hugo?</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid></guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sam Wilson</title>
+      <link>/authors/sam-wilson/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/sam-wilson/</guid>
+      <description>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
+    </item>
+    <item>
+      <title>Transition from Terraform &#43; Ansible to Kubernetes</title>
+      <link>/casestudies/casestudies2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/casestudies/casestudies2/</guid>
+      <description>Overview Our client was using AWS infrastructure managed by Terraform and Ansible to deploy and maintain its applications.</description>
+    </item>
+    <item>
+      <title>William Jacob</title>
+      <link>/authors/william-jacob/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/william-jacob/</guid>
+      <description>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
+    </item>
+  </channel>
+</rss>

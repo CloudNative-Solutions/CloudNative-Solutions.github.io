@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CaseStudies on Hugoplate</title>
+    <link>/casestudies/</link>
+    <description>Recent content in CaseStudies on Hugoplate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 21 Jan 2024 21:01:59 +0500</lastBuildDate>
+    <atom:link href="/casestudies/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS ECS to AWS EKS migration</title>
+      <link>/casestudies/casestudies3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/casestudies/casestudies3/</guid>
+      <description>Overview A leading software development company was using a container-based infrastructure deployed with Gitlab-CI in Amazon ECS and CloudWatch for logs and monitoring.</description>
+    </item>
+    <item>
+      <title>AWS OpsWorks to AWS Fargate Migration</title>
+      <link>/casestudies/casestudies1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/casestudies/casestudies1/</guid>
+      <description>Introduction This case study highlights how Cloud Native Solutions successfully migrated for our customer its existing Django-based infrastructure managed by AWS Opsworks (Chef) to a containerized infrastructure on AWS Fargate.</description>
+    </item>
+    <item>
+      <title>Transition from Terraform &#43; Ansible to Kubernetes</title>
+      <link>/casestudies/casestudies2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/casestudies/casestudies2/</guid>
+      <description>Overview Our client was using AWS infrastructure managed by Terraform and Ansible to deploy and maintain its applications.</description>
+    </item>
+  </channel>
+</rss>

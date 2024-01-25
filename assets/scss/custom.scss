@@ -1,0 +1,112 @@
+// Add your own custom styles here
+
+body{
+  font-family: 'ClarityCity-Regular', sans-serif;
+  // font-family: 'Courier New', Courier, monospace;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'ClarityCity-Regular', sans-serif !important;
+}
+
+.logo-light{
+  max-width: 100%;
+  height: auto;
+}
+
+.logo-dark{
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 368px) {
+ 
+  .my-nav{
+    order: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.mysearch{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6rem;
+}
+}
+
+.cards-new {
+    width: 30%;
+  }
+
+  .card-main {
+    -webkit-transition: all ease-in-out 0.5s; /* WebKit-based browsers */
+    transition: all ease-in-out 0.3s;
+  }
+  
+
+  .card-main:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.774);
+  }
+
+  :is(.dark .card-main:hover) {
+    box-shadow: 0px 1px 3px rgba(255, 251, 251, 0.952);
+  }
+
+  // .my-own-banner{
+  //   background: url(https://gamesupport.gg/images/small-dot-pattern.png) hue-rotate(120deg);
+  // }
+
+  :is(.dark .my-own-banner) {
+    background: url(https://gamesupport.gg/images/small-dot-pattern.png);
+  }
+
+  @media (max-width: 992px) {
+    .cards-new {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .cards-new {
+      width: 100%;
+    }
+  }
+  
+  :is(.dark .our-expertise) {
+    --tw-gradient-from: #222222 var(--tw-gradient-from-position);
+    --tw-gradient-to: rgb(34 34 34 / 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+    --tw-gradient-to: #1c1c1c var(--tw-gradient-to-position);
+}
+
+.my-content{
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  flex-direction: column;
+}
+
+.my-btn-style:hover{
+  background: #dc2196;
+  border: 1px solid #dc2196;
+}
+
+.my-shadow{
+  filter: drop-shadow(2px 4px 11px #d72693);
+  animation: upDownAnimation 3s ease infinite;
+}
+
+@keyframes upDownAnimation {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-20px);
+  }
+}
+

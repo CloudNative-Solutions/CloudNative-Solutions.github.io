@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'ClarityCity-Regular';
+    src: local('ClarityCity-Regular'), url('./TrueType/ClarityCity-BlackItalic.ttf') format('ttf');
+    /* Add additional formats if needed */
+  }
+  
+  body {
+    font-family: 'ClarityCity-Regular', sans-serif;
+    /* Use the font-family in your styles */
+  }
+
+  h1, h2, h3, h4, h5, h6{
+    font-family: 'ClarityCity-Regular', sans-serif !important;
+  }
+  

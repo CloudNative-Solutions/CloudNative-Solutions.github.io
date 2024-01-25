@@ -1,0 +1,143 @@
+{{ define "main" }}
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+      duration: 1000, // Set your desired default duration in milliseconds
+    });
+  });
+</script>
+
+
+  <!-- Banner -->
+{{ with .Params.banner }}
+<section class="section pt-30 my-own-banner">
+  <div class="container" data-aos="fade-up">
+    <div class="row justify-center">
+      <div class="lg:col-7 mb-8 text-center">
+        <h1 class="mb-4">
+          {{ .title | markdownify }}
+        </h1>
+        <p class="mb-8">
+          {{ .content | markdownify }}
+        </p>
+        {{ with .button }}
+          {{ if .enable }}
+            <a class="btn btn-primary my-btn-style" href="{{ .link | absURL }}">
+              {{ .label }}
+              <i class="fa fa-arrow-right pl-2"></i>
+            </a>
+          {{ end }}
+        {{ end }}
+      </div>
+      <div class="col-12" data-aos="fade-up">
+        {{ partial "image" (dict "Src" .image "Alt" "Banner image" "Loading" "eager" "Class" "mx-auto lg:!max-w-[500px] my-shadow" ) }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+<!-- /Banner -->
+
+  <!-- Features -->
+{{ range $i, $e := .Params.features }}
+<section class="section-sm {{ if (modBool $i 2) }}bg-gradient{{ end }} custom-section" style="overflow: hidden; {{ if eq $i 1 }} padding: 0px 55px;{{ else }} padding: 15px 30px;{{ end }}">
+  <div class="container">
+    <div class="row items-center justify-between">
+      <div data-aos="fade-right" 
+        class="mb:md-0 {{ if not (modBool $i 2) }}
+          md:order-2
+        {{ end }} md:col-5 mb-6">
+        {{ partial "image" (dict "Src" .image "Alt" "feature image" "Class" "my-shadow" ) }}
+      </div>
+      <div data-aos="fade-left"
+        class="{{ if not (modBool $i 2) }}
+          md:order-1
+        {{ end }} md:col-7 lg:col-6">
+        <h2 class="mb-4">
+          {{ .title | markdownify }}
+        </h2>
+        <p class="mb-8 text-lg">
+          {{ .content | markdownify }}
+        </p>
+        <ul>
+          {{ range .bulletpoints }}
+            <li class="relative mb-4 pl-6">
+              <i class="fa fa-check absolute left-0 top-1.5"></i>
+              {{ . | markdownify }}
+            </li>
+          {{ end }}
+        </ul>
+        {{ with .button }}
+          {{ if .enable }}
+            <a class="btn btn-primary mt-6 my-btn-style" href="{{ .link | absURL }}">
+              {{ .label }}
+              <i class="fa fa-arrow-right pl-2"></i>
+            </a>
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+<!-- /Features -->
+
+
+
+<!-- Testimonials -->
+{{ with site.GetPage "sections/testimonial" }}
+  {{ if .Params.enable }}
+    <section class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 mb-4 text-center" data-aos="fade-up">
+            <h2 class="mb-4">
+              {{ .Title | markdownify }}
+            </h2>
+            <p>
+              {{ .Params.description | markdownify }}
+            </p>
+          </div>
+          <div class="col-12">
+            <div class="row" style="display: flex; align-items:center; justify-content:center;">
+              {{ range .Params.testimonials }}
+              <div class="mb-4 cards-new" data-aos="zoom-in">
+                  <a href="{{ .link }}" target="_blank" class="text-decoration-none">
+                    <div class="card card-main bg-theme-light dark:bg-darkmode-theme-light rounded-lg p-4 h-100" id="cards-hov">
+                      <div class="text-dark dark:text-white">
+                        <img src="{{ .avatar }}" alt="{{ .name }}" class="rounded-full" width="100" height="100">
+                      </div>
+                      <div class="mt-4">
+                        <h3 class="h5 font-primary font-semibold">
+                          {{ .name }}
+                        </h3>
+                        <div class="blockquote-container mt-2">
+                          <blockquote>
+                            {{ .content | markdownify }}
+                          </blockquote>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              {{ end }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+{{ end }}
+<!-- /Testimonials -->
+
+
+
+
+
+
+
+
+
+{{ end }}

@@ -1,0 +1,96 @@
+############# English navigation ##############
+
+# main menu
+[[main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[main]]
+name = "About"
+url = "about/"
+weight = 2
+
+
+[[main]]
+weight = 3
+name = "Services"
+hasChildren = true
+
+[[main]]
+parent = "Services"
+name = "Infrastructure Design"
+url = "services/services1/"
+
+[[main]]
+parent = "Services"
+name = "Infrastructure as a Code"
+url = "services/services2/"
+
+[[main]]
+parent = "Services"
+name = "Kubernetes Managed Services"
+url = "services/services3/"
+
+[[main]]
+parent = "Services"
+name = "Container Solutions"
+url = "services/services4/"
+
+[[main]]
+parent = "Services"
+name = "CI/CD Pipelines"
+url = "services/services5/"
+
+[[main]]
+parent = "Services"
+name = "Monitoring and Logs Management"
+url = "services/services6/"
+
+[[main]]
+weight = 4
+name = "Case Studies"
+hasChildren = true
+
+[[main]]
+parent = "Case Studies"
+name = "AWS OpsWorks to AWS Fargate Migration"
+url = "casestudies/casestudies1/"
+
+[[main]]
+parent = "Case Studies"
+name = "Transition from Terraform + Ansible to Kubernetes"
+url = "casestudies/casestudies2/"
+
+[[main]]
+parent = "Case Studies"
+name = "AWS ECS to AWS EKS migration"
+url = "casestudies/casestudies3/"
+
+
+[[main]]
+name = "Blog"
+url = "blog/"
+weight = 5
+
+
+# footer menu
+[[footer]]
+name = "About"
+url = "about/"
+weight = 1
+
+[[footer]]
+name = "Services"
+url = "services/"
+weight = 2
+
+[[footer]]
+name = "Case Studies"
+url = "casestudies/"
+weight = 3
+
+[[footer]]
+name = "Contact"
+url = "contact/"
+weight = 4

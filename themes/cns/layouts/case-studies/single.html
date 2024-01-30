@@ -2,8 +2,8 @@
   <section class="section-sm pb-0">
     <div class="container aos-wrapper" data-aos="fade-up" data-aos-duration="1500">
       <div
-        class="row border-border dark:border-darkmode-border justify-center border-b pb-14">
-        <div class="lg:col-4 text-center">
+        class="row border-border dark:border-darkmode-border justify-center border-b pb-14 aos-wrapper" data-aos="fade-up" data-aos-duration="1500">
+        <div class="lg:col-10 text-left justify-content" data-aos="fade-up" data-aos-duration="1500">
           {{ $image:= .Params.image }}
           {{ if $image }}
             {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "mx-auto img-shadow" "Size" "200x200") }}

@@ -9,7 +9,7 @@ description: "Learn how Cloud Native Solutions migrated a software development c
 A leading software development company was using a container-based infrastructure deployed with Gitlab-CI in Amazon ECS and CloudWatch for logs and monitoring. In order to improve their processes and simplify their deployment, they decided to migrate their entire infrastructure to Kubernetes.
 
 #### Challenges
-####### Complex Infrastructure
+###### Complex Infrastructure
 - The existing setup included a self-hosted Gitlab instance and various tools, which had to be migrated to Kubernetes.
 ###### Seamless Transition
 - The migration had to ensure a seamless transition with minimal downtime.

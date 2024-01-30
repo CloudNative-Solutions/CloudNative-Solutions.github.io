@@ -5,7 +5,7 @@ meta_title: "Case Studies"
 description: "Learn how Cloud Native Solutions migrated a software development company's container-based infrastructure from Amazon ECS to Kubernetes, enhancing deployment processes, monitoring, and scalability."
 ---
 
-##### Overview
+#### Overview
 A leading software development company was using a container-based infrastructure deployed with Gitlab-CI in Amazon ECS and CloudWatch for logs and monitoring. In order to improve their processes and simplify their deployment, they decided to migrate their entire infrastructure to Kubernetes.
 
 #### Challenges
@@ -16,7 +16,7 @@ A leading software development company was using a container-based infrastructur
 ###### Efficiency and Scalability
 - The new setup had to be efficient, secure, and easily scalable to accommodate the company’s future growth.
 
-##### Results
+#### Results
 ###### Improved deployment process
 - With Kubernetes and ArgoCD, deployments were streamlined and easy to manage.
 ###### Enhanced monitoring and logging

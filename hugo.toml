@@ -2,9 +2,9 @@
 # The base URL of your site (required). This will be prepended to all relative URLs.
 baseURL = "/"
 # Title of your website (required).
-title = "Hugoplate"
+title = "Cloud Native Solutions"
 # Your theme name
-theme = "hugoplate"
+theme = "cns"
 # Default time zone for time stamps; use any valid tz database name: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
 timeZone = "America/New_York"
 # post pagination
@@ -148,6 +148,9 @@ lazy = false
 link = "plugins/swiper/swiper-bundle.js"
 lazy = false
 [[params.plugins.js]]
+link = "https://unpkg.com/swiper/swiper-bundle.min.js"
+lazy = false
+[[params.plugins.js]]
 link = "plugins/cookie.js"
 lazy = false
 [[params.plugins.js]]
@@ -168,3 +171,6 @@ lazy = true
 [[params.plugins.js]]
 link = "plugins/youtube-lite.js"
 lazy = true
+[[params.plugins.js]]
+link = "https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"
+lazy = false

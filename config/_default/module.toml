@@ -3,7 +3,7 @@ extended = true
 min = "0.115.2"
 
 # [[imports]]
-# path = "github.com/zeon-studio/hugoplate"
+# path = "github.com/CloudNative-Solutions/CloudNative-Solutions.github.io"
 
 [[imports]]
 path = "github.com/gethugothemes/hugo-modules/search"

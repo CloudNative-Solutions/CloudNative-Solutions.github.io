@@ -14,7 +14,7 @@ banner:
 # Features
 features:
   - title: "We architect, operate, and maintain reliable cloud infrastructure "
-    image: "/images/service-1.webp"
+    image: "/images/feature-1.webp"
     content: "so, don’t let operational inefficiencies hold your business back.
     </br></br>
     With our help, you can enjoy all the benefits of top-notch DevOps practices without the hassle and expense of hiring additional staff."
@@ -24,7 +24,7 @@ features:
       link: "about/"
 
   - title: ""
-    image: "/images/service-2.webp"
+    image: "/images/feature-2.webp"
     content: "Acting as your in-house DevOps team, we design, manage, and maintain your infrastructure, tailoring our approach with recommended tools, guidelines, and methods to meet your unique needs, whether you have an existing platform or are just starting out.
 
     When we augment your team, we offer our support with our specialized skills, knowledge, and resources to help manage infrastructure, optimize processes, and improve collaboration between development and operations team."

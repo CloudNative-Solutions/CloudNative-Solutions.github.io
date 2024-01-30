@@ -1,0 +1,63 @@
+{{ define "main" }}
+<section class="section-sm">
+  <div class="container">
+    <div class="row justify-center">
+      <div class="md:col-10 lg:col-7 text-center">
+        {{ partial "image" (dict "Src" .Params.image "Alt" .Title "Class" "mx-auto mb-6" "Size" "200x200") }}
+        <h2 class="h3 mb-6">{{ .Title }}</h2>
+        <div class="content">{{ .Content }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Swiper Slider Section -->
+{{ if .Params.clients }}
+<section class="swiper-container" data-aos="fade-up" data-aos-duration="1000">
+  <div class="swiper-wrapper">
+    {{ range .Params.clients }}
+    <div class="swiper-slide">
+      <a href={{ .link }} target="_blank">
+        {{ partial "image" (dict "Src" .image "Alt" .name "Class" "swiper-img grayscale") }}
+      </a>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{ with site.GetPage "about/expertise" }}
+{{ if .Params.enable }}
+<section class="section-sm">
+  <div class="container">
+    <div class="row justify-center">
+      <div class="md:col-10 lg:col-7 text-center">
+        {{ partial "image" (dict "Src" .Params.image "Alt" .Title "Class" "mx-auto mb-6" "Size" "200x200") }}
+        <h2 class="h3 mb-6">{{ .Title }}</h2>
+        <div class="content">{{ .Content }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+
+{{ with site.GetPage "about/how-we-work" }}
+{{ if .Params.enable }}
+<section class="section-sm">
+  <div class="container">
+    <h2 class="h3 row justify-center mb-6">{{ .Title }}</h2>
+    <div class="row justify-center">
+      <div class="md:col-10 lg:col-7 text-center">
+        {{ range .Params.services }}
+        <h2 class="h3 mb-6">{{ .name }}</h2>
+        <div class="content">{{ .content }}</div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
+
+{{ end }}

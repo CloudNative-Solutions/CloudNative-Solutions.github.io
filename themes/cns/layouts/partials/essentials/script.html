@@ -1,0 +1,115 @@
+<!-- JS Plugins + Main script -->
+{{ $scripts := slice }}
+{{ $scriptsLazy := slice }}
+{{ range site.Params.plugins.js }}
+  {{ if findRE "^http" .link }}
+    <script
+      src="{{ .link | relURL }}"
+      type="application/javascript"
+      {{ .attributes | safeHTMLAttr }}></script>
+  {{ else }}
+    {{ if not .lazy }}
+      {{ $scripts = $scripts | append (resources.Get .link) }}
+    {{ else }}
+      {{ $scriptsLazy = $scriptsLazy | append (resources.Get .link) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<!-- main script -->
+{{ $scripts = $scripts | append (resources.Get "js/main.js") }}
+{{ $scripts = $scripts | resources.Concat "js/script.js" }}
+
+{{ $scriptsLazy = $scriptsLazy | resources.Concat "js/script-lazy.js" }}
+
+{{ if hugo.IsProduction }}
+  {{ $scripts = $scripts | minify | fingerprint }}
+  {{ $scriptsLazy = $scriptsLazy | minify | fingerprint }}
+{{ end }}
+
+{{/* scripts */}}
+<script
+  crossorigin="anonymous"
+  integrity="{{ $scripts.Data.Integrity }}"
+  src="{{ $scripts.RelPermalink }}"></script>
+
+{{/* scripts lazy */}}
+<script
+  defer
+  async
+  crossorigin="anonymous"
+  integrity="{{ $scriptsLazy.Data.Integrity }}"
+  src="{{ $scriptsLazy.RelPermalink }}"></script>
+
+{{/* animate on scroll */}}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    AOS.init();
+  });
+</script>
+
+{{/* Swiper Container - clients */}}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    AOS.init();
+
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 5,
+      spaceBetween: 50,
+      loop: true,
+      autoplay: {
+        delay: 2500,
+      },
+      breakpoints: {
+        280: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 15,
+        },
+        480: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 30,
+        },
+      }
+    });
+
+
+    // Grayscale to Color on Hover
+    var swiperImgs = document.querySelectorAll('.swiper-img');
+    swiperImgs.forEach(function (img) {
+      img.addEventListener('mouseenter', function () {
+        img.classList.remove('grayscale');
+      });
+
+      img.addEventListener('mouseleave', function () {
+        img.classList.add('grayscale');
+      });
+
+      img.addEventListener('click', function () {
+        window.open(img.parentElement.href, '_blank');
+      });
+    });
+  });
+</script>
+
+<!-- progressive web app -->
+{{ partialCached "pwa.html" . }}
+
+
+<!-- cookie consent -->
+{{ partialCached "cookie-consent.html" . }}
+
+
+<!-- google adsense -->
+{{ partialCached "adsense-script.html" . }}

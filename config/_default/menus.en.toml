@@ -11,62 +11,62 @@ name = "About"
 url = "about/"
 weight = 2
 
-
 [[main]]
-weight = 3
 name = "Services"
+url = "services/"
+weight = 3
 hasChildren = true
 
 [[main]]
 parent = "Services"
 name = "Infrastructure Design"
-url = "services/services1/"
+url = "services/infrastructure-design/"
 
 [[main]]
 parent = "Services"
 name = "Infrastructure as a Code"
-url = "services/services2/"
+url = "services/iac/"
 
 [[main]]
 parent = "Services"
 name = "Kubernetes Managed Services"
-url = "services/services3/"
+url = "services/managed-k8s/"
 
 [[main]]
 parent = "Services"
 name = "Container Solutions"
-url = "services/services4/"
+url = "services/container-solutions/"
 
 [[main]]
 parent = "Services"
 name = "CI/CD Pipelines"
-url = "services/services5/"
+url = "services/cicd-pipelines/"
 
 [[main]]
 parent = "Services"
 name = "Monitoring and Logs Management"
-url = "services/services6/"
+url = "services/monitoring-and-logs/"
 
 [[main]]
-weight = 4
 name = "Case Studies"
+url = "case-studies/"
+weight = 4
 hasChildren = true
 
 [[main]]
 parent = "Case Studies"
 name = "AWS OpsWorks to AWS Fargate Migration"
-url = "casestudies/casestudies1/"
+url = "case-studies/opsworks-to-fargate/"
 
 [[main]]
 parent = "Case Studies"
 name = "Transition from Terraform + Ansible to Kubernetes"
-url = "casestudies/casestudies2/"
+url = "case-studies/terraform-asible-to-kubernetes/"
 
 [[main]]
 parent = "Case Studies"
 name = "AWS ECS to AWS EKS migration"
-url = "casestudies/casestudies3/"
-
+url = "case-studies/ecs-to-eks/"
 
 [[main]]
 name = "Blog"
@@ -87,7 +87,7 @@ weight = 2
 
 [[footer]]
 name = "Case Studies"
-url = "casestudies/"
+url = "case-studies/"
 weight = 3
 
 [[footer]]

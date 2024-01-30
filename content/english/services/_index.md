@@ -1,5 +1,3 @@
 ---
-title: "Services"
+title: "Our Services"
 ---
-
-Welcome to the Services section.

@@ -1,0 +1,13 @@
+<div
+  class="card card-main bg-theme-light dark:bg-darkmode-theme-light rounded-lg p-4 h-100" id="cards-hov">
+  {{ $image:= .Params.image }}
+  {{ if $image }}
+    {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "rounded-full" "size" "100x100") }}
+  {{ end }}
+  <h4 class="mb-4">
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </h4>
+  <p class="mb-4">
+    {{ .Summary }}
+  </p>
+</div>

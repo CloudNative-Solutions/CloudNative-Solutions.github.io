@@ -143,15 +143,15 @@
   <!-- /Testimonials -->
 
   <!-- Services -->
-  <div class="col-12">
-    <div class="row" style="display: flex; align-items:center; justify-content:center;">
-      {{ $filterByService := where site.RegularPages "Params.meta_title" "==" "Services" }}
-      {{ range $filterByService }}
-        <div class="mb-4 card-container" data-aos="zoom-in">
-          {{ partial "components/service-card" . }}
-        </div>
-      {{ end }}
-    </div>
+  <div class="row pb-4 pt-4">
+    {{ $filterByService := where site.RegularPages "Params.meta_title" "==" "Services" }}
+    {{ range $filterByService }}
+    {{/* added this classes  md:col-6 lg:col-4 mb-14 myimg  */}}
+      <div class="md:col-6 lg:col-4 mb-14 myimg" data-aos="zoom-in">
+        {{ partial "components/service-card" . }}
+      </div>
+    {{ end }}
   </div>
   <!-- /Services -->
+  
 {{ end }}

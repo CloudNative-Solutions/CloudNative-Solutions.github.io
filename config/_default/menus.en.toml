@@ -7,43 +7,43 @@ url = "/"
 weight = 1
 
 [[main]]
-name = "About"
+name = "About Us"
 url = "about/"
 weight = 2
 
 [[main]]
-name = "Services"
+name = "Our Services"
 url = "services/"
 weight = 3
 hasChildren = true
 
 [[main]]
-parent = "Services"
+parent = "Our Services"
 name = "Infrastructure Design"
 url = "services/infrastructure-design/"
 
 [[main]]
-parent = "Services"
+parent = "Our Services"
 name = "Infrastructure as a Code"
 url = "services/iac/"
 
 [[main]]
-parent = "Services"
+parent = "Our Services"
 name = "Kubernetes Managed Services"
 url = "services/managed-k8s/"
 
 [[main]]
-parent = "Services"
+parent = "Our Services"
 name = "Container Solutions"
 url = "services/container-solutions/"
 
 [[main]]
-parent = "Services"
+parent = "Our Services"
 name = "CI/CD Pipelines"
 url = "services/cicd-pipelines/"
 
 [[main]]
-parent = "Services"
+parent = "Our Services"
 name = "Monitoring and Logs Management"
 url = "services/monitoring-and-logs/"
 
@@ -76,12 +76,12 @@ weight = 5
 
 # footer menu
 [[footer]]
-name = "About"
+name = "About Us"
 url = "about/"
 weight = 1
 
 [[footer]]
-name = "Services"
+name = "Our Services"
 url = "services/"
 weight = 2
 

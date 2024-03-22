@@ -24,6 +24,7 @@ The [argocd-capi-controller](https://github.com/CloudNative-Solutions/argocd-cap
 - Retrieves the target cluster's Kubeconfig.
 - Creates an ArgoCD service account in the target cluster.
 - Within the ArgoCD cluster, the controller creates a secret with the label `argocd.argoproj.io/secret-type: cluster`, which is essentially adding the target cluster to ArgoCD. This secret contains all the connection and configuration details required by ArgoCD.
+
 This seamless integration not only automates the addition of clusters into ArgoCD but also sets the stage for further configuration and management through ApplicationSets.
 
 ### Leveraging ApplicationSets for Dynamic Provisioning and Configuration

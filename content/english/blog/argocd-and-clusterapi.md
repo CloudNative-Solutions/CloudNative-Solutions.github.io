@@ -20,23 +20,23 @@ In the world of Kubernetes, managing multiple clusters and ensuring their config
 
 ### Unveiling the argocd-capi-controller
 
-The [`argocd-capi-controller`](https://github.com/CloudNative-Solutions/argocd-capi-controller) acts as a bridge between ArgoCD and CAPI, subscribing to the CAPI Kubernetes API to monitor newly created clusters. When these clusters reach a provisioned state, the controller performs several critical actions:
-- Retrieves the cluster's Kubeconfig.
+The [argocd-capi-controller](https://github.com/CloudNative-Solutions/argocd-capi-controller) acts as a bridge between ArgoCD and CAPI, subscribing to the CAPI Kubernetes API to monitor newly created clusters. When these clusters reach a provisioned state, the controller performs several critical actions:
+- Retrieves the target cluster's Kubeconfig.
 - Creates an ArgoCD service account in the target cluster.
-- Within the cluster, the controller creates a secret with the label `argocd.argoproj.io/secret-type: cluster`, which is essentially adding the cluster to ArgoCD. This secret contains all the connection and configuration details required by ArgoCD.
+- Within the ArgoCD cluster, the controller creates a secret with the label `argocd.argoproj.io/secret-type: cluster`, which is essentially adding the target cluster to ArgoCD. This secret contains all the connection and configuration details required by ArgoCD.
 This seamless integration not only automates the addition of clusters into ArgoCD but also sets the stage for further configuration and management through ApplicationSets.
 
 ### Leveraging ApplicationSets for Dynamic Provisioning and Configuration
 
-With the capability to automatically add clusters to ArgoCD once they are provisioned by CAPI, we can now utilize ApplicationSets to dynamically provision and configure our Kubernetes clusters.
+With the capability to automatically add clusters to ArgoCD once they are provisioned by CAPI, we can now utilize [ApplicationSets](https://argo-cd.readthedocs.io/en/stable/user-guide/application-set/) to dynamically provision and configure our Kubernetes clusters.
 
-1. **Initial Cluster Provisioning with Git Generator**: The first ApplicationSet uses a Git generator, which reads CAPI values files from a specific folder structure in a Git repository to create Kubernetes clusters. This step automates the provisioning process based on predefined configurations, ensuring consistency and repeatability across cluster deployments.
+1. **Initial Cluster Provisioning with [Git Generator](https://argocd-applicationset.readthedocs.io/en/stable/Generators-Git)**: The first ApplicationSet uses a Git generator, which reads CAPI values files from a specific folder structure in a Git repository to create Kubernetes clusters. This step automates the provisioning process based on predefined configurations, ensuring consistency and repeatability across cluster deployments.
 
-2. **Configuring Clusters with Cluster Generator**: Once the clusters are provisioned and added to ArgoCD, the next step involves the deployment of critical addons such as CSI (Container Storage Interface), CNI (Container Network Interface), external-dns, and load balancer controllers. For this, a Cluster generator within an ApplicationSet is used. This generator dynamically selects the newly added clusters and deploys the necessary addons, preparing the target clusters to host various applications.
+2. **Configuring Clusters with [Cluster Generator](https://argocd-applicationset.readthedocs.io/en/stable/Generators-Cluster/)**: Once the clusters are provisioned and added to ArgoCD, the next step involves the deployment of critical addons such as CSI (Container Storage Interface), CNI (Container Network Interface), external-dns, and load balancer controllers. For this, a Cluster generator within an ApplicationSet is used. This generator dynamically selects the newly added clusters and deploys the necessary addons, preparing the target clusters to host various applications.
 
 ### Optimizing Deployment Order with ArgoCD's Sync-Wave Feature
 
-To ensure a seamless and error-free rollout of applications across these clusters, we employ ArgoCD's sync-wave feature. This feature enables us to specify the order of resource deployment within the same application, ensuring that dependencies are correctly resolved. By controlling the sequencing of deployment, we can ensure that ArgoCD applications are deployed in the right order, making sure that dependencies are satisfied.
+To ensure a seamless and error-free rollout of applications across these clusters, we employ ArgoCD's [sync-wave feature](https://argo-cd.readthedocs.io/en/stable/user-guide/sync-waves/). This feature enables us to specify the order of resource deployment within the same application, ensuring that dependencies are correctly resolved. By controlling the sequencing of deployment, we can ensure that ArgoCD applications are deployed in the right order, making sure that dependencies are satisfied.
 
 ## Conclusion
 

@@ -3,6 +3,8 @@ title: "ArgoCD and ClusterAPI: A Match Made in Heaven"
 date: 2024-03-22
 draft: false
 author: "Marius Oprin"
+tags: ["ArgoCD", "ClusterAPI", "Kubernetes"]
+categories: ["GitOps"]
 description: "Exploring the seamless integration of ArgoCD and ClusterAPI for Kubernetes cluster management."
 ---
 

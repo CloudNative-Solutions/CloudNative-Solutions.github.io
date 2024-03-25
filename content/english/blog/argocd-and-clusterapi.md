@@ -1,5 +1,5 @@
 ---
-title: "ArgoCD and ClusterAPI: A Match Made in Heaven"
+title: "The Dynamic Duo of Kubernetes: Exploring ArgoCD and ClusterAPI Integration"
 date: 2024-03-22
 draft: false
 author: "Marius Oprin"

@@ -3,9 +3,7 @@ title: "The Dynamic Duo of Kubernetes: Exploring ArgoCD and ClusterAPI Integrati
 date: 2024-03-22
 draft: false
 author: "Marius Oprin"
-cascade:
-  params:
-    banner: assets/images/blog/argocd-and-clusterapi/argocd-and-clusterapi.svg
+image: "/images/blog/argocd-and-clusterapi/argocd-and-clusterapi.svg"
 tags: ["ArgoCD", "ClusterAPI", "Kubernetes"]
 categories: ["GitOps"]
 description: "Exploring the seamless integration of ArgoCD and ClusterAPI for Kubernetes cluster management."

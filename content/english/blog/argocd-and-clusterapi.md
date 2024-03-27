@@ -33,7 +33,7 @@ With the capability to automatically add clusters to ArgoCD once they are provis
 
 1. **Initial Cluster Provisioning with Git Generator**: The first ApplicationSet uses a [Git Generator](https://argocd-applicationset.readthedocs.io/en/stable/Generators-Git), which reads CAPI values files from a specific folder structure in a Git repository to create Kubernetes clusters. This step automates the provisioning process based on predefined configurations, ensuring consistency and repeatability across cluster deployments.
 
-2. **Configuring Clusters with Cluster Generator**: Once the clusters are provisioned and added to ArgoCD, the next step involves the deployment of critical addons such as CSI (Container Storage Interface), CNI (Container Network Interface), external-dns, and load balancer controllers. For this, a [Cluster Generator](https://argocd-applicationset.readthedocs.io/en/stable/Generators-Cluster/) within an ApplicationSet is used. This generator dynamically selects the newly added clusters and deploys the necessary addons, preparing the target clusters to host various applications.
+2. **Configuring Clusters with Cluster Generator**: Once the clusters are provisioned and added to ArgoCD, the next step involves the deployment of critical addons such as CSI (Container Storage Interface), CNI (Container Network Interface), autoscaler, external-dns, and load balancer controllers. For this, a [Cluster Generator](https://argocd-applicationset.readthedocs.io/en/stable/Generators-Cluster/) within an ApplicationSet is used. This generator dynamically selects the newly added clusters and deploys the necessary addons, preparing the target clusters to host various applications.
 
 ### Optimizing Deployment Order with ArgoCD's Sync-Wave Feature
 

@@ -43,3 +43,7 @@ To ensure a seamless and error-free rollout of applications across these cluster
 ## Conclusion
 
 The integration of ArgoCD with ClusterAPI through the [argocd-capi-controller](https://github.com/CloudNative-Solutions/argocd-capi-controller) and the strategic use of ApplicationSets presents a robust solution for managing Kubernetes clusters at scale. By leveraging the sync-wave feature for deployment order, this synergy not only automates the tedious tasks of cluster provisioning and configuration but also ensures that applications are deployed in a precise, dependency-aware manner. With ArgoCD and ClusterAPI working in harmony, the process of deploying and managing applications across multiple clusters is not just automated but refined to meet the nuanced demands of modern cloud-native environments.
+
+## To Be Continued
+
+Next, we'll demonstrate the automatic deployment of AWS EKS clusters using ArgoCD and ClusterAPI. Stay tuned for a practical guide on implementing these technologies in action.

@@ -5,7 +5,7 @@ draft: false
 author: "Marius Oprin"
 cascade:
   params:
-    banner: images/blog/argocd-and-clusterapi/argocd-and-clusterapi.svg
+    banner: assets/images/blog/argocd-and-clusterapi/argocd-and-clusterapi.svg
 tags: ["ArgoCD", "ClusterAPI", "Kubernetes"]
 categories: ["GitOps"]
 description: "Exploring the seamless integration of ArgoCD and ClusterAPI for Kubernetes cluster management."

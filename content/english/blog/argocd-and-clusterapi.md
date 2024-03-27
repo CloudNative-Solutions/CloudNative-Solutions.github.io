@@ -8,7 +8,7 @@ categories: ["GitOps"]
 description: "Exploring the seamless integration of ArgoCD and ClusterAPI for Kubernetes cluster management."
 ---
 
-In the world of Kubernetes, managing multiple clusters and ensuring their configurations are as declared can be a challenging task. However, the integration of ArgoCD with ClusterAPI (CAPI) is changing the game, making multi-cluster management seamless and more efficient. In this blog post, we'll delve into how ArgoCD and ClusterAPI work together to automate the provisioning and configuration of Kubernetes clusters, focusing on the pivotal role of the `argocd-capi-controller`, the power of ApplicationSets, and the strategic deployment sequencing with ArgoCD's sync-wave feature.
+In the world of Kubernetes, managing multiple clusters and ensuring their configurations are as declared can be a challenging task. However, the integration of **ArgoCD** with **ClusterAPI (CAPI)** is changing the game, making multi-cluster management seamless and more efficient. In this blog post, we'll delve into how ArgoCD and ClusterAPI work together to automate the provisioning and configuration of Kubernetes clusters, focusing on the pivotal role of the [**argocd-capi-controller**](https://github.com/CloudNative-Solutions/argocd-capi-controller), the power of ApplicationSets, and the strategic deployment sequencing with ArgoCD's sync-wave feature.
 
 ## The Synergy Between ArgoCD and ClusterAPI
 
@@ -41,4 +41,4 @@ To ensure a seamless and error-free rollout of applications across these cluster
 
 ## Conclusion
 
-The integration of ArgoCD with ClusterAPI through the `argocd-capi-controller` and the strategic use of ApplicationSets presents a robust solution for managing Kubernetes clusters at scale. By leveraging the sync-wave feature for deployment order, this synergy not only automates the tedious tasks of cluster provisioning and configuration but also ensures that applications are deployed in a precise, dependency-aware manner. With ArgoCD and ClusterAPI working in harmony, the process of deploying and managing applications across multiple clusters is not just automated but refined to meet the nuanced demands of modern cloud-native environments.
+The integration of ArgoCD with ClusterAPI through the [argocd-capi-controller](https://github.com/CloudNative-Solutions/argocd-capi-controller) and the strategic use of ApplicationSets presents a robust solution for managing Kubernetes clusters at scale. By leveraging the sync-wave feature for deployment order, this synergy not only automates the tedious tasks of cluster provisioning and configuration but also ensures that applications are deployed in a precise, dependency-aware manner. With ArgoCD and ClusterAPI working in harmony, the process of deploying and managing applications across multiple clusters is not just automated but refined to meet the nuanced demands of modern cloud-native environments.

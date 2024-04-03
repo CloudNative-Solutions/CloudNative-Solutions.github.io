@@ -1,23 +1,23 @@
 ---
-title: "The Dynamic Duo of Kubernetes: Exploring Argo CD and ClusterAPI Integration"
+title: "The Dynamic Duo of Kubernetes: Exploring Argo CD and Cluster API Integration"
 date: 2024-03-22
 draft: false
 author: "Marius Oprin"
 image: "/images/blog/argocd-and-clusterapi/argocd-and-clusterapi.png"
-tags: ["Argo CD", "ClusterAPI", "Kubernetes"]
+tags: ["Argo CD", "Cluster API", "Kubernetes"]
 categories: ["GitOps"]
-description: "Exploring the seamless integration of Argo CD and ClusterAPI for Kubernetes cluster management."
+description: "Exploring the seamless integration of Argo CD and Cluster API for Kubernetes cluster management."
 ---
 
-In the world of Kubernetes, managing multiple clusters and ensuring their configurations are as declared can be a challenging task. However, the integration of **Argo CD** with **ClusterAPI (CAPI)** is changing the game, making multi-cluster management seamless and more efficient. In this blog post, we'll delve into how Argo CD and ClusterAPI work together to automate the provisioning and configuration of Kubernetes clusters, focusing on the pivotal role of the [**argocd-capi-controller**](https://github.com/CloudNative-Solutions/argocd-capi-controller), the power of ApplicationSets, and the strategic deployment sequencing with Argo CD's sync-wave feature.
+In the world of Kubernetes, managing multiple clusters and ensuring their configurations are as declared can be a challenging task. However, the integration of **Argo CD** with **Cluster API (CAPI)** is changing the game, making multi-cluster management seamless and more efficient. In this blog post, we'll delve into how Argo CD and Cluster API work together to automate the provisioning and configuration of Kubernetes clusters, focusing on the pivotal role of the [**argocd-capi-controller**](https://github.com/CloudNative-Solutions/argocd-capi-controller), the power of ApplicationSets, and the strategic deployment sequencing with Argo CD's sync-wave feature.
 
-## The Synergy Between Argo CD and ClusterAPI
+## The Synergy Between Argo CD and Cluster API
 
-### Introduction to Argo CD and ClusterAPI
+### Introduction to Argo CD and Cluster API
 
 **Argo CD** is a declarative, GitOps continuous delivery tool for Kubernetes. It enables developers to define and control the deployment of applications and configurations in a Git repository, ensuring that the state of the clusters matches the declarations in Git.
 
-**ClusterAPI (CAPI)**, on the other hand, is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify provisioning, upgrading, and operating multiple Kubernetes clusters. By treating cluster management as a Kubernetes-native application, CAPI abstracts away the complexities of interacting directly with infrastructure technologies.
+**Cluster API (CAPI)**, on the other hand, is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify provisioning, upgrading, and operating multiple Kubernetes clusters. By treating cluster management as a Kubernetes-native application, CAPI abstracts away the complexities of interacting directly with infrastructure technologies.
 
 ### Unveiling the argocd-capi-controller
 
@@ -42,8 +42,8 @@ To ensure a seamless and error-free rollout of applications across these cluster
 
 ## Conclusion
 
-The integration of Argo CD with ClusterAPI through the [argocd-capi-controller](https://github.com/CloudNative-Solutions/argocd-capi-controller) and the strategic use of ApplicationSets presents a robust solution for managing Kubernetes clusters at scale. By leveraging the sync-wave feature for deployment order, this synergy not only automates the tedious tasks of cluster provisioning and configuration but also ensures that applications are deployed in a precise, dependency-aware manner. With Argo CD and ClusterAPI working in harmony, the process of deploying and managing applications across multiple clusters is not just automated but refined to meet the nuanced demands of modern cloud-native environments.
+The integration of Argo CD with Cluster API through the [argocd-capi-controller](https://github.com/CloudNative-Solutions/argocd-capi-controller) and the strategic use of ApplicationSets presents a robust solution for managing Kubernetes clusters at scale. By leveraging the sync-wave feature for deployment order, this synergy not only automates the tedious tasks of cluster provisioning and configuration but also ensures that applications are deployed in a precise, dependency-aware manner. With Argo CD and Cluster API working in harmony, the process of deploying and managing applications across multiple clusters is not just automated but refined to meet the nuanced demands of modern cloud-native environments.
 
 ## To Be Continued
 
-Next, we'll demonstrate the automatic deployment of AWS EKS clusters using Argo CD and ClusterAPI. Stay tuned for a practical guide on implementing these technologies in action.
+Next, we'll demonstrate the automatic deployment of AWS EKS clusters using Argo CD and Cluster API. Stay tuned for a practical guide on implementing these technologies in action.

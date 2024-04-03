@@ -18,7 +18,7 @@ A leading software development company was using a container-based infrastructur
 
 #### Results
 ###### Improved deployment process
-- With Kubernetes and ArgoCD, deployments were streamlined and easy to manage.
+- With Kubernetes and Argo CD, deployments were streamlined and easy to manage.
 ###### Enhanced monitoring and logging
 - The Prometheus + Grafana and ELK stack provided better insights into the system’s performance and health.
 ###### Scalability

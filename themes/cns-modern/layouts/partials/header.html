@@ -3,14 +3,12 @@
     <div class="flex items-center justify-between h-16">
       {{/* Logo */}}
       <a href="{{ "/" | relURL }}" class="flex items-center gap-3 group">
-        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center">
-          <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-          </svg>
-        </div>
-        <span class="font-semibold text-surface-100 group-hover:text-white transition-colors">
-          Cloud Native Solutions
-        </span>
+        {{ $logo := resources.Get "images/logo-darkmode.png" }}
+        {{ with $logo }}
+        <img src="{{ .RelPermalink }}" alt="{{ site.Title }}" style="height:32px;width:auto;" class="group-hover:opacity-90 transition-opacity">
+        {{ else }}
+        <span class="text-xl font-bold text-white">{{ site.Title }}</span>
+        {{ end }}
       </a>
 
       {{/* Desktop Nav */}}

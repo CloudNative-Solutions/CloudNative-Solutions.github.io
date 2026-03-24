@@ -7,7 +7,7 @@ enable: true
 draft: false
 services:
   - name: Fully Managed DevOps Services
-    content: We will serve as your internal DevOps team, responsible for designing, managing, and preserving your infrastructure, regardless of whether you have a  pre-existing platform or are in the early stages of product development. We will provide our own recommended tools, procedural guidelines, and proposed work methods, while tailoring our strategy to accommodate your unique requirements.
+    content: We become your DevOps team. Infrastructure design, CI/CD pipelines, Kubernetes operations, observability, security — all handled. We bring our own battle-tested tools and processes, adapted to your stack. Whether you're starting from scratch or inheriting a legacy platform, we own it end to end.
   - name: DevOps Team Augmentation
-    content: In case you lack the time or resources to undergo the process of recruiting new personnel, we can offer supplementary assistance to your current in-house DevOps team. We will enhance the existing team with specialized skills and knowledge, along with extra resources, to aid in managing infrastructure and streamlining processes. We provide effective support to help you manage your backlog, freeing up your time and energy to focus on new opportunities and growth for your business.
+    content: Your team, reinforced with senior cloud-native engineers. We embed directly into your workflows — same standups, same Slack channels, same codebase. No ramp-up period. We handle the infrastructure backlog so your team focuses on shipping product.
 ---

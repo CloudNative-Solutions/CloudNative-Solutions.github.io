@@ -5,10 +5,37 @@ description: "Kubernetes Managed Services"
 image: /images/services/managed-k8s.webp
 draft: false
 ---
-Kubernetes has emerged as the go-to solution for container orchestration, and major cloud providers are now offering managed Kubernetes services on their platforms. These services aim to simplify the configuration and management of cloud-based Kubernetes clusters for customers, including the administration of the Kubernetes control plane that manages the set of processes running on Kubernetes master nodes.
 
-Managed Kubernetes services allow businesses to focus on their core activities, while the cloud provider’s team takes care of tasks such as scaling, load balancing, and monitoring, ensuring optimal performance and availability of Kubernetes applications. With the flexibility to run Kubernetes clusters in the cloud or on-premises, businesses can choose a deployment option that suits their specific needs.
+**Our flagship service.** We take full ownership of your Kubernetes clusters so your team ships features instead of debugging node failures at 2 AM.
 
-Additionally, hassle-free updates to the latest Kubernetes version are available through in-place updates, eliminating the need to create new clusters or migrate applications.
+##### **What's Included**
 
-Overall, managed Kubernetes services simplify Kubernetes management, providing businesses with a reliable solution to optimize their container orchestration.
+- **Cluster lifecycle management** — provisioning, version upgrades, node pool management, and decommissioning
+- **Security hardening** — RBAC policies, pod security standards, network policies, secrets management with Vault
+- **Observability** — Prometheus, Grafana, Loki, and alerting built into every cluster from day one
+- **Cost optimization** — right-sizing, spot/preemptible instances, resource quotas, and FinOps reporting
+- **Multi-tenancy** — namespace isolation, resource limits, and tenant-aware RBAC for shared clusters
+- **Network policies** — Cilium or Calico-based microsegmentation, ingress/egress controls
+- **Backup & DR** — Velero-based cluster backups, disaster recovery runbooks, automated failover testing
+
+##### **How We Operate**
+
+- **24/7 monitoring** with on-call escalation for critical issues
+- **GitOps-driven changes** — every cluster modification goes through git, reviewed and auditable
+- **Monthly health reports** — cluster state, security posture, cost trends, upgrade roadmap
+- **Proactive maintenance** — CVE patching, certificate rotation, etcd health checks
+
+##### **Supported Platforms**
+
+- **Managed K8s:** EKS, GKE, AKS
+- **Self-managed:** kubeadm, k3s, RKE2 on bare metal or VMs
+- **Hybrid:** on-prem clusters connected to cloud services
+
+##### **The Result**
+
+- Kubernetes that just works — upgrades, scaling, and security handled for you
+- Your developers get a platform, not a puzzle
+- Incidents resolved before they become outages
+- Full visibility into what's running, what it costs, and what needs attention
+
+We manage Kubernetes clusters the way we'd want ours managed — with care, automation, and zero shortcuts.

@@ -5,10 +5,10 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
     <div class="max-w-3xl">
       <p class="text-brand-400 font-medium text-sm uppercase tracking-wider mb-3">About Us</p>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-surface-50 mb-6">{{ .Title }}</h1>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold dark:text-surface-50 text-surface-900 mb-6">{{ .Title }}</h1>
     </div>
   </div>
-  <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-surface-950 to-transparent"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t dark:from-surface-950 from-white to-transparent"></div>
 </section>
 
 {{/* Main about content */}}
@@ -26,8 +26,8 @@
   <div class="absolute inset-0 bg-gradient-to-b from-transparent via-brand-950/10 to-transparent pointer-events-none"></div>
   <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
     <div class="text-center mb-12 reveal">
-      <p class="text-brand-400 font-medium text-sm uppercase tracking-wider mb-3">Trusted By</p>
-      <h2 class="text-2xl sm:text-3xl font-bold text-surface-50">Our Clients</h2>
+      <p class="text-cncf-green font-medium text-sm uppercase tracking-wider mb-3">Trusted By</p>
+      <h2 class="text-2xl sm:text-3xl font-bold dark:text-surface-50 text-surface-900">Our Clients</h2>
     </div>
     <div class="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
       {{ range . }}
@@ -35,7 +35,7 @@
         {{ if .image }}
         <img src="{{ .image }}" alt="{{ .name }}" class="h-10 w-auto opacity-50 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0 duration-300">
         {{ else }}
-        <span class="text-surface-500 group-hover:text-surface-300 font-medium transition-colors">{{ .name }}</span>
+        <span class="dark:text-surface-500 text-surface-400 dark:group-hover:text-surface-300 group-hover:text-surface-600 font-medium transition-colors">{{ .name }}</span>
         {{ end }}
       </a>
       {{ end }}
@@ -50,7 +50,7 @@
 <section class="py-16">
   <div class="max-w-4xl mx-auto px-6 lg:px-8 reveal">
     <div class="glass-card rounded-xl p-8 lg:p-12">
-      <h2 class="text-2xl sm:text-3xl font-bold text-surface-50 mb-6">{{ .Title }}</h2>
+      <h2 class="text-2xl sm:text-3xl font-bold dark:text-surface-50 text-surface-900 mb-6">{{ .Title }}</h2>
       <div class="prose-dark text-lg leading-relaxed space-y-4">
         {{ .Content }}
       </div>
@@ -67,16 +67,16 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="text-center mb-12 reveal">
       <p class="text-brand-400 font-medium text-sm uppercase tracking-wider mb-3">Our Approach</p>
-      <h2 class="text-2xl sm:text-3xl font-bold text-surface-50">{{ .Title }}</h2>
+      <h2 class="text-2xl sm:text-3xl font-bold dark:text-surface-50 text-surface-900">{{ .Title }}</h2>
     </div>
     <div class="grid md:grid-cols-2 gap-8">
       {{ range $i, $s := .Params.services }}
       <div class="glass-card rounded-xl p-8 reveal">
         <div class="flex items-center gap-4 mb-4">
           <div class="w-10 h-10 rounded-lg bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400 font-bold text-lg">{{ add $i 1 }}</div>
-          <h3 class="text-xl font-semibold text-surface-100">{{ .name }}</h3>
+          <h3 class="text-xl font-semibold dark:text-surface-100 text-surface-800">{{ .name }}</h3>
         </div>
-        <p class="text-surface-400 leading-relaxed">{{ .content }}</p>
+        <p class="dark:text-surface-400 text-surface-500 leading-relaxed">{{ .content }}</p>
       </div>
       {{ end }}
     </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.LanguageCode | default "en" }}" class="scroll-smooth">
+<html lang="{{ site.LanguageCode | default "en" }}" class="scroll-smooth dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,6 +20,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
@@ -39,6 +40,14 @@
               800: '#1A3A6B',
               900: '#0F2340',
               950: '#081526',
+            },
+            cncf: {
+              blue: '#446CA9',
+              'dark-blue': '#1C3A5F',
+              'light-blue': '#76C4E2',
+              teal: '#00B39F',
+              green: '#00C49A',
+              purple: '#6B5CE7',
             },
             surface: {
               50: '#f8fafc',
@@ -76,21 +85,29 @@
 
   {{/* Custom Styles */}}
   <style>
-    /* Base */
+    /* Base — Dark mode (default) */
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background-color: #020617;
-      color: #e2e8f0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
+    .dark body { background-color: #020617; color: #e2e8f0; }
+    html:not(.dark) body { background-color: #FFFFFF; color: #1E293B; }
+
     /* Gradient mesh background */
-    .hero-gradient {
+    .dark .hero-gradient {
       background: 
         radial-gradient(ellipse 80% 50% at 50% -20%, rgba(50, 108, 229, 0.15), transparent),
         radial-gradient(ellipse 60% 40% at 80% 50%, rgba(68, 108, 169, 0.1), transparent),
         radial-gradient(ellipse 50% 50% at 20% 80%, rgba(26, 58, 107, 0.08), transparent);
+    }
+    html:not(.dark) .hero-gradient {
+      background: 
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(50, 108, 229, 0.06), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 50%, rgba(68, 108, 169, 0.04), transparent),
+        linear-gradient(to bottom, #F8FAFC, #FFFFFF);
     }
 
     /* Gradient text */
@@ -104,25 +121,41 @@
     }
 
     /* Grid pattern */
-    .grid-pattern {
+    .dark .grid-pattern {
       background-image: 
         linear-gradient(rgba(50, 108, 229, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(50, 108, 229, 0.03) 1px, transparent 1px);
       background-size: 60px 60px;
     }
+    html:not(.dark) .grid-pattern {
+      background-image: 
+        linear-gradient(rgba(50, 108, 229, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(50, 108, 229, 0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
 
-    /* Glass card */
-    .glass-card {
+    /* Glass card — Dark */
+    .dark .glass-card {
       background: rgba(30, 41, 59, 0.5);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(50, 108, 229, 0.1);
-      transition: all 0.3s ease;
     }
-    .glass-card:hover {
+    .dark .glass-card:hover {
       border-color: rgba(50, 108, 229, 0.3);
-      transform: translateY(-2px);
       box-shadow: 0 8px 32px rgba(50, 108, 229, 0.1);
     }
+    /* Glass card — Light */
+    html:not(.dark) .glass-card {
+      background: #FFFFFF;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    }
+    html:not(.dark) .glass-card:hover {
+      border-color: rgba(50, 108, 229, 0.3);
+      box-shadow: 0 4px 16px rgba(50, 108, 229, 0.08), 0 2px 4px rgba(0,0,0,0.04);
+    }
+    .glass-card { transition: all 0.3s ease; }
+    .glass-card:hover { transform: translateY(-2px); }
 
     /* Glow button */
     .btn-glow {
@@ -135,35 +168,45 @@
       transform: translateY(-1px);
     }
 
-    .btn-outline {
+    .dark .btn-outline {
       border: 1px solid rgba(50, 108, 229, 0.4);
       color: #7AA5FF;
-      transition: all 0.3s ease;
     }
-    .btn-outline:hover {
+    .dark .btn-outline:hover {
       background: rgba(50, 108, 229, 0.1);
       border-color: rgba(50, 108, 229, 0.6);
     }
+    html:not(.dark) .btn-outline {
+      border: 1px solid rgba(50, 108, 229, 0.4);
+      color: #326CE5;
+    }
+    html:not(.dark) .btn-outline:hover {
+      background: rgba(50, 108, 229, 0.05);
+      border-color: rgba(50, 108, 229, 0.6);
+    }
+    .btn-outline { transition: all 0.3s ease; }
 
-    /* Prose overrides for dark */
-    .prose-dark h1, .prose-dark h2, .prose-dark h3, .prose-dark h4, .prose-dark h5, .prose-dark h6 {
-      color: #f1f5f9;
-    }
-    .prose-dark p, .prose-dark li, .prose-dark blockquote {
-      color: #cbd5e1;
-    }
-    .prose-dark strong {
-      color: #f1f5f9;
-    }
-    .prose-dark a {
-      color: #4D86FF;
-    }
-    .prose-dark a:hover {
-      color: #7AA5FF;
-    }
-    .prose-dark code {
+    /* Prose overrides — Dark */
+    .dark .prose-dark h1, .dark .prose-dark h2, .dark .prose-dark h3, .dark .prose-dark h4, .dark .prose-dark h5, .dark .prose-dark h6 { color: #f1f5f9; }
+    .dark .prose-dark p, .dark .prose-dark li, .dark .prose-dark blockquote { color: #cbd5e1; }
+    .dark .prose-dark strong { color: #f1f5f9; }
+    .dark .prose-dark a { color: #4D86FF; }
+    .dark .prose-dark a:hover { color: #7AA5FF; }
+    .dark .prose-dark code {
       color: #7AA5FF;
       background: rgba(50, 108, 229, 0.1);
+    }
+    /* Prose overrides — Light */
+    html:not(.dark) .prose-dark h1, html:not(.dark) .prose-dark h2, html:not(.dark) .prose-dark h3, html:not(.dark) .prose-dark h4, html:not(.dark) .prose-dark h5, html:not(.dark) .prose-dark h6 { color: #1E293B; }
+    html:not(.dark) .prose-dark p, html:not(.dark) .prose-dark li, html:not(.dark) .prose-dark blockquote { color: #334155; }
+    html:not(.dark) .prose-dark strong { color: #1E293B; }
+    html:not(.dark) .prose-dark a { color: #326CE5; }
+    html:not(.dark) .prose-dark a:hover { color: #2857B8; }
+    html:not(.dark) .prose-dark code {
+      color: #326CE5;
+      background: rgba(50, 108, 229, 0.06);
+    }
+    .prose-dark code {
       padding: 0.125rem 0.375rem;
       border-radius: 0.25rem;
       font-family: 'JetBrains Mono', monospace;
@@ -191,7 +234,11 @@
     }
 
     /* Sticky header backdrop */
-    .header-blur {
+    .dark .header-blur {
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+    }
+    html:not(.dark) .header-blur {
       backdrop-filter: blur(16px) saturate(180%);
       -webkit-backdrop-filter: blur(16px) saturate(180%);
     }
@@ -204,11 +251,42 @@
     }
 
     /* Service icon container */
-    .icon-container {
+    .dark .icon-container {
       background: linear-gradient(135deg, rgba(50, 108, 229, 0.1), rgba(68, 108, 169, 0.1));
       border: 1px solid rgba(50, 108, 229, 0.15);
     }
+    html:not(.dark) .icon-container {
+      background: linear-gradient(135deg, rgba(50, 108, 229, 0.06), rgba(68, 108, 169, 0.06));
+      border: 1px solid rgba(50, 108, 229, 0.12);
+    }
+
+    /* Dark mode toggle button */
+    .theme-toggle {
+      transition: all 0.3s ease;
+    }
+    .theme-toggle:hover {
+      transform: rotate(15deg);
+    }
   </style>
+
+  {{/* Dark mode: prevent FOUC by setting class before render */}}
+  <script>
+    (function() {
+      var stored = localStorage.getItem('theme');
+      if (stored === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else if (stored === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        // Respect system preference; default to dark
+        if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+          document.documentElement.classList.remove('dark');
+        } else {
+          document.documentElement.classList.add('dark');
+        }
+      }
+    })();
+  </script>
 
   {{ block "head" . }}{{ end }}
 </head>

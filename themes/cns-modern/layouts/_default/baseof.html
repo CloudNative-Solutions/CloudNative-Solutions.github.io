@@ -222,18 +222,24 @@
       border: 1px solid rgba(50, 108, 229, 0.15);
     }
 
-    /* Scroll animations */
+    /* Scroll animations — progressive enhancement only */
+    /* Elements are ALWAYS visible by default. Animation is a nice-to-have. */
     .reveal {
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      opacity: 1;
+      transform: translateY(0);
     }
-    /* Only hide elements when JS is running AND user hasn't scrolled past yet */
-    .reveal-ready .reveal:not(.visible) {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    .reveal.visible {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
+    /* Only animate if JS has set up the observer AND prefers-reduced-motion is not set */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal-ready .reveal:not(.visible) {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .reveal-ready .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
     }
 
     /* Sticky header backdrop */
@@ -303,12 +309,15 @@
 
   {{ partial "footer.html" . }}
 
-  {{/* Scroll reveal animation */}}
+  {{/* Scroll reveal animation — progressive enhancement */}}
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const revealEls = document.querySelectorAll('.reveal');
+      // Only enable reveal animations if user hasn't opted out
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-      // Use IntersectionObserver with a large rootMargin to eagerly reveal elements
+      const revealEls = document.querySelectorAll('.reveal');
+      if (!revealEls.length) return;
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -316,11 +325,16 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0, rootMargin: '9999px 0px 9999px 0px' });
+      }, { threshold: 0.1, rootMargin: '0px 0px 50px 0px' });
 
-      // Enable class-based hiding only after observer is set up
+      // Mark ready and observe — elements start visible, animation is enhancement
       document.documentElement.classList.add('reveal-ready');
       revealEls.forEach(el => observer.observe(el));
+
+      // Fallback: if after 2s any element is still not visible, force-show all
+      setTimeout(() => {
+        revealEls.forEach(el => el.classList.add('visible'));
+      }, 2000);
     });
   </script>
 </body>

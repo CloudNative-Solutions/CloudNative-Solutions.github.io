@@ -1,0 +1,50 @@
+<header class="fixed top-0 left-0 right-0 z-50 header-blur bg-surface-950/80 border-b border-surface-800/50">
+  <nav class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      {{/* Logo */}}
+      <a href="{{ "/" | relURL }}" class="flex items-center gap-3 group">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center">
+          <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+          </svg>
+        </div>
+        <span class="font-semibold text-surface-100 group-hover:text-white transition-colors">
+          Cloud Native Solutions
+        </span>
+      </a>
+
+      {{/* Desktop Nav */}}
+      <div class="hidden md:flex items-center gap-1">
+        <a href="{{ "services/" | relURL }}" class="px-4 py-2 text-sm text-surface-300 hover:text-white transition-colors rounded-lg hover:bg-surface-800/50">Services</a>
+        <a href="{{ "case-studies/" | relURL }}" class="px-4 py-2 text-sm text-surface-300 hover:text-white transition-colors rounded-lg hover:bg-surface-800/50">Case Studies</a>
+        <a href="{{ "blog/" | relURL }}" class="px-4 py-2 text-sm text-surface-300 hover:text-white transition-colors rounded-lg hover:bg-surface-800/50">Blog</a>
+        <a href="{{ "about/" | relURL }}" class="px-4 py-2 text-sm text-surface-300 hover:text-white transition-colors rounded-lg hover:bg-surface-800/50">About</a>
+        <a href="{{ "contact/" | relURL }}" class="ml-3 px-4 py-2 text-sm font-medium text-white btn-glow rounded-lg">Contact Us</a>
+      </div>
+
+      {{/* Mobile hamburger */}}
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-surface-300 hover:text-white" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    {{/* Mobile Nav */}}
+    <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-surface-800/50 mt-2 pt-4">
+      <div class="flex flex-col gap-1">
+        <a href="{{ "services/" | relURL }}" class="px-4 py-2.5 text-sm text-surface-300 hover:text-white transition-colors rounded-lg hover:bg-surface-800/50">Services</a>
+        <a href="{{ "case-studies/" | relURL }}" class="px-4 py-2.5 text-sm text-surface-300 hover:text-white transition-colors rounded-lg hover:bg-surface-800/50">Case Studies</a>
+        <a href="{{ "blog/" | relURL }}" class="px-4 py-2.5 text-sm text-surface-300 hover:text-white transition-colors rounded-lg hover:bg-surface-800/50">Blog</a>
+        <a href="{{ "about/" | relURL }}" class="px-4 py-2.5 text-sm text-surface-300 hover:text-white transition-colors rounded-lg hover:bg-surface-800/50">About</a>
+        <a href="{{ "contact/" | relURL }}" class="mt-2 px-4 py-2.5 text-sm font-medium text-white text-center btn-glow rounded-lg">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
+</script>

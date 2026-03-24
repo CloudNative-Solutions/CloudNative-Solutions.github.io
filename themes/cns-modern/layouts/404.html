@@ -1,0 +1,13 @@
+{{ define "main" }}
+<section class="min-h-[70vh] flex items-center justify-center pt-16">
+  <div class="text-center px-6">
+    <p class="text-brand-400 font-mono text-sm mb-4">404</p>
+    <h1 class="text-4xl sm:text-5xl font-bold text-surface-50 mb-4">Page not found</h1>
+    <p class="text-surface-400 mb-8 max-w-md mx-auto">The page you're looking for doesn't exist or has been moved.</p>
+    <a href="{{ "/" | relURL }}" class="btn-glow px-6 py-3 rounded-lg text-white font-medium text-sm inline-flex items-center gap-2">
+      Go Home
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+    </a>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,62 @@
+{{ define "main" }}
+
+{{/* Hero */}}
+<section class="pt-32 pb-16 hero-gradient relative">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+    <div class="max-w-2xl">
+      <p class="text-brand-400 font-medium text-sm uppercase tracking-wider mb-3">Insights</p>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-surface-50 mb-4">{{ .Title }}</h1>
+      <p class="text-lg text-surface-400">Technical articles on Kubernetes, DevOps, CI/CD, and cloud native engineering.</p>
+    </div>
+  </div>
+  <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-surface-950 to-transparent"></div>
+</section>
+
+<section class="py-16 pb-24">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    {{ if .Pages }}
+    <div class="grid md:grid-cols-2 gap-8">
+      {{ range .Pages }}
+      <a href="{{ .Permalink }}" class="glass-card rounded-xl overflow-hidden group reveal">
+        {{ if .Params.image }}
+        <div class="aspect-video overflow-hidden">
+          <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        {{ end }}
+        <div class="p-6">
+          {{/* Tags */}}
+          {{ with .Params.tags }}
+          <div class="flex flex-wrap gap-2 mb-3">
+            {{ range . }}
+            <span class="px-2 py-0.5 text-xs rounded-full bg-brand-500/10 text-brand-400 border border-brand-500/20">{{ . }}</span>
+            {{ end }}
+          </div>
+          {{ end }}
+
+          <h3 class="text-xl font-semibold text-surface-100 mb-3 group-hover:text-brand-300 transition-colors leading-snug">{{ .Title }}</h3>
+          <p class="text-sm text-surface-400 line-clamp-3 mb-4">{{ .Summary | plainify }}</p>
+
+          <div class="flex items-center justify-between text-xs text-surface-500">
+            <div class="flex items-center gap-3">
+              {{ with .Params.author }}<span>{{ . }}</span>{{ end }}
+              {{ with .Date }}
+                {{ if not (eq (.Format "2006") "0001") }}
+                <span>{{ .Format "Jan 2, 2006" }}</span>
+                {{ end }}
+              {{ end }}
+            </div>
+            <span class="text-brand-400 font-medium">Read →</span>
+          </div>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+    {{ else }}
+    <div class="text-center py-20">
+      <p class="text-surface-500">No posts yet. Check back soon.</p>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+{{ end }}

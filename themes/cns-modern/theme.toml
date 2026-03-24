@@ -1,0 +1,11 @@
+# theme.toml
+name = "CNS Modern"
+license = "MIT"
+licenselink = "https://github.com/CloudNative-Solutions/CloudNative-Solutions.github.io/blob/main/LICENSE"
+description = "Modern dark theme for Cloud Native Solutions"
+homepage = "https://cloudnativesolutions.ro"
+min_version = "0.116.0"
+
+[author]
+name = "Cloud Native Solutions"
+homepage = "https://cloudnativesolutions.ro"

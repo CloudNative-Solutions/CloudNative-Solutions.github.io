@@ -74,7 +74,7 @@
       <div class="reveal {{ if modBool $i 2 }}lg:order-2{{ end }}">
         <div class="relative">
           <div class="absolute -inset-4 bg-gradient-to-r from-brand-500/10 to-brand-400/10 rounded-2xl blur-xl"></div>
-          <div class="relative rounded-xl overflow-hidden border border-surface-800/50">
+          <div class="relative rounded-xl overflow-hidden border dark:border-surface-800/50 border-surface-200">
             {{ if .image }}
             <img src="{{ .image }}" alt="{{ .title }}" class="w-full h-auto">
             {{ end }}

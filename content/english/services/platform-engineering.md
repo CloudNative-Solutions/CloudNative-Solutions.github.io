@@ -2,7 +2,7 @@
 title: "Platform Engineering"
 meta_title: "Services"
 description: "Platform Engineering"
-image: /images/services/platform-engineering.webp
+image: /images/services/platform-engineering.png
 draft: false
 ---
 

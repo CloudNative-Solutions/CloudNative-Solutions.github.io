@@ -2,7 +2,7 @@
 title: "AI & ML Infrastructure"
 meta_title: "Services"
 description: "AI & ML Infrastructure"
-image: /images/services/ai-infrastructure.webp
+image: /images/services/ai-infrastructure.png
 draft: false
 ---
 

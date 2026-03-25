@@ -2,7 +2,7 @@
 title: "Kubernetes Managed Services"
 meta_title: "Services"
 description: "Kubernetes Managed Services"
-image: /images/services/managed-k8s.webp
+image: /images/services/managed-k8s.png
 draft: false
 ---
 

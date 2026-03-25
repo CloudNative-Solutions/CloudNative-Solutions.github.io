@@ -2,7 +2,7 @@
 title: "Infrastructure Design"
 meta_title: "Services"
 description: "this is meta description"
-image: /images/services/infrastructure-design.webp
+image: /images/services/infrastructure-design.png
 draft: false
 ---
 

@@ -2,7 +2,7 @@
 title: "Security & Compliance"
 meta_title: "Services"
 description: "Security & Compliance"
-image: /images/services/security-compliance.webp
+image: /images/services/security-compliance.png
 draft: false
 ---
 

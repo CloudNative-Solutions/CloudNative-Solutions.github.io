@@ -2,7 +2,7 @@
 title: "CI/CD Pipelines"
 meta_title: "Services"
 description: "CI/CD Pipelines"
-image: /images/services/cicd-pipelines.webp
+image: /images/services/cicd-pipelines.png
 draft: false
 ---
 

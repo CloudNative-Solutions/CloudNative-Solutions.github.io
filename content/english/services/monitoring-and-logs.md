@@ -2,7 +2,7 @@
 title: "Monitoring and Logs Management"
 meta_title: "Services"
 description: "Monitoring and Logs Management"
-image: /images/services/monitoring-and-logs.webp
+image: /images/services/monitoring-and-logs.png
 draft: false
 ---
 

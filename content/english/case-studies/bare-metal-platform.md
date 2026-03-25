@@ -2,7 +2,7 @@
 title: "Enterprise Platform on Bare Metal: 84 Apps, 3 Nodes, Zero Cloud Bills"
 meta_title: "Case Studies"
 description: "How we built an enterprise-grade Kubernetes platform on 3 Intel NUCs with full CNCF stack"
-image: /images/case-studies/bare-metal-platform.webp
+image: /images/case-studies/bare-metal-platform.png
 draft: false
 ---
 

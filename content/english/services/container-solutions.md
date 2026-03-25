@@ -2,7 +2,7 @@
 title: "Container Solutions"
 meta_title: "Services"
 description: "Container Solutions"
-image: /images/services/container-solutions.webp
+image: /images/services/container-solutions.png
 draft: false
 ---
 

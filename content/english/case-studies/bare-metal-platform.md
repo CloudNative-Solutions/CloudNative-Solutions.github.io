@@ -4,6 +4,7 @@ meta_title: "Case Studies"
 description: "How we built an enterprise-grade Kubernetes platform on 3 Intel NUCs with full CNCF stack"
 image: /images/case-studies/bare-metal-platform.png
 draft: false
+weight: 1
 ---
 
 ## The Challenge

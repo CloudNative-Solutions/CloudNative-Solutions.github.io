@@ -10,7 +10,8 @@ You can't fix what you can't see. We build modern observability stacks that give
 
 ##### **The Stack — LGTM (Loki, Grafana, Tempo, Mimir)**
 
-- **Metrics** — Mimir for scalable, multi-tenant metrics storage (Prometheus-compatible) with Grafana dashboards
+- **Visualization** — Grafana as the unified dashboard layer for metrics, logs, traces, and profiles — single pane of glass for all observability signals
+- **Metrics** — Mimir for scalable, multi-tenant metrics storage (Prometheus-compatible)
 - **Logs** — Loki for log aggregation, structured logging pipelines, correlation with metrics and traces
 - **Tracing** — Tempo for distributed tracing across microservices
 - **Telemetry Collection** — Grafana Alloy as the unified collector for metrics, logs, and traces (OpenTelemetry-native)

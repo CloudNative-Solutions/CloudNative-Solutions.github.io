@@ -14,6 +14,7 @@ We design cloud infrastructure that's built for reality — not just diagrams. P
 - **Bare metal Kubernetes** — for when cloud costs don't justify the workload, or compliance requires on-prem
 - **Network architecture** — VPCs, peering, transit gateways, and CNI selection (Cilium, Calico) for K8s networking
 - **Storage solutions** — Ceph, Longhorn, and cloud-native storage for stateful workloads
+- **Hybrid workloads** — KubeVirt for running VMs on Kubernetes, enabling gradual migration from traditional infrastructure without forklift rewrites
 - **High availability patterns** — multi-AZ, multi-region, active-active and active-passive failover
 - **Disaster recovery** — RTO/RPO planning, backup strategies, automated failover testing
 

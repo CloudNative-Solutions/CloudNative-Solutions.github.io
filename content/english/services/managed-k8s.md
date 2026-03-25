@@ -17,6 +17,7 @@ draft: false
 - **Multi-tenancy** — namespace isolation, resource limits, and tenant-aware RBAC for shared clusters
 - **Network policies** — Cilium or Calico-based microsegmentation, ingress/egress controls
 - **Backup & DR** — Velero-based cluster backups, disaster recovery runbooks, automated failover testing
+- **VM workloads** — KubeVirt for running virtual machines on Kubernetes, bridging legacy VMs and cloud-native containers on a single platform
 
 ##### **How We Operate**
 

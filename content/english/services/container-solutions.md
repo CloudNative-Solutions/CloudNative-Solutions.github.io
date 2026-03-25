@@ -16,6 +16,7 @@ Containers done right means more than just "put it in Docker." We build Kubernet
 - **Service mesh** — Istio or Cilium for mTLS, traffic management, and observability at the network layer
 - **Container security** — image scanning with Trivy, runtime protection with Falco, admission control with Kyverno
 - **Registry management** — private registries with Harbor, automated image lifecycle policies
+- **VM & Container Convergence** — KubeVirt enables running traditional VM workloads on the same Kubernetes cluster. Migrate VMs to K8s without rewriting applications
 
 ##### **Our Approach**
 

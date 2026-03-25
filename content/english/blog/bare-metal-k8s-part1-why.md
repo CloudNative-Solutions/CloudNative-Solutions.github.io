@@ -36,6 +36,7 @@ This isn't a hobby cluster. We needed production-grade infrastructure:
 - **Full observability** — metrics, logs, traces, profiling, error tracking
 - **Security** — runtime protection, policy enforcement, secrets management
 - **AI platform** — LLM gateway, agent orchestration, experiment tracking
+- **VM workloads** — KubeVirt for running traditional VMs alongside containers, no separate hypervisor needed
 
 The question was never "can Kubernetes run on bare metal?" — it was "can we build something that rivals cloud-managed platforms, on hardware we own?"
 

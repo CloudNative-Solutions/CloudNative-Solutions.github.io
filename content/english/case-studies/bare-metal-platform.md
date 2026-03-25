@@ -20,6 +20,7 @@ We deployed a bare-metal Kubernetes cluster using Cluster API with Tinkerbell fo
 - **Bare Metal Provisioning:** Cluster API + Tinkerbell for automated node provisioning
 - **Networking:** Cilium CNI, MetalLB for load balancing, Istio service mesh
 - **Storage:** Rook-Ceph distributed storage across all three nodes (1.5TB NVMe, 42% utilized)
+- **Virtualization:** KubeVirt for running VM workloads alongside containers, with dedicated management dashboard
 - **DNS & TLS:** External-DNS, Cert-Manager with Let's Encrypt, Traefik ingress
 
 ### Platform Layer

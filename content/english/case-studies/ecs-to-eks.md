@@ -1,6 +1,6 @@
 ---
 title: "AWS ECS to AWS EKS migration"
-image: /images/case-studies/ecs-to-eks.webp
+image: /images/case-studies/ecs-to-eks.png
 meta_title: "Case Studies"
 description: "Learn how Cloud Native Solutions migrated a software development company's container-based infrastructure from Amazon ECS to Kubernetes, enhancing deployment processes, monitoring, and scalability."
 ---
@@ -14,19 +14,19 @@ A leading software development company was using a container-based infrastructur
 ###### Seamless Transition
 - The migration had to ensure a seamless transition with minimal downtime.
 ###### Efficiency and Scalability
-- The new setup had to be efficient, secure, and easily scalable to accommodate the company’s future growth.
+- The new setup had to be efficient, secure, and easily scalable to accommodate the company's future growth.
 
 #### Results
 ###### Improved deployment process
 - With Kubernetes and Argo CD, deployments were streamlined and easy to manage.
 ###### Enhanced monitoring and logging
-- The Prometheus + Grafana and ELK stack provided better insights into the system’s performance and health.
+- The LGTM stack (Grafana, Mimir, Loki, Tempo) replaced the ELK stack, providing better insights into the system's performance and health.
 ###### Scalability
 - The use of Cluster-API and EKS enabled the company to scale its infrastructure effortlessly as per their needs.
 ###### Reduced downtime
 - The new setup allowed for seamless migration with minimal downtime, ensuring business continuity.
 ###### Efficient resource utilization
-- Kubernetes’ robust resource management capabilities optimized the company’s infrastructure.
+- Kubernetes' robust resource management capabilities optimized the company's infrastructure.
 
 #### Conclusion
 The successful migration to Kubernetes has provided the company with a more efficient, secure, and scalable infrastructure. They can now focus on their core business while staying ahead in the competitive software development industry.

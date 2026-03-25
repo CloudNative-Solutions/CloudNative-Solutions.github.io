@@ -28,10 +28,12 @@ clients:
 draft: false
 ---
 
-At Cloud Native Solutions, we take pride in our ability to stay at the forefront of industry trends and emerging technologies. We work closely with our clients to understand their unique challenges and goals, and leverage our expertise to design and implement customized solutions that deliver measurable results.
+**Cloud Native Solutions** is a DevOps-as-a-Service company founded in 2021 by Marius Oprin in Romania, EU.
 
-In 2021, we founded Cloud Native Solutions to help start-ups, small-to-medium-sized businesses, and enterprises streamline their software development processes and gain a competitive edge.
+The idea was simple: companies deserve senior DevOps engineers who actually care about their infrastructure — without the overhead of building a full in-house team. No juniors getting rotated onto your project. No account managers between you and the engineers doing the work.
 
-Marius Oprin, an experienced DevOps engineer, established the company after working closely with a medical automation platform CTO and team, who together, they envisioned a more reliable, affordable, and efficient way to manage their infrastructure.
+We started by partnering with a healthcare platform that needed reliable, cost-effective infrastructure management. That partnership proved the model works: deep expertise, direct communication, real results.
 
-Since then, our clientele has grown to include cloud computing, healthcare companies, marketing agencies, and email service providers, who all trust us to maintain high-performing platforms and ensure their cloud infrastructure is effective.
+Since then, we've grown to serve clients across cloud computing, healthcare, marketing, and email delivery — companies that depend on their platforms being fast, secure, and always available.
+
+**Our team is small by design.** Every engineer is senior-level with hands-on Kubernetes, cloud, and CNCF ecosystem experience. When you work with us, you get the people who designed the solution — not a B-team.

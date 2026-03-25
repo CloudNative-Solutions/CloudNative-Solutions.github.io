@@ -1,0 +1,113 @@
+<header class="fixed top-0 left-0 right-0 z-50 header-blur dark:bg-surface-950/80 bg-white/80 border-b dark:border-surface-800/50 border-surface-200">
+  <nav class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      {{/* Logo */}}
+      <a href="{{ "/" | relURL }}" class="flex items-center gap-3 group">
+        {{ $logo := resources.Get "images/logo-darkmode.png" }}
+        {{ with $logo }}
+        <img src="{{ .RelPermalink }}" alt="{{ site.Title }}" style="height:32px;width:auto;" class="group-hover:opacity-90 transition-opacity">
+        {{ else }}
+        <span class="text-xl font-bold dark:text-white text-surface-900">{{ site.Title }}</span>
+        {{ end }}
+      </a>
+
+      {{/* Desktop Nav */}}
+      <div class="hidden md:flex items-center gap-1">
+        <a href="{{ "services/" | relURL }}" class="px-4 py-2 text-sm dark:text-surface-300 text-surface-600 dark:hover:text-white hover:text-surface-900 transition-colors rounded-lg dark:hover:bg-surface-800/50 hover:bg-surface-100">Services</a>
+        <a href="{{ "case-studies/" | relURL }}" class="px-4 py-2 text-sm dark:text-surface-300 text-surface-600 dark:hover:text-white hover:text-surface-900 transition-colors rounded-lg dark:hover:bg-surface-800/50 hover:bg-surface-100">Case Studies</a>
+        <a href="{{ "blog/" | relURL }}" class="px-4 py-2 text-sm dark:text-surface-300 text-surface-600 dark:hover:text-white hover:text-surface-900 transition-colors rounded-lg dark:hover:bg-surface-800/50 hover:bg-surface-100">Blog</a>
+        <a href="{{ "about/" | relURL }}" class="px-4 py-2 text-sm dark:text-surface-300 text-surface-600 dark:hover:text-white hover:text-surface-900 transition-colors rounded-lg dark:hover:bg-surface-800/50 hover:bg-surface-100">About</a>
+
+        {{/* Dark/Light mode toggle */}}
+        <button id="theme-toggle" class="theme-toggle ml-2 p-2 rounded-lg dark:text-surface-300 text-surface-600 dark:hover:text-white hover:text-surface-900 dark:hover:bg-surface-800/50 hover:bg-surface-100 transition-colors" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+          {{/* Sun icon (shown in dark mode) */}}
+          <svg id="theme-icon-sun" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+          {{/* Moon icon (shown in light mode) */}}
+          <svg id="theme-icon-moon" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+        </button>
+
+        <a href="{{ "contact/" | relURL }}" class="ml-3 px-4 py-2 text-sm font-medium text-white btn-glow rounded-lg">Contact Us</a>
+      </div>
+
+      {{/* Mobile hamburger */}}
+      <button id="mobile-menu-btn" class="md:hidden p-2 dark:text-surface-300 text-surface-600 dark:hover:text-white hover:text-surface-900" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    {{/* Mobile Nav */}}
+    <div id="mobile-menu" class="hidden md:hidden pb-4 border-t dark:border-surface-800/50 border-surface-200 mt-2 pt-4">
+      <div class="flex flex-col gap-1">
+        <a href="{{ "services/" | relURL }}" class="px-4 py-2.5 text-sm dark:text-surface-300 text-surface-600 dark:hover:text-white hover:text-surface-900 transition-colors rounded-lg dark:hover:bg-surface-800/50 hover:bg-surface-100">Services</a>
+        <a href="{{ "case-studies/" | relURL }}" class="px-4 py-2.5 text-sm dark:text-surface-300 text-surface-600 dark:hover:text-white hover:text-surface-900 transition-colors rounded-lg dark:hover:bg-surface-800/50 hover:bg-surface-100">Case Studies</a>
+        <a href="{{ "blog/" | relURL }}" class="px-4 py-2.5 text-sm dark:text-surface-300 text-surface-600 dark:hover:text-white hover:text-surface-900 transition-colors rounded-lg dark:hover:bg-surface-800/50 hover:bg-surface-100">Blog</a>
+        <a href="{{ "about/" | relURL }}" class="px-4 py-2.5 text-sm dark:text-surface-300 text-surface-600 dark:hover:text-white hover:text-surface-900 transition-colors rounded-lg dark:hover:bg-surface-800/50 hover:bg-surface-100">About</a>
+        {{/* Mobile dark mode toggle */}}
+        <button id="theme-toggle-mobile" class="px-4 py-2.5 text-sm dark:text-surface-300 text-surface-600 dark:hover:text-white hover:text-surface-900 transition-colors rounded-lg dark:hover:bg-surface-800/50 hover:bg-surface-100 text-left flex items-center gap-2">
+          <svg id="theme-icon-sun-mobile" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          <svg id="theme-icon-moon-mobile" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          <span id="theme-label-mobile">Switch theme</span>
+        </button>
+        <a href="{{ "contact/" | relURL }}" class="mt-2 px-4 py-2.5 text-sm font-medium text-white text-center btn-glow rounded-lg">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle
+  document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
+
+  // Theme toggle
+  (function() {
+    function updateIcons() {
+      var isDark = document.documentElement.classList.contains('dark');
+      // Desktop icons
+      document.getElementById('theme-icon-sun').classList.toggle('hidden', !isDark);
+      document.getElementById('theme-icon-moon').classList.toggle('hidden', isDark);
+      // Mobile icons
+      document.getElementById('theme-icon-sun-mobile').classList.toggle('hidden', !isDark);
+      document.getElementById('theme-icon-moon-mobile').classList.toggle('hidden', isDark);
+      // Mobile label
+      document.getElementById('theme-label-mobile').textContent = isDark ? 'Light mode' : 'Dark mode';
+    }
+
+    function toggleTheme() {
+      var isDark = document.documentElement.classList.contains('dark');
+      if (isDark) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+      updateIcons();
+    }
+
+    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+    document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
+
+    // Listen for system preference changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+      if (!localStorage.getItem('theme')) {
+        if (e.matches) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        updateIcons();
+      }
+    });
+
+    // Initial icon state
+    updateIcons();
+  })();
+</script>

@@ -2,41 +2,42 @@
 title: "Monitoring and Logs Management"
 meta_title: "Services"
 description: "Monitoring and Logs Management"
-image: /images/services/monitoring-and-logs.webp
+image: /images/services/monitoring-and-logs.png
 draft: false
 ---
 
-Effective monitoring and logs management is critical for ensuring the performance, security, and reliability of your applications and infrastructure. At Cloud Native Solutions, we offer comprehensive monitoring and logs management solutions that provide real-time insights into your application performance, infrastructure health, and user behavior. Our expert team will help you implement advanced tools and best practices to proactively identify and address issues before they impact your end-users, ensuring optimal user experiences and minimizing downtime.
+You can't fix what you can't see. We build modern observability stacks that give you real-time visibility into your infrastructure, applications, and user experience.
 
-  Our monitoring and logs management solutions encompass the following key components:
+##### **The Stack — LGTM (Loki, Grafana, Tempo, Mimir)**
 
-##### **Monitoring Strategy:**
+- **Visualization** — Grafana as the unified dashboard layer for metrics, logs, traces, and profiles — single pane of glass for all observability signals
+- **Metrics** — Mimir for scalable, multi-tenant metrics storage (Prometheus-compatible)
+- **Logs** — Loki for log aggregation, structured logging pipelines, correlation with metrics and traces
+- **Tracing** — Tempo for distributed tracing across microservices
+- **Telemetry Collection** — Grafana Alloy as the unified collector for metrics, logs, and traces (OpenTelemetry-native)
+- **Alerting** — Alertmanager with intelligent routing, PagerDuty/Slack/Opsgenie integration, runbook links
+- **Multi-tenancy** — full tenant isolation across all LGTM components, ideal for platform teams and managed services
 
-   - Our team will work with you to develop a customized monitoring strategy that aligns with your business goals and technical requirements.
-   - This includes assessing your existing monitoring tools and processes, identifying gaps and areas for improvement, and devising a comprehensive plan for monitoring implementation and optimization.
+##### **What We Build**
 
-##### **Monitoring Implementation:**
+- **SLOs & SLIs** — define what "healthy" means for your services, track it automatically, alert on burn rate
+- **Custom dashboards** — per-service, per-team, executive-level views — not just default templates
+- **Log pipelines** — structured ingestion, retention policies, fast search across millions of log lines
+- **Distributed tracing** — trace requests across services to find where latency hides
+- **Incident response** — on-call rotations, escalation policies, post-incident review templates
 
-   - We offer end-to-end monitoring implementation services, including tool installation, configuration, and integration with your existing infrastructure and applications.
-   - Our team has extensive experience with industry-leading monitoring tools such as Prometheus, Grafana, Datadog, and Nagios, ensuring seamless integration and comprehensive coverage of your monitoring needs.
+##### **Our Approach**
 
-##### **Logs Management Strategy:**
+1. **Instrument** — add metrics, logs, and traces to your applications using OpenTelemetry and Grafana Alloy
+2. **Aggregate** — centralize everything into the LGTM stack — a unified, multi-tenant observability platform
+3. **Alert** — smart alerts based on SLOs, not just static thresholds that cry wolf
+4. **Respond** — runbooks, dashboards, and automation that reduce MTTR
 
-   - In addition to monitoring, effective logs management is essential for maintaining the security and reliability of your applications and infrastructure.
-   - Our team will help you develop a logs management strategy that encompasses log collection, storage, analysis, and alerting, enabling you to quickly identify and address issues as they arise.
+##### **Why It Matters**
 
-##### **Logs Management Implementation:**
+- Find the root cause in minutes, not hours
+- Know about issues before your users do
+- Data-driven capacity planning instead of guessing
+- Compliance-ready audit logs and retention
 
-   - We provide end-to-end logs management implementation services, covering everything from tool selection and installation to log pipeline design and automation.
-   - Our team is well-versed in popular logs management tools like Elasticsearch, Logstash, and Kibana (ELK Stack), ensuring seamless integration with your existing systems and workflows.
-
-##### **Monitoring and Logs Management Optimization:**
-
-   - As your applications and infrastructure evolve, our team will work with you to continually optimize your monitoring and logs management practices.
-   - Identifying areas for improvement and implementing changes as necessary, including ongoing performance tuning, capacity planning, and technology updates.
-
-##### **Monitoring and Logs Management Training and Support:**
-   - To ensure your team is equipped with the necessary skills to effectively manage your monitoring and logs management systems, we offer comprehensive training and support services.
-   - Our team will provide hands-on training, documentation, and ongoing support to help your team adopt and maintain best practices for monitoring and logs management.
-
-**In conclusion,** our monitoring and logs management solutions at Cloud Native Solutions empower you to maintain the performance, security, and reliability of your applications and infrastructure. With our expertise in advanced tools and best practices, we ensure that you have the necessary visibility to proactively identify and address issues before they impact your end-users. Partner with us to optimize your monitoring and logs management practices and stay ahead in today’s competitive market.
+We replace "check the logs on that one server" with a proper observability platform that scales with your infrastructure.

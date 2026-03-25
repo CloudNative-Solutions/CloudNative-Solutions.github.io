@@ -1,6 +1,6 @@
 ---
 title: "Transition from Terraform + Ansible to Kubernetes"
-image: /images/case-studies/terraform-ansible-to-kubernetes.webp
+image: /images/case-studies/terraform-ansible-to-kubernetes.png
 meta_title: "Case Studies"
 description: "Learn how Cloud Native Solutions migrated a client's AWS infrastructure to Kubernetes using Cluster-API, Helm, and Flux, improving scalability, manageability, and deployment speed."
 ---

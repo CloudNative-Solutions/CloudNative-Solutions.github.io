@@ -12,7 +12,7 @@ draft: false
 
 - **Cluster lifecycle management** — provisioning, version upgrades, node pool management, and decommissioning
 - **Security hardening** — RBAC policies, pod security standards, network policies, secrets management with Vault
-- **Observability** — Prometheus, Grafana, Loki, and alerting built into every cluster from day one
+- **Observability** — LGTM stack (Grafana, Mimir, Loki, Tempo) with Grafana Alloy and alerting built into every cluster from day one
 - **Cost optimization** — right-sizing, spot/preemptible instances, resource quotas, and FinOps reporting
 - **Multi-tenancy** — namespace isolation, resource limits, and tenant-aware RBAC for shared clusters
 - **Network policies** — Cilium or Calico-based microsegmentation, ingress/egress controls

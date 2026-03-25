@@ -8,12 +8,14 @@ draft: false
 
 You can't fix what you can't see. We build modern observability stacks that give you real-time visibility into your infrastructure, applications, and user experience.
 
-##### **The Stack**
+##### **The Stack — LGTM (Loki, Grafana, Tempo, Mimir)**
 
-- **Metrics** — Prometheus for collection, Grafana for dashboards, Thanos or Mimir for long-term storage
+- **Metrics** — Mimir for scalable, multi-tenant metrics storage (Prometheus-compatible) with Grafana dashboards
 - **Logs** — Loki for log aggregation, structured logging pipelines, correlation with metrics and traces
-- **Tracing** — Tempo and OpenTelemetry for distributed tracing across microservices
+- **Tracing** — Tempo for distributed tracing across microservices
+- **Telemetry Collection** — Grafana Alloy as the unified collector for metrics, logs, and traces (OpenTelemetry-native)
 - **Alerting** — Alertmanager with intelligent routing, PagerDuty/Slack/Opsgenie integration, runbook links
+- **Multi-tenancy** — full tenant isolation across all LGTM components, ideal for platform teams and managed services
 
 ##### **What We Build**
 
@@ -25,8 +27,8 @@ You can't fix what you can't see. We build modern observability stacks that give
 
 ##### **Our Approach**
 
-1. **Instrument** — add metrics, logs, and traces to your applications using OpenTelemetry
-2. **Aggregate** — centralize everything into a unified observability platform
+1. **Instrument** — add metrics, logs, and traces to your applications using OpenTelemetry and Grafana Alloy
+2. **Aggregate** — centralize everything into the LGTM stack — a unified, multi-tenant observability platform
 3. **Alert** — smart alerts based on SLOs, not just static thresholds that cry wolf
 4. **Respond** — runbooks, dashboards, and automation that reduce MTTR
 

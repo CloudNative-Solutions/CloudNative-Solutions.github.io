@@ -35,9 +35,10 @@ We deployed a bare-metal Kubernetes cluster using Cluster API with Tinkerbell fo
 - **Supply Chain:** Trivy scanning, Harbor vulnerability checks
 
 ### Observability Layer
-- **Metrics:** Prometheus + Mimir (long-term storage) + Grafana
+- **Metrics:** Mimir for scalable, multi-tenant metrics storage (Prometheus-compatible) + Grafana
 - **Logs:** Loki with S3-backed storage
 - **Traces:** Tempo for distributed tracing
+- **Telemetry Collection:** Grafana Alloy as the unified collector for metrics, logs, and traces
 - **Profiling:** Pyroscope for continuous profiling
 - **Error Tracking:** Sentry with ClickHouse backend
 - **Service Mesh:** Kiali for Istio observability

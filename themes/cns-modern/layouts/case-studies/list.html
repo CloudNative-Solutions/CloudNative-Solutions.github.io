@@ -16,7 +16,7 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {{ range .Pages }}
-      <a href="{{ .Permalink }}" class="glass-card rounded-xl overflow-hidden group reveal flex flex-col">
+      <a href="{{ .RelPermalink }}" class="glass-card rounded-xl overflow-hidden group reveal flex flex-col">
         {{ if .Params.image }}
         <div class="aspect-video overflow-hidden">
           <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">

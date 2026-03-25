@@ -8,7 +8,7 @@
       <a href="{{ "/" | relURL }}" class="dark:hover:text-surface-300 hover:text-surface-600 transition-colors">Home</a>
       <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
       {{ with .Parent }}
-      <a href="{{ .Permalink }}" class="dark:hover:text-surface-300 hover:text-surface-600 transition-colors">{{ .Title }}</a>
+      <a href="{{ .RelPermalink }}" class="dark:hover:text-surface-300 hover:text-surface-600 transition-colors">{{ .Title }}</a>
       <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
       {{ end }}
       <span class="dark:text-surface-400 text-surface-500">{{ .Title }}</span>

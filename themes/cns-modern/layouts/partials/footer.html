@@ -29,7 +29,7 @@
         <ul class="space-y-3">
           {{ $services := where site.RegularPages "Params.meta_title" "==" "Services" }}
           {{ range $services }}
-          <li><a href="{{ .Permalink }}" class="text-sm dark:text-surface-400 text-surface-500 hover:text-brand-400 transition-colors">{{ .Title }}</a></li>
+          <li><a href="{{ .RelPermalink }}" class="text-sm dark:text-surface-400 text-surface-500 hover:text-brand-400 transition-colors">{{ .Title }}</a></li>
           {{ end }}
         </ul>
       </div>

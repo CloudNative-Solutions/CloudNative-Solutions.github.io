@@ -1,4 +1,4 @@
 ---
 title: "Our Services"
-description: "End-to-end cloud-native services — from infrastructure design to day-2 operations. Kubernetes, CI/CD, observability, and everything in between."
+description: "End-to-end cloud native solutions — from Kubernetes and DevOps to AI infrastructure and security. We build, operate, and secure production platforms."
 ---

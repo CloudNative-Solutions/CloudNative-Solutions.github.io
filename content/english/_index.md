@@ -4,7 +4,7 @@ title: "Cloud Native Solutions"  # This is the meta title for the page
 # Banner
 banner:
   title: "YOUR ON-DEMAND DEVOPS TEAM"
-  content: "Senior engineers who build, run, and scale your cloud infrastructure. Kubernetes-native. CNCF ecosystem. No juniors, no handoffs — just results. Since 2021, we've been the DevOps team behind startups and enterprises across healthcare, cloud computing, and marketing."
+  content: "We build and operate cloud native platforms — from Kubernetes infrastructure to AI-powered DevOps. Senior engineers only. No juniors on your project."
   image: "/images/banner.png"
   button:
     enable: true

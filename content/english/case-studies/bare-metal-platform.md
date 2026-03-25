@@ -48,6 +48,7 @@ We deployed a bare-metal Kubernetes cluster using Cluster API with Tinkerbell fo
 - **LLM Gateway:** LiteLLM routing to multiple AI providers
 - **Observability:** Langfuse for LLM tracing and evaluation
 - **Chat Interface:** Open WebUI for model interaction
+- **Local Inference:** NVIDIA DGX Spark running Qwen models — zero-latency, zero-cost local LLM serving
 - **Agent Platform:** 18 AI agents with orchestration layer
 - **Automation:** n8n workflows, NATS messaging
 
@@ -64,4 +65,5 @@ We deployed a bare-metal Kubernetes cluster using Cluster API with Tinkerbell fo
 - **30+ Ceph-backed persistent volumes** across workloads
 - **15+ services** with SSO via Keycloak
 - **Full CNCF stack** — no vendor lock-in
+- **Local AI inference** via NVIDIA DGX Spark — zero API costs for development and testing
 - **Single git repo** manages everything — infrastructure to applications

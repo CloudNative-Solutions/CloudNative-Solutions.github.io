@@ -53,9 +53,29 @@ Every LLM call is traced in Langfuse with:
 
 This is how we caught a bug where an agent was making 50 redundant API calls per request — $200/day in wasted tokens that would have been invisible without tracing.
 
+## NVIDIA DGX Spark: Local Inference
+
+Our latest addition to the AI stack is an **NVIDIA DGX Spark** — a compact powerhouse for local LLM inference. We run **Qwen models** on it for development, testing, and privacy-sensitive workloads.
+
+The DGX Spark slots into our existing architecture seamlessly. LiteLLM routes to it like any other provider:
+
+```
+Application → LiteLLM → DGX Spark (Qwen) — local, zero-cost
+                      → OpenAI / Anthropic / Google — cloud fallback
+```
+
+Benefits of local inference with DGX Spark:
+
+- **Zero API costs** — development and testing against real LLMs without burning cloud credits
+- **Full data privacy** — sensitive prompts never leave our network
+- **Sub-100ms latency** — no network round-trip to cloud providers
+- **Always available** — no rate limits, no provider outages, no quota issues
+
+LiteLLM makes the DGX Spark a first-class citizen alongside cloud providers. The same routing rules, failover logic, and cost tracking apply. An agent can use Qwen on the DGX Spark for routine tasks and fall back to Claude or GPT for complex reasoning — all transparent to the application code.
+
 ## Running Local Models
 
-LiteLLM can route to local models running on our network. We run Qwen and other open models on a local GPU server, and LiteLLM treats them identically to cloud providers. Zero code changes — just a routing rule.
+LiteLLM can route to any local model running on our network. Beyond the DGX Spark, we can target any OpenAI-compatible endpoint. LiteLLM treats them identically to cloud providers. Zero code changes — just a routing rule.
 
 ## What We'd Do Differently
 

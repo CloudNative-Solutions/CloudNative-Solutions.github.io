@@ -55,7 +55,7 @@ Total: 36 cores, 192GB RAM, 1.5TB NVMe storage. Rack-mounted in a home lab, conn
 ## What's Coming in This Series
 
 - **Part 2:** Bootstrapping — Tinkerbell, Cluster API, and automated provisioning
-- **Part 3:** The GitOps architecture — 84 apps, one repo, zero manual deployments
+- **Part 3:** The GitOps architecture — 84 apps, zero manual deployments
 - **Part 4:** Observability at scale — LGTM stack with multi-tenant Mimir
 - **Part 5:** Running an AI agent platform on Kubernetes
 

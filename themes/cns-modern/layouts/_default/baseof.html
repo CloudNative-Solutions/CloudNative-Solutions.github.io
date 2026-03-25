@@ -29,25 +29,28 @@
           },
           colors: {
             brand: {
-              50: '#EBF1FF',
-              100: '#D6E3FF',
-              200: '#A8C4FF',
-              300: '#7AA5FF',
-              400: '#4D86FF',
-              500: '#326CE5',
-              600: '#2857B8',
-              700: '#1E428A',
-              800: '#1A3A6B',
-              900: '#0F2340',
-              950: '#081526',
+              50: '#E6F3FF',
+              100: '#CCE7FF',
+              200: '#99CFFF',
+              300: '#66B7FF',
+              400: '#339FFF',
+              500: '#0086FF',   // CNCF Blue primary
+              600: '#006BCC',
+              700: '#005099',
+              800: '#003666',
+              900: '#001B33',
+              950: '#000E1A',
             },
             cncf: {
-              blue: '#446CA9',
-              'dark-blue': '#1C3A5F',
-              'light-blue': '#76C4E2',
+              blue: '#0086FF',
+              'dark-blue': '#003666',
+              'light-blue': '#66B7FF',
               teal: '#00B39F',
               green: '#00C49A',
               purple: '#6B5CE7',
+            },
+            k8s: {
+              blue: '#326CE5',
             },
             surface: {
               50: '#f8fafc',
@@ -112,7 +115,7 @@
 
     /* Gradient text */
     .gradient-text {
-      background: linear-gradient(135deg, #4D86FF, #326CE5, #446CA9, #4D86FF);
+      background: linear-gradient(135deg, #339FFF, #0086FF, #006BCC, #339FFF);
       background-size: 200% 200%;
       animation: gradient 8s ease infinite;
       -webkit-background-clip: text;
@@ -160,7 +163,7 @@
     /* Glow button */
     .btn-glow {
       position: relative;
-      background: linear-gradient(135deg, #326CE5, #2857B8);
+      background: linear-gradient(135deg, #0086FF, #006BCC);
       transition: all 0.3s ease;
     }
     .btn-glow:hover {
@@ -178,7 +181,7 @@
     }
     html:not(.dark) .btn-outline {
       border: 1px solid rgba(50, 108, 229, 0.4);
-      color: #326CE5;
+      color: #0086FF;
     }
     html:not(.dark) .btn-outline:hover {
       background: rgba(50, 108, 229, 0.05);
@@ -190,7 +193,7 @@
     .dark .prose-dark h1, .dark .prose-dark h2, .dark .prose-dark h3, .dark .prose-dark h4, .dark .prose-dark h5, .dark .prose-dark h6 { color: #f1f5f9; }
     .dark .prose-dark p, .dark .prose-dark li, .dark .prose-dark blockquote { color: #cbd5e1; }
     .dark .prose-dark strong { color: #f1f5f9; }
-    .dark .prose-dark a { color: #4D86FF; }
+    .dark .prose-dark a { color: #339FFF; }
     .dark .prose-dark a:hover { color: #7AA5FF; }
     .dark .prose-dark code {
       color: #7AA5FF;
@@ -200,10 +203,10 @@
     html:not(.dark) .prose-dark h1, html:not(.dark) .prose-dark h2, html:not(.dark) .prose-dark h3, html:not(.dark) .prose-dark h4, html:not(.dark) .prose-dark h5, html:not(.dark) .prose-dark h6 { color: #1E293B; }
     html:not(.dark) .prose-dark p, html:not(.dark) .prose-dark li, html:not(.dark) .prose-dark blockquote { color: #334155; }
     html:not(.dark) .prose-dark strong { color: #1E293B; }
-    html:not(.dark) .prose-dark a { color: #326CE5; }
-    html:not(.dark) .prose-dark a:hover { color: #2857B8; }
+    html:not(.dark) .prose-dark a { color: #0086FF; }
+    html:not(.dark) .prose-dark a:hover { color: #006BCC; }
     html:not(.dark) .prose-dark code {
-      color: #326CE5;
+      color: #0086FF;
       background: rgba(50, 108, 229, 0.06);
     }
     .prose-dark code {

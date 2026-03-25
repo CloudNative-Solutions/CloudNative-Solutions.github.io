@@ -18,7 +18,7 @@ We needed to run our entire platform: CI/CD pipelines, container registry, monit
 Quick napkin math for our workload on AWS:
 - 3x m6i.xlarge instances: ~$450/mo
 - EKS control plane: $73/mo
-- EBS storage (900GB): ~$90/mo
+- EBS storage (1.5TB): ~$90/mo
 - ALB + data transfer: ~$150/mo
 - RDS for Keycloak + apps: ~$200/mo
 - S3 for backups + artifacts: ~$50/mo
@@ -44,12 +44,12 @@ Spoiler: yes.
 ## The Hardware
 
 3x Intel NUC 13 Pro:
-- Intel Core i7-1360P (12 cores, 16 threads)
+- Intel Core i5-1350P (12 cores, 16 threads)
 - 64GB DDR4 RAM each
-- 300GB NVMe SSD each
+- 500GB NVMe SSD each
 - 2.5GbE networking
 
-Total: 36 cores, 192GB RAM, 900GB NVMe storage. Rack-mounted in a home lab, connected to a UPS.
+Total: 36 cores, 192GB RAM, 1.5TB NVMe storage. Rack-mounted in a home lab, connected to a UPS.
 
 ## What's Coming in This Series
 

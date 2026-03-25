@@ -14,7 +14,7 @@ banner:
 # Features
 features:
   - title: "We architect, operate, and maintain reliable cloud infrastructure "
-    image: "/images/feature-1.webp"
+    image: "/images/feature-1.png"
     content: "so you ship faster without hiring a full DevOps team.
     </br></br>
     Get senior-level Kubernetes, CI/CD, and infrastructure expertise on demand — at a fraction of the cost of building in-house."
@@ -24,7 +24,7 @@ features:
       link: "about/"
 
   - title: ""
-    image: "/images/feature-2.webp"
+    image: "/images/feature-2.png"
     content: "**Fully Managed** — We operate as your dedicated DevOps team. Infrastructure design, GitOps pipelines, observability, security hardening — end to end.
 
     **Team Augmentation** — Your team, supercharged. We embed senior engineers who bring deep Kubernetes and cloud-native expertise to accelerate your roadmap."

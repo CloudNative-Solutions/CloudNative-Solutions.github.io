@@ -1,7 +1,7 @@
 ---
 title: "AWS OpsWorks to AWS Fargate Migration"
 meta_title: "Case Studies"
-image: /images/case-studies/opsworks-to-fargate.webp
+image: /images/case-studies/opsworks-to-fargate.png
 description: "Learn how Cloud Native Solutions migrated a Django-based infrastructure from AWS OpsWorks to AWS Fargate, improving scalability, deployment, and management."
 ---
 ## Introduction

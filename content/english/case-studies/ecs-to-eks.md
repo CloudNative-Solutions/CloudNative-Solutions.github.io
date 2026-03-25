@@ -1,6 +1,6 @@
 ---
 title: "AWS ECS to AWS EKS migration"
-image: /images/case-studies/ecs-to-eks.webp
+image: /images/case-studies/ecs-to-eks.png
 meta_title: "Case Studies"
 description: "Learn how Cloud Native Solutions migrated a software development company's container-based infrastructure from Amazon ECS to Kubernetes, enhancing deployment processes, monitoring, and scalability."
 ---

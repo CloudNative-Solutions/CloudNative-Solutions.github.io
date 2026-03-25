@@ -84,12 +84,11 @@ Not everything has a good upstream chart. We maintain our own for:
 | Chart | Why |
 |-------|-----|
 | `capt-cluster` | Cluster API + Tinkerbell cluster definition |
-| `openclaw` | OpenClaw gateway deployment |
 | `mission-control` | Internal project tracker (Convex + Next.js) |
 | `devops-ai-web` | DevOps AI platform frontend |
 | `o8s-cloner` | Infrastructure cloning tool |
 | `o8s-agents` | AI agent fleet deployment |
-| `paperclip` | Document processing service |
+
 | `synapse` | Matrix homeserver with custom config |
 | `ops-dashboard` | Operations dashboard |
 | `postfix` | SMTP relay (Postfix + iCloud SASL auth) |

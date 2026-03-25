@@ -1,73 +1,145 @@
 ---
-title: "Building an Enterprise Platform on Bare Metal — Part 3: GitOps for 84 Applications"
+title: "Building an Enterprise Platform on Bare Metal — Part 3: One Repo to Rule 84 Applications"
 date: 2026-03-24
 author: "Marius Oprin"
 image: "/images/services/platform-engineering.png"
-tags: ["kubernetes", "gitops", "argocd", "kargo", "series"]
+tags: ["kubernetes", "gitops", "argocd", "kargo", "helm", "series"]
 draft: false
 ---
 
-One git repository. 84 applications. Zero manual deployments. Here's how we structured our GitOps architecture.
+The hardest part of managing 84 applications isn't deploying them. It's keeping them from turning into a dumpster fire of configuration drift, secret sprawl, and "I swear I only changed one thing."
 
-## The App-of-Apps Pattern
+This is how we structured a single GitOps repository that manages everything — from Istio mesh configs to AI agent deployments — without losing our minds.
 
-ArgoCD's app-of-apps pattern is how we manage scale. Instead of creating 84 individual ArgoCD Application resources manually, we organize apps into categories:
+## The Repo Structure
+
+Forget flat directories. At 84 apps, you need hierarchy or you'll drown:
 
 ```
-mgmt-cluster/
-  apps/
-    agentic/          # 17 AI/ML apps
-    devops/           # 12 CI/CD apps  
-    observability/    # 12 monitoring apps
-    security/         # 7 security apps
-    identity/         # 4 IAM apps
-    infrastructure/   # 8 infra apps
-    networking/       # 3 network apps
-    storage/          # 2 storage apps
-    service-mesh/     # 4 mesh apps
-    collaboration/    # 3 collab apps
-    ...
+gitops/
+├── bootstrap/          # Tinkerbell + Ansible (Day 0)
+├── catalog/
+│   └── helm-charts/    # 11 custom charts we maintain
+├── environments/
+│   └── mgmt/           # Per-cluster values
+├── mgmt-cluster/
+│   └── apps/
+│       ├── agentic/        # 17 apps — LiteLLM, Langfuse, agents, Open WebUI
+│       ├── devops/         # 12 apps — ArgoCD, Argo Workflows, Harbor, Gitea, Kargo
+│       ├── observability/  # 12 apps — Grafana, Mimir, Loki, Tempo, Sentry, Pyroscope
+│       ├── security/       # 7 apps  — Vault, Falco, Kyverno, External Secrets
+│       ├── identity/       # 4 apps  — Keycloak, CloudNativePG, Bank-Vaults
+│       ├── infrastructure/ # 8 apps  — Traefik, cert-manager, MetalLB, Postfix
+│       ├── service-mesh/   # 4 apps  — Istio, Kiali
+│       ├── networking/     # 3 apps  — Tailscale
+│       ├── storage/        # 2 apps  — Rook-Ceph operator + cluster
+│       ├── collaboration/  # 3 apps  — Nextcloud, Synapse, n8n
+│       ├── resilience/     # 3 apps  — VPA, descheduler, kured
+│       └── backstage/      # 1 app   — Developer portal
+└── scripts/                # Operational tooling
 ```
 
-Each category has a Kustomization that references its apps. A root Application points to all categories. Add a new app? Create a YAML file, commit, push — ArgoCD picks it up automatically.
+Every category has a `kustomization.yaml` that lists its ArgoCD Application manifests. A root app points to all categories. ArgoCD recurses from the top and discovers everything automatically.
 
-## Self-Healing with ArgoCD
+## The Actual ArgoCD Application Manifest
 
-Every application has `selfHeal: true` and `prune: true`:
+Here's what a real app looks like in our repo — not a tutorial example, but how we deploy LiteLLM:
 
 ```yaml
-syncPolicy:
-  automated:
-    prune: true
-    selfHeal: true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: litellm
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/BerriAI/litellm
+    targetRevision: litellm-helm-v6.24.6
+    path: deploy/charts/litellm-helm
+    helm:
+      valueFiles:
+        - $values/environments/mgmt/agentic/litellm-values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: litellm
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
 ```
 
-Someone `kubectl edit`s a deployment directly? ArgoCD reverts it within seconds. This is how we ensure the git repo is always the source of truth. No drift, no surprises.
+Key decisions:
+- **`selfHeal: true`** everywhere. Non-negotiable. We learned this when someone ran `kubectl set resources` on Velero at 1 AM and ArgoCD reverted it in 3 seconds. Annoying in the moment, lifesaving long-term.
+- **`ServerSideApply=true`** for apps with large CRDs (Istio, cert-manager). Without it, the `kubectl.kubernetes.io/last-applied-configuration` annotation exceeds the 256KB annotation limit and ArgoCD sync fails.
+- **`CreateNamespace=true`** — let ArgoCD own namespace creation. Never pre-create namespaces manually.
 
-## Environment Promotion with Kargo
+## 11 Custom Helm Charts We Maintain
 
-Kargo handles promotion pipelines across environments. When a new Helm chart version is pushed to our registry, Kargo:
+Not everything has a good upstream chart. We maintain our own for:
 
-1. Detects the new version
-2. Updates the values file in the gitops repo
-3. Creates a PR (or auto-promotes for non-production)
-4. ArgoCD syncs the change
+| Chart | Why |
+|-------|-----|
+| `capt-cluster` | Cluster API + Tinkerbell cluster definition |
+| `openclaw` | OpenClaw gateway deployment |
+| `mission-control` | Internal project tracker (Convex + Next.js) |
+| `devops-ai-web` | DevOps AI platform frontend |
+| `o8s-cloner` | Infrastructure cloning tool |
+| `o8s-agents` | AI agent fleet deployment |
+| `paperclip` | Document processing service |
+| `synapse` | Matrix homeserver with custom config |
+| `ops-dashboard` | Operations dashboard |
+| `postfix` | SMTP relay (Postfix + iCloud SASL auth) |
+| `common` | Shared templates and helpers |
 
-This gives us a clear audit trail: who promoted what, when, and why.
+Each chart lives in `catalog/helm-charts/` and is referenced by ArgoCD apps. We version them via git tags and use ArgoCD's multi-source feature to combine upstream charts with our custom values.
 
-## Custom Helm Charts
+## The Velero Incident: Why Self-Heal Matters
 
-We maintain 11 custom Helm charts in our `catalog/`:
-- Platform applications (Mission Control, DevOps AI, O8s Cloner)
-- Infrastructure utilities (Postfix relay, common templates)
-- Each chart follows a consistent structure with sensible defaults
+2 AM. Velero's nodeAgent OOMKills during daily backups — second night in a row. The fix is simple: bump memory from 512Mi to 1Gi.
 
-## The Golden Rule
+The wrong way (what we tried first):
+```bash
+kubectl set resources deployment/velero -n velero --limits=memory=1Gi
+```
 
-**Never `kubectl apply` in production.** Every change goes through git. Even "quick fixes." Especially quick fixes.
+ArgoCD reverted it in 3 seconds flat. The deployment rolled out twice — once for our change, once for ArgoCD's revert. Net effect: nothing.
 
-We learned this the hard way when ArgoCD's self-heal reverted a manual `kubectl set resources` change within seconds. That was the day we committed to pure GitOps — and it's been worth every extra minute spent on PRs.
+The right way:
+```bash
+# Edit the values file in the gitops repo
+vim environments/mgmt/cluster-management/velero-values.yaml
+# Change nodeAgent.resources.limits.memory: 1Gi
+git commit -m "fix(velero): bump nodeAgent memory 512Mi→1Gi"
+git push
+```
+
+ArgoCD synced within 30 seconds. Fixed permanently. Tracked in git history. No more OOMKills.
+
+**This is the entire point of GitOps.** The pain of "I can't just kubectl it" pays off every single time something breaks at 2 AM and you need to know exactly what changed.
+
+## Kargo: Promotion Pipelines
+
+We use Kargo for version promotion across environments. When Harbor builds a new container image:
+
+1. Kargo detects the new tag
+2. Opens a promotion to update the gitops values
+3. ArgoCD syncs the new version
+4. If health checks fail, Kargo blocks further promotion
+
+It's still early (Kargo is pre-1.0), but it already handles our most annoying workflow: "new image was pushed, now update 3 values files and make sure nothing breaks."
+
+## What I'd Do Differently
+
+**Start with app-of-apps from day one.** We initially created ArgoCD apps manually via the UI. By app #15, it was chaos. Migrating to app-of-apps retroactively meant recreating every Application as a YAML manifest and importing existing resources — a weekend of work that should have been avoided.
+
+**Use ApplicationSets for repeated patterns.** We have 4 ApplicationSets for things deployed identically to every node (Alloy, kube-state-metrics, metrics-server, Prometheus CRDs). Should have used more.
+
+**Pin Helm chart versions aggressively.** We had an incident where an unpinned chart auto-updated and broke Istio's mesh config. Now every `targetRevision` is explicit — no `HEAD`, no `main`, no `*`.
 
 ---
 
-*Next up: Part 4 — Observability at scale with the LGTM stack.*
+*Next: [Part 4](/blog/bare-metal-k8s-part4-observability/) — How we built multi-tenant observability with the LGTM stack.*

@@ -1,23 +1,28 @@
 {{ define "main" }}
 
 {{/* Hero */}}
-<section class="pt-32 pb-16 hero-gradient relative">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-    <div class="max-w-2xl">
-      <p class="text-brand-400 font-medium text-sm uppercase tracking-wider mb-3">What We Do</p>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold dark:text-surface-50 text-surface-900 mb-4">{{ .Title }}</h1>
-      <p class="text-lg dark:text-surface-400 text-surface-500">End-to-end cloud native solutions to accelerate your business and streamline operations.</p>
+<section class="relative pt-32 pb-16 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background-image: linear-gradient(rgba(148,163,184,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.04) 1px,transparent 1px); background-size: 80px 80px;"></div>
+  <div class="absolute pointer-events-none" style="top:-10%;left:50%;transform:translateX(-50%);width:800px;height:500px;background:radial-gradient(ellipse,rgba(0,134,255,.18),transparent 60%);filter:blur(40px);"></div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+    <div class="max-w-3xl reveal">
+      <p class="eyebrow-v2">What we do</p>
+      <h1 class="h-section dark:text-surface-50 text-surface-900 mb-5">
+        {{ .Title }} <em class="italic-ghost">&mdash; end-to-end.</em>
+      </h1>
+      <p class="text-lg leading-relaxed dark:text-surface-400 text-surface-500 max-w-[620px]">
+        We build, operate, and hand back cloud-native platforms &mdash; Kubernetes, CI/CD, IaC, observability, security. Senior engineers only. No juniors on your project.
+      </p>
     </div>
   </div>
-  <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t dark:from-surface-950 from-white to-transparent"></div>
 </section>
 
 {{/* Services Grid */}}
-<section class="py-16 pb-24">
+<section class="pb-24">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {{ range .Pages }}
-      <a href="{{ .RelPermalink }}" class="glass-card rounded-xl p-8 group reveal">
+      <a href="{{ .RelPermalink }}" class="glass-card rounded-xl p-7 reveal hover-group block">
         {{/* Icon */}}
         <div class="icon-container w-12 h-12 rounded-lg flex items-center justify-center mb-5">
           {{ if eq .Title "CI/CD Pipelines" }}
@@ -37,12 +42,12 @@
           {{ end }}
         </div>
 
-        <h3 class="text-xl font-semibold dark:text-surface-100 text-surface-800 mb-3 group-hover:text-brand-300 transition-colors">{{ .Title }}</h3>
-        <p class="dark:text-surface-400 text-surface-500 text-sm leading-relaxed line-clamp-4">{{ .Summary | plainify }}</p>
+        <h3 class="text-xl font-semibold dark:text-surface-50 text-surface-900 mb-3 leading-snug">{{ .Title }}</h3>
+        <p class="dark:text-surface-400 text-surface-500 text-[14.5px] leading-[1.55] line-clamp-4">{{ .Summary | plainify }}</p>
 
-        <div class="mt-5 flex items-center text-brand-400 text-sm font-medium">
+        <div class="mt-5 inline-flex items-center gap-1.5 text-brand-400 text-sm font-medium">
           Learn more
-          <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          <svg class="w-3.5 h-3.5 hover-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </div>
       </a>
       {{ end }}

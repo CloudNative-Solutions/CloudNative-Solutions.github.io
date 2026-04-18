@@ -1,8 +1,10 @@
 ---
 title: "Enterprise Platform on Bare Metal: 84 Apps, 3 Nodes, Zero Cloud Bills"
 meta_title: "Case Studies"
-description: "How we built an enterprise-grade Kubernetes platform on 3 Intel NUCs with full CNCF stack"
+description: "Production-grade Kubernetes on 3 Intel NUC mini-PCs with the full CNCF stack &mdash; 84 apps managed via GitOps. No cloud provider, no managed services, no monthly bills."
 image: /images/case-studies/bare-metal-platform.png
+short: "Bare Metal Platform"
+tags: ["Cluster API", "Tinkerbell", "Argo CD", "Rook-Ceph", "Cilium", "Vault"]
 draft: false
 weight: 1
 ---

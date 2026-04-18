@@ -1,33 +1,48 @@
 {{ define "main" }}
 
 {{/* Hero */}}
-<section class="pt-32 pb-16 hero-gradient relative">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-    <div class="max-w-2xl">
-      <p class="text-brand-400 font-medium text-sm uppercase tracking-wider mb-3">Real-World Results</p>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold dark:text-surface-50 text-surface-900 mb-4">Case Studies</h1>
-      <p class="text-lg dark:text-surface-400 text-surface-500">How we've helped companies modernize their cloud infrastructure and accelerate delivery.</p>
+<section class="relative pt-32 pb-16 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background-image: linear-gradient(rgba(148,163,184,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.04) 1px,transparent 1px); background-size: 80px 80px;"></div>
+  <div class="absolute pointer-events-none" style="top:-20%;left:60%;width:700px;height:500px;background:radial-gradient(ellipse,rgba(147,234,255,.12),transparent 60%);filter:blur(60px);"></div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+    <div class="max-w-3xl reveal">
+      <p class="eyebrow-v2 eyebrow-dot eyebrow-turquoise">Proven in production</p>
+      <h1 class="h-section dark:text-surface-50 text-surface-900 mb-5">
+        We don&#39;t sell slideware. <em class="italic-ghost">We ship platforms.</em>
+      </h1>
+      <p class="text-lg leading-relaxed dark:text-surface-400 text-surface-500 max-w-[620px]">
+        Real engagements &mdash; migrations, rebuilds, platform lifts. Every case below shipped to production with our team on-call.
+      </p>
     </div>
   </div>
-  <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t dark:from-surface-950 from-white to-transparent"></div>
 </section>
 
 <section class="py-16 pb-24">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {{ range .Pages }}
-      <a href="{{ .RelPermalink }}" class="glass-card rounded-xl overflow-hidden group reveal flex flex-col">
+      <a href="{{ .RelPermalink }}" class="glass-card-turq rounded-xl overflow-hidden reveal hover-group flex flex-col">
         {{ if .Params.image }}
-        <div class="aspect-video overflow-hidden">
-          <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="aspect-video overflow-hidden dark:bg-surface-900 bg-surface-100">
+          <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy">
         </div>
         {{ end }}
         <div class="p-6 flex flex-col flex-1">
-          <h3 class="text-xl font-semibold dark:text-surface-100 text-surface-800 mb-3 group-hover:text-brand-300 transition-colors leading-snug">{{ .Title }}</h3>
-          <p class="text-sm dark:text-surface-400 text-surface-500 line-clamp-3 flex-1">{{ .Description }}</p>
-          <div class="mt-5 flex items-center text-brand-400 text-sm font-medium">
+          {{ with .Params.short }}
+          <div class="font-mono text-[11px] tracking-[0.1em] uppercase mb-3" style="color:#93EAFF;">{{ . }}</div>
+          {{ end }}
+          <h3 class="text-xl font-semibold leading-[1.2] dark:text-surface-50 text-surface-900 mb-3 transition-colors">{{ .Title }}</h3>
+          <p class="text-sm leading-[1.55] dark:text-surface-400 text-surface-500 line-clamp-3 flex-1">{{ .Description }}</p>
+          {{ with .Params.tags }}
+          <div class="mt-5 pt-4 border-t dark:border-surface-800/60 border-surface-200 flex flex-wrap gap-1.5">
+            {{ range first 4 . }}
+            <span class="font-mono text-[11px] px-2 py-0.5 rounded dark:bg-surface-800/60 bg-surface-100 dark:text-surface-400 text-surface-500">{{ . }}</span>
+            {{ end }}
+          </div>
+          {{ end }}
+          <div class="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium" style="color:#93EAFF;">
             Read case study
-            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            <svg class="w-3.5 h-3.5 hover-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </div>
         </div>
       </a>

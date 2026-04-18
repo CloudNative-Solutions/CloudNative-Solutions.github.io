@@ -1,14 +1,15 @@
 {{ define "main" }}
 
 {{/* Hero */}}
-<section class="pt-32 pb-16 hero-gradient relative">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-    <div class="max-w-3xl">
-      <p class="text-brand-400 font-medium text-sm uppercase tracking-wider mb-3">About Us</p>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold dark:text-surface-50 text-surface-900 mb-6">{{ .Title }}</h1>
+<section class="relative pt-32 pb-16 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background-image: linear-gradient(rgba(148,163,184,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.04) 1px,transparent 1px); background-size: 80px 80px;"></div>
+  <div class="absolute pointer-events-none" style="top:-10%;left:50%;transform:translateX(-50%);width:800px;height:500px;background:radial-gradient(ellipse,rgba(0,134,255,.15),transparent 60%);filter:blur(40px);"></div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+    <div class="max-w-3xl reveal">
+      <p class="eyebrow-v2">About us</p>
+      <h1 class="h-section dark:text-surface-50 text-surface-900 mb-5">{{ .Title }}</h1>
     </div>
   </div>
-  <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t dark:from-surface-950 from-white to-transparent"></div>
 </section>
 
 {{/* Main about content */}}

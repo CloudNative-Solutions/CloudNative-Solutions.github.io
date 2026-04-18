@@ -2,7 +2,9 @@
 title: "AWS OpsWorks to AWS Fargate Migration"
 meta_title: "Case Studies"
 image: /images/case-studies/opsworks-to-fargate.png
-description: "Learn how Cloud Native Solutions migrated a Django-based infrastructure from AWS OpsWorks to AWS Fargate, improving scalability, deployment, and management."
+description: "Legacy OpsWorks Chef cookbooks replaced with container-native Fargate services &mdash; GitLab CI, Terraform, custom base image."
+short: "OpsWorks → Fargate"
+tags: ["AWS Fargate", "GitLab CI", "Terraform", "Docker", "ECR"]
 ---
 ## Introduction
 

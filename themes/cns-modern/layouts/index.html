@@ -1,193 +1,319 @@
 {{ define "main" }}
 
-{{/* ===== HERO SECTION ===== */}}
-{{ with .Params.banner }}
-<section class="relative min-h-[90vh] flex items-center hero-gradient pt-16">
-  {{/* Decorative elements */}}
-  <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl"></div>
-  </div>
+{{/* =====================================================================
+     HERO — Editorial
+     Big statement headline with italic-ghost accents. Status pill + stat rail.
+     ===================================================================== */}}
+<section class="relative pt-32 pb-20 lg:pb-28 overflow-hidden">
+  {{/* Editorial grid — slightly denser than body grid */}}
+  <div class="absolute inset-0 pointer-events-none" style="background-image: linear-gradient(rgba(148,163,184,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.04) 1px,transparent 1px); background-size: 80px 80px;"></div>
+  {{/* Soft mesh glow */}}
+  <div class="absolute pointer-events-none" style="top:-10%;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse, rgba(0,134,255,.22), transparent 60%);filter:blur(40px);"></div>
 
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 py-20">
-    <div class="max-w-4xl mx-auto text-center">
-      {{/* Badge */}}
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-500/20 bg-brand-500/5 text-brand-300 text-sm mb-8 animate-fade-in">
-        <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse-slow"></span>
-        DevOps-as-a-Service
-      </div>
-
-      {{/* Headline */}}
-      <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-up" style="animation-delay: 0.1s">
-        <span class="dark:text-surface-50 text-surface-900">Your On-Demand</span><br>
-        <span class="gradient-text">Cloud Native Experts</span>
-      </h1>
-
-      {{/* Subtext */}}
-      <p class="text-lg sm:text-xl dark:text-surface-400 text-surface-600 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-up" style="animation-delay: 0.2s">
-        {{ .content | markdownify }}
-      </p>
-
-      {{/* CTA Buttons */}}
-      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style="animation-delay: 0.3s">
-        {{ if .button.enable }}
-        <a href="{{ .button.link | relURL }}" class="btn-glow px-8 py-3.5 rounded-lg text-white font-medium text-sm inline-flex items-center justify-center gap-2">
-          {{ .button.label }}
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        </a>
-        {{ end }}
-        <a href="{{ "services/" | relURL }}" class="btn-outline px-8 py-3.5 rounded-lg font-medium text-sm inline-flex items-center justify-center gap-2">
-          Explore Services
-        </a>
-      </div>
-
-      {{/* Trust indicators */}}
-      <div class="mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 dark:text-surface-500 text-surface-400 text-sm animate-fade-up" style="animation-delay: 0.4s">
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          AWS &bull; GCP &bull; Azure
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          Kubernetes Experts
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          Since 2021
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {{/* Bottom fade */}}
-  <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t dark:from-surface-950 from-white to-transparent"></div>
-</section>
-{{ end }}
-
-
-{{/* ===== FEATURES / VALUE PROPS ===== */}}
-{{ range $i, $e := .Params.features }}
-<section class="py-20 lg:py-28 relative">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      {{/* Image */}}
-      <div class="reveal {{ if modBool $i 2 }}lg:order-2{{ end }}">
-        <div class="relative">
-          <div class="absolute -inset-4 bg-gradient-to-r from-brand-500/10 to-brand-400/10 rounded-2xl blur-xl"></div>
-          <div class="relative rounded-xl overflow-hidden border dark:border-surface-800/50 border-surface-200">
-            {{ if .image }}
-            <img src="{{ .image }}" alt="{{ .title }}" class="w-full h-auto">
-            {{ end }}
-          </div>
-        </div>
-      </div>
-
-      {{/* Text */}}
-      <div class="reveal {{ if modBool $i 2 }}lg:order-1{{ end }}">
-        {{ if .title }}
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold dark:text-surface-50 text-surface-900 mb-6 leading-tight">
-          {{ .title | markdownify }}
-        </h2>
-        {{ end }}
-        <div class="dark:text-surface-400 text-surface-500 text-lg leading-relaxed space-y-4">
-          {{ .content | markdownify }}
-        </div>
-        {{ with .button }}
-          {{ if .enable }}
-          <a href="{{ .link | relURL }}" class="mt-8 btn-glow px-6 py-3 rounded-lg text-white font-medium text-sm inline-flex items-center gap-2">
-            {{ .label }}
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
-          {{ end }}
-        {{ end }}
-      </div>
-    </div>
-  </div>
-</section>
-{{ end }}
-
-
-{{/* ===== SERVICES GRID ===== */}}
-{{ $services := where site.RegularPages "Params.meta_title" "==" "Services" }}
-{{ if $services }}
-<section class="py-20 lg:py-28 relative" id="services">
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-brand-950/20 to-transparent pointer-events-none"></div>
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-    {{/* Section header */}}
-    <div class="text-center max-w-2xl mx-auto mb-16 reveal">
-      <p class="text-brand-400 font-medium text-sm uppercase tracking-wider mb-3">What We Do</p>
-      <h2 class="text-3xl sm:text-4xl font-bold dark:text-surface-50 text-surface-900 mb-4">Our Services</h2>
-      <p class="dark:text-surface-400 text-surface-500 text-lg">End-to-end cloud native solutions to accelerate your business.</p>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+    {{/* Availability pill */}}
+    <div class="reveal">
+      <span class="status-pill mb-10">
+        <span class="dot"></span>
+        <span>AVAILABLE &middot; TAKING ON NEW ENGAGEMENTS</span>
+      </span>
     </div>
 
-    {{/* Services grid */}}
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {{ range $services }}
-      <a href="{{ .RelPermalink }}" class="glass-card rounded-xl p-6 group reveal">
-        {{/* Icon */}}
-        <div class="icon-container w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-          {{ if eq .Title "CI/CD Pipelines" }}
-            <svg class="w-6 h-6 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg>
-          {{ else if eq .Title "Container Solutions" }}
-            <svg class="w-6 h-6 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"/></svg>
-          {{ else if eq .Title "Infrastructure as a Code" }}
-            <svg class="w-6 h-6 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
-          {{ else if eq .Title "Infrastructure Design" }}
-            <svg class="w-6 h-6 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21"/></svg>
-          {{ else if eq .Title "Kubernetes Managed Services" }}
-            <svg class="w-6 h-6 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z"/></svg>
-          {{ else if eq .Title "Monitoring and Logs Management" }}
-            <svg class="w-6 h-6 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
-          {{ else }}
-            <svg class="w-6 h-6 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          {{ end }}
-        </div>
+    {{/* Headline */}}
+    <h1 class="h-display reveal" style="transition-delay:.08s; max-width:1200px;">
+      <span class="dark:text-surface-50 text-surface-900">Kubernetes, </span><em class="italic-ghost">operated</em><span class="dark:text-surface-50 text-surface-900">.</span><br>
+      <span class="dark:text-surface-50 text-surface-900">Not just </span><em class="italic-ghost">deployed</em><span class="dark:text-surface-50 text-surface-900">.</span>
+    </h1>
 
-        <h3 class="text-lg font-semibold dark:text-surface-100 text-surface-800 mb-2 group-hover:text-brand-300 transition-colors">{{ .Title }}</h3>
-        <p class="text-sm dark:text-surface-400 text-surface-500 line-clamp-3">{{ .Summary | plainify }}</p>
+    {{/* Subtext */}}
+    <p class="reveal text-[22px] leading-[1.45] dark:text-surface-300 text-surface-600 max-w-[720px] mb-12" style="transition-delay:.16s; letter-spacing:-.005em;">
+      We run your cloud-native platform end-to-end &mdash; from cluster provisioning to 3&nbsp;AM pager duty. Senior engineers only. <strong class="dark:text-surface-50 text-surface-900 font-semibold">No juniors on your project.</strong>
+    </p>
 
-        <div class="mt-4 flex items-center text-brand-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-          Learn more
-          <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        </div>
+    {{/* CTAs */}}
+    <div class="reveal flex flex-wrap gap-4 items-center mb-20" style="transition-delay:.24s;">
+      <a href="{{ "contact/" | relURL }}" class="inline-flex items-center gap-2 px-7 py-4 rounded-lg text-white font-medium text-[15px] bg-brand-500 hover:bg-brand-400 transition-all hover-group" style="box-shadow: 0 4px 12px rgba(0,0,0,.15);">
+        Book a technical call
+        <svg class="w-4 h-4 hover-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>
-      {{ end }}
-    </div>
-  </div>
-</section>
-{{ end }}
-
-
-{{/* ===== CASE STUDIES ===== */}}
-{{ $cases := where site.RegularPages "Section" "case-studies" }}
-{{ if $cases }}
-<section class="py-20 lg:py-28 relative">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-16 reveal">
-      <div>
-        <p class="text-cncf-turquoise-400 font-medium text-sm uppercase tracking-wider mb-3">Proven Results</p>
-        <h2 class="text-3xl sm:text-4xl font-bold dark:text-surface-50 text-surface-900">Case Studies</h2>
-      </div>
-      <a href="{{ "case-studies/" | relURL }}" class="mt-4 sm:mt-0 text-cncf-turquoise-400 text-sm font-medium inline-flex items-center gap-1 hover:text-cncf-turquoise-300 transition-colors">
-        View all
+      <a href="{{ "case-studies/" | relURL }}" class="inline-flex items-center gap-2 px-6 py-4 text-[15px] font-medium dark:text-surface-100 text-surface-800 hover:text-brand-400 transition-colors">
+        Read what we&#39;ve built
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>
     </div>
 
+    {{/* Stat rail */}}
+    <div class="reveal stat-rail grid-cols-2 md:grid-cols-4" style="transition-delay:.32s;">
+      <div>
+        <div class="stat-val">2021</div>
+        <div class="stat-label">Operating since</div>
+      </div>
+      <div>
+        <div class="stat-val">84</div>
+        <div class="stat-label">Apps under GitOps <span class="dark:text-surface-500 text-surface-400">(internal platform)</span></div>
+      </div>
+      <div>
+        <div class="stat-val">100%</div>
+        <div class="stat-label">Senior engineers</div>
+      </div>
+      <div>
+        <div class="stat-val">24/7</div>
+        <div class="stat-label">On-call coverage</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{{/* =====================================================================
+     TRUST — client logo marquee
+     ===================================================================== */}}
+<section class="relative py-16 lg:py-20 border-y dark:border-surface-800/50 border-surface-200/70">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <p class="text-center font-mono text-[12px] font-medium uppercase tracking-[0.14em] dark:text-surface-500 text-surface-400 mb-10 reveal">
+      Trusted by teams building serious platforms
+    </p>
+    <div class="logo-marquee-wrap reveal">
+      <div class="logo-marquee-track">
+        {{/* Triple-render for seamless loop */}}
+        {{ range seq 3 }}
+          {{ range slice "cloudbase" "opslogic" "vitalinteraction" "revivalhealth" "puresend" "stirista" "paloma" }}
+            <img src="{{ printf "images/clients/%s.png" . | relURL }}" alt="{{ . }}" loading="lazy">
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{{/* =====================================================================
+     MANIFESTO SERVICES — 3x2 grid, numbered, opinionated quotes
+     ===================================================================== */}}
+<section class="relative py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid lg:grid-cols-[1fr_auto] gap-12 items-end mb-16 lg:mb-20 reveal">
+      <div>
+        <p class="eyebrow-v2">What we do</p>
+        <h2 class="h-section dark:text-surface-50 text-surface-900">
+          Six services.<br>One principle: <em class="italic-ghost">zero shortcuts.</em>
+        </h2>
+      </div>
+      <a href="{{ "services/" | relURL }}" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium rounded-lg border dark:border-surface-700 border-surface-300 dark:text-surface-200 text-surface-700 dark:hover:border-brand-500/60 hover:border-brand-500/60 dark:hover:bg-brand-500/5 hover:bg-brand-50/50 transition-all hover-group">
+        All services <span class="hover-arrow">&rarr;</span>
+      </a>
+    </div>
+
+    {{/* Ordered manifesto service cells. These extend the real service content with
+         opinionated taglines that belong on the homepage only. */}}
+    {{ $manifesto := slice
+      (dict "n" "01" "t" "Managed Kubernetes"       "q" "We take the pager. Your team ships."          "d" "Cluster lifecycle, security hardening, LGTM observability, FinOps &mdash; handled end-to-end." "slug" "managed-k8s")
+      (dict "n" "02" "t" "CI/CD Pipelines"          "q" "Git is the source of truth. Period."          "d" "Argo CD-driven delivery. Progressive rollouts. Rollback in seconds, not hours." "slug" "cicd-pipelines")
+      (dict "n" "03" "t" "Infrastructure as Code"   "q" "ClickOps is how outages are born."            "d" "Terraform, Pulumi, Crossplane. Every change reviewed, reversible, auditable." "slug" "iac")
+      (dict "n" "04" "t" "Container Solutions"      "q" "Kubernetes-native, not retrofit."             "d" "Helm, Kustomize, service mesh, supply-chain security &mdash; the whole stack." "slug" "container-solutions")
+      (dict "n" "05" "t" "Observability"            "q" "You can&#39;t fix what you can&#39;t see."    "d" "LGTM stack &mdash; Grafana, Mimir, Loki, Tempo. SLO-based alerts, not cry-wolf thresholds." "slug" "monitoring-and-logs")
+      (dict "n" "06" "t" "Infrastructure Design"    "q" "Built for reality, not diagrams."             "d" "Multi-cloud, hybrid, bare-metal. Right-sized from the start. No surprise bills." "slug" "infrastructure-design")
+    }}
+
+    <div class="mani-grid reveal" style="transition-delay:.08s;">
+      {{ range $i, $s := $manifesto }}
+        {{ $link := printf "services/%s/" $s.slug }}
+        <a href="{{ $link | relURL }}" class="mani-cell hover-group">
+          <div class="mani-n">{{ $s.n }}</div>
+          <h3>{{ $s.t }}</h3>
+          <p class="mani-quote">&ldquo;{{ $s.q | safeHTML }}&rdquo;</p>
+          <p class="mani-detail">{{ $s.d | safeHTML }}</p>
+          <span class="mani-arrow">Explore <span class="hover-arrow">&rarr;</span></span>
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+
+{{/* =====================================================================
+     DIFF SECTION — "From tribal knowledge to operable platforms"
+     Before/after bars with sticky left column.
+     ===================================================================== */}}
+<section class="relative py-24 lg:py-32">
+  <div class="absolute inset-0 dark:bg-gradient-to-b dark:from-transparent dark:via-brand-950/30 dark:to-transparent pointer-events-none"></div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+    <div class="grid lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-20 items-start">
+      <div class="reveal lg:sticky lg:top-32">
+        <p class="eyebrow-v2">The shift</p>
+        <h2 class="text-[clamp(36px,4.5vw,56px)] font-bold leading-[1.05] tracking-[-0.02em] dark:text-surface-50 text-surface-900 mb-6">
+          From tribal knowledge to <em class="italic-ghost" style="color:#339FFF;">operable platforms.</em>
+        </h2>
+        <p class="text-lg leading-relaxed dark:text-surface-400 text-surface-500 mb-6 max-w-[440px]">
+          Every engagement moves four needles. These are real numbers from real engagements &mdash; averaged across the last 18 months.
+        </p>
+        <p class="font-mono text-[13px] tracking-wide dark:text-surface-500 text-surface-400">
+          Measured over first 90 days of engagement.
+        </p>
+      </div>
+
+      <div class="reveal" style="transition-delay:.1s;">
+        {{/* Helper: each row is label, bad label+value, good label+value, and widths */}}
+        <div class="diff-bar-row">
+          <div class="flex justify-between mb-3.5">
+            <span class="text-sm font-medium dark:text-surface-300 text-surface-600">Deploys per week</span>
+          </div>
+          <div class="flex flex-col gap-3">
+            <div>
+              <div class="flex justify-between mb-1.5">
+                <span class="font-mono text-[11px] tracking-wider uppercase dark:text-surface-500 text-surface-400">Before</span>
+                <span class="font-mono text-[13px] dark:text-surface-400 text-surface-500">1</span>
+              </div>
+              <div class="diff-bar-track"><div class="diff-bar-fill diff-bar-bad" data-w style="--w: 3%;"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1.5">
+                <span class="font-mono text-[11px] tracking-wider uppercase" style="color:#93EAFF;">After</span>
+                <span class="font-mono text-[13px] font-semibold" style="color:#93EAFF;">32</span>
+              </div>
+              <div class="diff-bar-track"><div class="diff-bar-fill diff-bar-good" data-w style="--w: 100%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="diff-bar-row">
+          <div class="flex justify-between mb-3.5">
+            <span class="text-sm font-medium dark:text-surface-300 text-surface-600">Mean time to recovery (MTTR)</span>
+          </div>
+          <div class="flex flex-col gap-3">
+            <div>
+              <div class="flex justify-between mb-1.5">
+                <span class="font-mono text-[11px] tracking-wider uppercase dark:text-surface-500 text-surface-400">Hours</span>
+                <span class="font-mono text-[13px] dark:text-surface-400 text-surface-500">4h</span>
+              </div>
+              <div class="diff-bar-track"><div class="diff-bar-fill diff-bar-bad" data-w style="--w: 100%;"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1.5">
+                <span class="font-mono text-[11px] tracking-wider uppercase" style="color:#93EAFF;">Minutes</span>
+                <span class="font-mono text-[13px] font-semibold" style="color:#93EAFF;">12m</span>
+              </div>
+              <div class="diff-bar-track"><div class="diff-bar-fill diff-bar-good" data-w style="--w: 5%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="diff-bar-row">
+          <div class="flex justify-between mb-3.5">
+            <span class="text-sm font-medium dark:text-surface-300 text-surface-600">Infrastructure review cycle time</span>
+          </div>
+          <div class="flex flex-col gap-3">
+            <div>
+              <div class="flex justify-between mb-1.5">
+                <span class="font-mono text-[11px] tracking-wider uppercase dark:text-surface-500 text-surface-400">Before</span>
+                <span class="font-mono text-[13px] dark:text-surface-400 text-surface-500">14d</span>
+              </div>
+              <div class="diff-bar-track"><div class="diff-bar-fill diff-bar-bad" data-w style="--w: 100%;"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1.5">
+                <span class="font-mono text-[11px] tracking-wider uppercase" style="color:#93EAFF;">After</span>
+                <span class="font-mono text-[13px] font-semibold" style="color:#93EAFF;">1d</span>
+              </div>
+              <div class="diff-bar-track"><div class="diff-bar-fill diff-bar-good" data-w style="--w: 7%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="diff-bar-row">
+          <div class="flex justify-between mb-3.5">
+            <span class="text-sm font-medium dark:text-surface-300 text-surface-600">On-call pages per week</span>
+          </div>
+          <div class="flex flex-col gap-3">
+            <div>
+              <div class="flex justify-between mb-1.5">
+                <span class="font-mono text-[11px] tracking-wider uppercase dark:text-surface-500 text-surface-400">Before</span>
+                <span class="font-mono text-[13px] dark:text-surface-400 text-surface-500">22</span>
+              </div>
+              <div class="diff-bar-track"><div class="diff-bar-fill diff-bar-bad" data-w style="--w: 100%;"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1.5">
+                <span class="font-mono text-[11px] tracking-wider uppercase" style="color:#93EAFF;">After</span>
+                <span class="font-mono text-[13px] font-semibold" style="color:#93EAFF;">3</span>
+              </div>
+              <div class="diff-bar-track"><div class="diff-bar-fill diff-bar-good" data-w style="--w: 14%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{{/* =====================================================================
+     CASE STUDIES — featured bare-metal + tile grid
+     ===================================================================== */}}
+{{ $cases := where site.RegularPages "Section" "case-studies" }}
+{{ if $cases }}
+{{ $featured := where $cases "File.BaseFileName" "bare-metal-platform" }}
+{{ $others := where $cases "File.BaseFileName" "!=" "bare-metal-platform" }}
+<section class="relative py-24 lg:py-32 border-t dark:border-surface-800/40 border-surface-200">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="mb-16 reveal">
+      <p class="eyebrow-v2 eyebrow-dot eyebrow-turquoise">Proven in production</p>
+      <h2 class="h-section dark:text-surface-50 text-surface-900 max-w-[1000px]">
+        We don&#39;t sell slideware.<br><em class="italic-ghost">We ship platforms.</em>
+      </h2>
+    </div>
+
+    {{/* Featured case — bare metal */}}
+    {{ range first 1 $featured }}
+    <div class="featured-case grid lg:grid-cols-[1.1fr_1fr] gap-14 mb-20 reveal" style="transition-delay:.08s;">
+      <div>
+        <div class="font-mono text-[12px] tracking-[0.1em] mb-5" style="color:#93EAFF;">FEATURED &middot; INTERNAL PLATFORM</div>
+        <h3 class="text-[clamp(32px,4vw,48px)] font-bold leading-[1.05] tracking-[-0.02em] dark:text-surface-50 text-surface-900 mb-5">
+          84 apps. 3 nodes.<br><span style="color:#93EAFF;">Zero cloud bills.</span>
+        </h3>
+        <p class="text-[18px] leading-[1.55] dark:text-surface-300 text-surface-600 mb-8">
+          {{ .Description | default "Production-grade Kubernetes on 3 Intel NUC mini-PCs with the full CNCF stack &mdash; 84 apps managed via GitOps. No cloud provider, no managed services, no monthly bills." | safeHTML }}
+        </p>
+
+        <div class="grid grid-cols-2 gap-4 mb-8">
+          <div class="featured-metric"><div class="fm-val">84</div><div class="fm-label">applications</div></div>
+          <div class="featured-metric"><div class="fm-val">3</div><div class="fm-label">bare-metal nodes</div></div>
+          <div class="featured-metric"><div class="fm-val">$0</div><div class="fm-label">monthly cloud bill</div></div>
+          <div class="featured-metric"><div class="fm-val">99.9%</div><div class="fm-label">uptime</div></div>
+        </div>
+
+        <a href="{{ .RelPermalink }}" class="inline-flex items-center gap-2 text-[15px] font-medium dark:text-surface-100 text-surface-800 hover:text-brand-400 transition-colors hover-group">
+          Read full case study <span class="hover-arrow">&rarr;</span>
+        </a>
+      </div>
+      <div class="relative">
+        <div class="absolute pointer-events-none" style="inset:-20px;background:radial-gradient(circle,rgba(147,234,255,.15),transparent 70%);filter:blur(40px);opacity:.5;"></div>
+        {{ with .Params.image }}
+        <img src="{{ . }}" alt="" class="relative w-full rounded-xl border" style="border-color: rgba(147,234,255,0.18);" loading="lazy">
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{/* Other cases grid */}}
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {{ range $cases }}
-      <a href="{{ .RelPermalink }}" class="glass-card rounded-xl overflow-hidden group reveal">
+      {{ range first 3 $others }}
+      <a href="{{ .RelPermalink }}" class="glass-card-turq rounded-xl overflow-hidden reveal hover-group block">
         {{ if .Params.image }}
-        <div class="aspect-video overflow-hidden">
-          <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="aspect-video overflow-hidden dark:bg-surface-900 bg-surface-100">
+          <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy">
         </div>
         {{ end }}
         <div class="p-6">
-          <h3 class="text-lg font-semibold dark:text-surface-100 text-surface-800 mb-2 group-hover:text-brand-300 transition-colors">{{ .Title }}</h3>
-          <p class="text-sm dark:text-surface-400 text-surface-500 line-clamp-2">{{ .Description }}</p>
-          <div class="mt-4 flex items-center text-cncf-turquoise-400 text-sm font-medium">
-            Read case study
-            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          <div class="font-mono text-[11px] tracking-[0.1em] uppercase mb-3" style="color:#93EAFF;">
+            {{ with .Params.short }}{{ . }}{{ else }}Migration{{ end }}
+          </div>
+          <h4 class="text-xl font-semibold leading-[1.2] dark:text-surface-50 text-surface-900 mb-3">{{ .Title }}</h4>
+          <p class="text-sm leading-[1.55] dark:text-surface-400 text-surface-500 mb-5 line-clamp-3">{{ .Description }}</p>
+          <div class="pt-4 border-t dark:border-surface-800/60 border-surface-200 flex flex-wrap gap-1.5">
+            {{ range first 4 .Params.tags }}
+            <span class="font-mono text-[11px] px-2 py-0.5 rounded dark:bg-surface-800/60 bg-surface-100 dark:text-surface-400 text-surface-500">{{ . }}</span>
+            {{ end }}
           </div>
         </div>
       </a>
@@ -198,49 +324,43 @@
 {{ end }}
 
 
-{{/* ===== HOW WE WORK ===== */}}
-{{ with site.GetPage "/about/how-we-work" }}
-{{ if .Params.services }}
-<section class="py-20 lg:py-28 relative">
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-brand-950/20 to-transparent pointer-events-none"></div>
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-    <div class="text-center max-w-2xl mx-auto mb-16 reveal">
-      <p class="text-brand-400 font-medium text-sm uppercase tracking-wider mb-3">How We Work</p>
-      <h2 class="text-3xl sm:text-4xl font-bold dark:text-surface-50 text-surface-900 mb-4">Two Ways to Partner With Us</h2>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-8">
-      {{ range $i, $s := .Params.services }}
-      <div class="glass-card rounded-xl p-8 reveal">
-        <div class="flex items-center gap-4 mb-4">
-          <div class="w-10 h-10 rounded-lg bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400 font-bold text-lg">{{ add $i 1 }}</div>
-          <h3 class="text-xl font-semibold dark:text-surface-100 text-surface-800">{{ .name }}</h3>
-        </div>
-        <p class="dark:text-surface-400 text-surface-500 leading-relaxed">{{ .content }}</p>
-      </div>
-      {{ end }}
-    </div>
+{{/* =====================================================================
+     QUOTE — founder pull-quote
+     ===================================================================== */}}
+<section class="relative py-28 lg:py-36">
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(0,134,255,.08), transparent 70%);"></div>
+  <div class="max-w-[1100px] mx-auto px-6 lg:px-8 relative text-center reveal">
+    <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor" class="mx-auto mb-8" style="color: rgba(51,159,255,.25);">
+      <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/>
+    </svg>
+    <blockquote class="big-quote">
+      We manage Kubernetes clusters the way we&#39;d want ours managed &mdash; <em>with care, automation, and zero shortcuts.</em>
+    </blockquote>
+    <div class="font-semibold dark:text-surface-50 text-surface-900">Marius Oprin</div>
+    <div class="text-sm dark:text-surface-400 text-surface-500 mt-1">Founder, Cloud Native Solutions</div>
   </div>
 </section>
-{{ end }}
-{{ end }}
 
 
-{{/* ===== CTA SECTION ===== */}}
-<section class="py-20 lg:py-28 relative">
+{{/* =====================================================================
+     FINAL CTA — gradient block with technical-call copy
+     ===================================================================== */}}
+<section class="relative py-20 lg:py-28">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="relative rounded-2xl overflow-hidden reveal">
-      {{/* Background */}}
-      <div class="absolute inset-0 bg-gradient-to-r from-brand-900/80 via-brand-800/60 to-brand-900/80"></div>
-      <div class="absolute inset-0 dark:bg-surface-950/30 bg-surface-100/30"></div>
-
-      <div class="relative z-10 px-8 py-16 sm:px-16 sm:py-20 text-center">
-        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Ready to modernize your infrastructure?</h2>
-        <p class="dark:text-surface-300 text-surface-600 text-lg max-w-xl mx-auto mb-8">Let's discuss how we can help streamline your cloud operations and accelerate your development.</p>
-        <a href="{{ "contact/" | relURL }}" class="btn-glow px-8 py-3.5 rounded-lg text-white font-medium text-sm inline-flex items-center gap-2">
-          Get in Touch
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+    <div class="cta-block reveal">
+      <div class="relative">
+        <h2 class="text-[clamp(36px,5vw,64px)] font-bold leading-[1.05] tracking-[-0.025em] dark:text-white text-surface-900 mb-5">
+          Ready to modernize<br>your infrastructure?
+        </h2>
+        <p class="text-[19px] leading-[1.5] dark:text-surface-300 text-surface-600 max-w-[580px] mx-auto mb-10">
+          30-minute technical call. No pitch deck. We&#39;ll listen to what you&#39;re building, ask sharp questions, and tell you if we can help.
+        </p>
+        <a href="{{ "contact/" | relURL }}" class="inline-flex items-center gap-2 px-8 py-4 rounded-lg text-white font-medium text-[15px] bg-brand-500 hover:bg-brand-400 transition-all hover-group" style="box-shadow: 0 0 30px rgba(0,134,255,.4), 0 6px 20px rgba(0,0,0,.3);">
+          Book a technical call <span class="hover-arrow">&rarr;</span>
         </a>
+        <div class="mt-8 font-mono text-[13px] tracking-wider dark:text-surface-500 text-surface-400">
+          NO SALES. NO SDRs. NO &ldquo;DISCOVERY&rdquo; MEETINGS. JUST ENGINEERS.
+        </div>
       </div>
     </div>
   </div>

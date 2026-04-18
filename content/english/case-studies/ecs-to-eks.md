@@ -2,7 +2,9 @@
 title: "AWS ECS to AWS EKS migration"
 image: /images/case-studies/ecs-to-eks.png
 meta_title: "Case Studies"
-description: "Learn how Cloud Native Solutions migrated a software development company's container-based infrastructure from Amazon ECS to Kubernetes, enhancing deployment processes, monitoring, and scalability."
+description: "Container-based infrastructure moved from ECS + CloudWatch to Kubernetes with LGTM observability and Argo CD."
+short: "AWS ECS → EKS"
+tags: ["AWS EKS", "Argo CD", "Cluster API", "Grafana", "LGTM"]
 ---
 
 #### Overview

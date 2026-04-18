@@ -5,84 +5,122 @@ author: "Marius Oprin"
 image: "/images/services/ai-infrastructure.png"
 tags: ["kubernetes", "ai", "llm", "agents", "litellm", "series"]
 draft: false
+description: "How we run 18 AI agents, an LLM gateway, and full LLM observability on the same three-node cluster — with local inference on an NVIDIA DGX Spark and cloud fallback behind one API."
+summary: "The most unexpected part of our bare-metal platform: 18 AI agents, an LLM gateway, and full LLM observability — all on the same three NUCs. Here is how LiteLLM, Langfuse, and a DGX Spark fit together."
 ---
 
-The most unexpected part of our bare-metal platform? It runs 18 AI agents, an LLM gateway, and full ML observability. On 3 NUCs.
+The most unexpected part of our bare-metal platform? It runs **18 AI agents**, an LLM gateway, and full LLM observability. On the same three NUCs as everything else — with a DGX Spark handling local inference on the side.
 
 ## The AI Stack
 
-Our AI platform runs entirely on Kubernetes alongside everything else:
+Everything runs as normal Kubernetes workloads alongside the rest of the platform:
 
-- **LiteLLM** — Unified API gateway for 100+ LLM providers. Routes requests to OpenAI, Anthropic, Google, local models, or any OpenAI-compatible endpoint. Handles failover, rate limiting, and cost tracking.
-- **Langfuse** — LLM observability platform. Every prompt, completion, token count, and latency is traced. Essential for debugging agent behavior and optimizing costs.
-- **Open WebUI** — Chat interface for interacting with any model through LiteLLM.
-- **Agent Orchestration** — 18 specialized AI agents with different models, tools, and permissions. Coordinated via NATS messaging and Argo Workflows.
+- **LiteLLM** — unified API gateway for 100+ LLM providers. One OpenAI-compatible endpoint in front of OpenAI, Anthropic, Google, our local DGX Spark, and anything else that speaks the protocol. Handles failover, rate limiting, cost tracking.
+- **Langfuse** — LLM observability. Every prompt, completion, token count, latency, and parent-child call relationship gets traced. Without this, debugging agent behaviour is guesswork.
+- **Open WebUI** — chat UI for interacting with any model through LiteLLM. The internal "ChatGPT replacement" that nobody uses OpenAI for anymore.
+- **18 agents** — specialised workers with different models, tools, and permissions. Coordinated through NATS messaging and Argo Workflows for multi-step jobs.
 
 ## Why Kubernetes for AI?
 
-Kubernetes gives us infrastructure primitives that AI workloads need:
+The Kubernetes primitives happen to be the right primitives for AI workloads:
 
-- **Resource limits** — prevent one agent from consuming all memory
-- **Auto-scaling** — spin up inference pods on demand
-- **Secrets management** — API keys for LLM providers stored in Vault, injected via External Secrets
-- **Networking** — agents communicate via internal services, isolated from the internet
-- **Observability** — same LGTM stack monitors AI workloads
+- **Resource limits** — a misbehaving agent can't consume the whole node.
+- **Horizontal scaling** — inference pods scale on queue depth, not clock.
+- **Secrets** — provider API keys live in Vault, injected via External Secrets Operator. Rotating a key means editing one `ExternalSecret`, not hunting through codebases.
+- **Network isolation** — agents talk to LiteLLM and NATS on the internal network, nothing else. The blast radius of a prompt-injection attack is small.
+- **Observability** — the LGTM stack from [Part 4](/blog/bare-metal-k8s-part4-observability/) monitors AI workloads the same way it monitors everything else.
 
 ## LiteLLM as the AI Gateway
 
-LiteLLM is the single entry point for all LLM requests. Instead of each application managing its own API keys and provider logic:
+LiteLLM is the single entry point for every LLM call in the cluster. No application talks to a provider directly.
 
 ```
-Application → LiteLLM → Provider (OpenAI, Anthropic, Google, local)
+Application → LiteLLM → Provider (OpenAI, Anthropic, Google, DGX Spark, …)
 ```
 
-Benefits:
-- **One API key rotation point** — change provider keys in one place
-- **Automatic failover** — if OpenAI is down, fall back to Anthropic
-- **Cost tracking** — per-model, per-team cost attribution
-- **Rate limiting** — prevent runaway costs from buggy agents
+The routing is configured per-model in a `config.yaml` that LiteLLM reloads on change:
 
-## Langfuse: Seeing Inside the Black Box
+```yaml
+model_list:
+  - model_name: fast
+    litellm_params:
+      model: openai/gpt-4o-mini
+      api_key: os.environ/OPENAI_API_KEY
+  - model_name: fast
+    litellm_params:
+      model: anthropic/claude-haiku-4-5
+      api_key: os.environ/ANTHROPIC_API_KEY
+  - model_name: local
+    litellm_params:
+      model: openai/qwen3-32b
+      api_base: http://dgx-spark.ai.svc.cluster.local:8000/v1
 
-Every LLM call is traced in Langfuse with:
-- Full prompt and completion text
-- Token counts and costs
-- Latency breakdown
-- Parent-child relationships (agent chains)
-- Evaluation scores
+router_settings:
+  routing_strategy: simple-shuffle
+  fallbacks:
+    - fast: [local]
+    - local: [fast]
+```
 
-This is how we caught a bug where an agent was making 50 redundant API calls per request — $200/day in wasted tokens that would have been invisible without tracing.
+One `fast` alias, two providers, automatic failover. Applications call `model: fast` and never know — or care — which backend answered. The same pattern gives us a `local` alias that prefers the DGX Spark and falls back to cloud.
+
+Benefits, all earned:
+
+- **One key rotation point** — change `OPENAI_API_KEY` in Vault; every agent picks it up.
+- **Automatic failover** — Anthropic rate-limits, LiteLLM fails over to OpenAI on the next request.
+- **Per-team cost tracking** — LiteLLM attributes every call to a team tag and writes cost deltas to Prometheus.
+- **Rate limiting** — hard caps per team, per model, per minute. No more runaway agents.
+
+## Langfuse: The $200/Day Bug
+
+Every LLM call that goes through LiteLLM is traced in Langfuse:
+
+- Full prompt and completion text.
+- Token counts and computed cost.
+- Latency broken down by queue time, provider time, and total.
+- Parent-child call relationships (agent → tool → sub-agent).
+- Evaluation scores, either manual or from automated judges.
+
+We thought this was nice-to-have. Then one of our internal agents started quietly melting a credit card.
+
+A research agent was supposed to fetch a document, chunk it, and summarise each chunk. It worked on test data. In production, a retry loop around a flaky HTTP call caused the agent to re-run the *entire summarisation step* on every retry — pulling in the full document, re-chunking, re-summarising each chunk. Fifty redundant API calls per user request.
+
+At roughly four cents per call, that was about **$200/day** in wasted tokens, on a small team. The agent's own logs looked clean — it reported success, because eventually it did succeed.
+
+Langfuse made the problem visible in ninety seconds: open the trace for a slow request, see fifty near-identical child spans against the same model, read the prompts, notice they were duplicates. One line of code — moving the retry to the HTTP client instead of the outer loop — killed the bill.
+
+We cannot imagine debugging AI systems without this kind of tracing. Something that is behaviourally correct but economically catastrophic is invisible to everything *except* an LLM-aware tracer.
 
 ## NVIDIA DGX Spark: Local Inference
 
-Our latest addition to the AI stack is an **NVIDIA DGX Spark** — a compact powerhouse for local LLM inference. We run **Qwen models** on it for development, testing, and privacy-sensitive workloads.
+Our latest addition to the stack is an **NVIDIA DGX Spark** — a compact GPU box dedicated to local LLM inference. We run **Qwen3-32B** on it for development, testing, and privacy-sensitive workloads.
 
-The DGX Spark slots into our existing architecture seamlessly. LiteLLM routes to it like any other provider:
+The DGX Spark slots into LiteLLM like any other provider:
 
 ```
-Application → LiteLLM → DGX Spark (Qwen) — local, zero-cost
+Application → LiteLLM → DGX Spark (Qwen3) — local, zero-cost
                       → OpenAI / Anthropic / Google — cloud fallback
 ```
 
-Benefits of local inference with DGX Spark:
+What the local path buys us:
 
-- **Zero API costs** — development and testing against real LLMs without burning cloud credits
-- **Full data privacy** — sensitive prompts never leave our network
-- **Sub-100ms latency** — no network round-trip to cloud providers
-- **Always available** — no rate limits, no provider outages, no quota issues
+- **Zero per-request cost** for development and internal tooling. We burn through free tokens instead of billable ones.
+- **Data residency** — sensitive prompts never leave our network. Some clients require this.
+- **Sub-100 ms first-token latency** — no transatlantic round-trip.
+- **No rate limits, no provider outages, no quota nagging** on routine work.
 
-LiteLLM makes the DGX Spark a first-class citizen alongside cloud providers. The same routing rules, failover logic, and cost tracking apply. An agent can use Qwen on the DGX Spark for routine tasks and fall back to Claude or GPT for complex reasoning — all transparent to the application code.
-
-## Running Local Models
-
-LiteLLM can route to any local model running on our network. Beyond the DGX Spark, we can target any OpenAI-compatible endpoint. LiteLLM treats them identically to cloud providers. Zero code changes — just a routing rule.
+The routing rule is one line of YAML, the fallback rule is one more, and every agent transparently picks the right path. An agent can use Qwen on the DGX for routine tasks and fall back to Claude or GPT for harder reasoning — same code, same tracing, different bill.
 
 ## What We'd Do Differently
 
-1. **Start with LiteLLM from day one** — we wasted weeks with direct API integrations before centralizing
-2. **Set token budgets early** — one misconfigured agent can burn through API credits fast
-3. **Langfuse is non-negotiable** — you cannot debug AI systems without observability
+**Start with LiteLLM on day one.** We spent the first six weeks wiring each agent directly to OpenAI "just to ship." Migrating to a central gateway later meant touching every codebase. Start with the gateway even if you only have one provider.
+
+**Set token budgets before the first deploy, not after the first bill.** One misconfigured agent burns through API credit faster than you can notice. LiteLLM's per-team budgets take five minutes to configure and save entire weeks of damage control.
+
+**Langfuse is non-negotiable.** You cannot operate an AI system on vibes. If you are shipping agents to production without trace-level observability, you are shipping a slot machine.
 
 ---
 
-*This concludes our 5-part series on building an enterprise platform on bare metal. [View the full case study](/case-studies/bare-metal-platform/) or [contact us](/contact/) to build something similar for your team.*
+**Bare Metal K8s series:** [Part 1: Why](/blog/bare-metal-k8s-part1-why/) · [Part 2: Bootstrap](/blog/bare-metal-k8s-part2-bootstrap/) · [Part 3: GitOps](/blog/bare-metal-k8s-part3-gitops/) · [Part 4: Observability](/blog/bare-metal-k8s-part4-observability/) · **Part 5: AI Platform**
+
+*Full architecture in our [bare-metal platform case study](/case-studies/bare-metal-platform/). Want something similar for your team? [Talk to us](/contact/).*

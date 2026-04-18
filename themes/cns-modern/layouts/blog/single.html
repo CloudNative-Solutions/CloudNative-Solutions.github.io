@@ -45,6 +45,21 @@
 </div>
 {{ end }}
 
+{{/* Table of contents (collapsed by default, shown only if the post has enough sections) */}}
+{{ if and .TableOfContents (gt .WordCount 400) }}
+<div class="max-w-4xl mx-auto px-6 lg:px-8 mb-6">
+  <details class="rounded-xl border dark:border-surface-800/50 border-surface-200 bg-surface-50/40 dark:bg-surface-900/40 px-5 py-3 group">
+    <summary class="cursor-pointer list-none flex items-center gap-2 font-medium text-sm dark:text-surface-300 text-surface-700 select-none">
+      <svg class="w-4 h-4 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      Table of contents
+    </summary>
+    <nav class="toc mt-4 text-sm dark:text-surface-400 text-surface-600 [&_a]:block [&_a]:py-1 [&_a]:hover:text-brand-400 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-1">
+      {{ .TableOfContents }}
+    </nav>
+  </details>
+</div>
+{{ end }}
+
 {{/* Content */}}
 <section class="pb-24">
   <div class="max-w-4xl mx-auto px-6 lg:px-8">

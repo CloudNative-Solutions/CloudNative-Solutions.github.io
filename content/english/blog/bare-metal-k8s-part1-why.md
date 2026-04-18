@@ -2,7 +2,7 @@
 title: "Building an Enterprise Platform on Bare Metal — Part 1: Why We Did It"
 date: 2026-03-20
 author: "Marius Oprin"
-image: "/images/case-studies/bare-metal-platform.png"
+image: "/images/case-studies/bare-metal-platform.svg"
 tags: ["kubernetes", "bare-metal", "infrastructure", "series"]
 draft: false
 description: "Why we chose three Intel NUCs over AWS for a production Kubernetes platform — the real economics, what we needed to run, and the hardware bill that made it obvious."

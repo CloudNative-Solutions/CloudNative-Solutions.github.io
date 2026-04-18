@@ -1,0 +1,93 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360">
+  <defs>
+    <linearGradient id="ta_bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#001B33"></stop><stop offset="100%" stop-color="#020617"></stop>
+    </linearGradient>
+    <pattern id="ta_grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#0086FF" stroke-width="0.4" opacity=".15"></path>
+    </pattern>
+  </defs>
+  <rect width="600" height="360" fill="url(#ta_bg)"></rect>
+  <rect width="600" height="360" fill="url(#ta_grid)"></rect>
+
+  <text x="40" y="44" font-family="ui-monospace, monospace" font-size="10" fill="#93EAFF" letter-spacing="2">CASE STUDY</text>
+  <text x="40" y="68" font-family="var(--font-sans), system-ui" font-size="22" fill="#E2E8F0" font-weight="700">Terraform + Ansible → Kubernetes</text>
+
+  
+  <g transform="translate(60 130)" opacity=".75">
+    <text x="100" y="-8" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#94A3B8" letter-spacing="2">TANGLED · 2 TOOLS</text>
+    <rect width="200" height="170" rx="10" fill="#0A0F1C" stroke="rgba(50,108,229,.4)"></rect>
+
+    
+    <g fill="#020617" stroke="#0086FF">
+      <circle cx="40" cy="30" r="6"></circle>
+      <circle cx="160" cy="30" r="6"></circle>
+      <circle cx="100" cy="60" r="6"></circle>
+      <circle cx="40" cy="100" r="6"></circle>
+      <circle cx="160" cy="100" r="6"></circle>
+      <circle cx="100" cy="140" r="6"></circle>
+      <circle cx="40" cy="140" r="6"></circle>
+      <circle cx="160" cy="140" r="6"></circle>
+    </g>
+
+    
+    <g stroke="#0086FF" stroke-width="1" fill="none" opacity=".5">
+      <path d="M40 30 Q 100 80 160 30"></path>
+      <path d="M40 30 Q 80 70 100 140"></path>
+      <path d="M160 30 Q 120 80 40 100"></path>
+      <path d="M40 100 Q 100 110 160 100"></path>
+      <path d="M100 60 Q 40 110 100 140"></path>
+      <path d="M100 60 Q 160 110 160 140"></path>
+      <path d="M40 140 Q 100 100 160 140"></path>
+      <path d="M160 100 Q 120 140 40 140"></path>
+      <path d="M40 100 Q 80 30 160 30"></path>
+    </g>
+  </g>
+
+  
+  <g transform="translate(290 220)">
+    <line x1="0" y1="0" x2="40" y2="0" stroke="#93EAFF" stroke-width="2"></line>
+    <polygon points="40,-7 52,0 40,7" fill="#93EAFF"></polygon>
+    <text x="26" y="-12" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#93EAFF" letter-spacing="1">UNIFY</text>
+  </g>
+
+  
+  <g transform="translate(360 130)">
+    <text x="100" y="-8" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#93EAFF" letter-spacing="2">UNIFIED · GITOPS</text>
+    <rect width="200" height="170" rx="10" fill="#0A0F1C" stroke="#93EAFF" stroke-width="1.5"></rect>
+
+    
+    <g transform="translate(28 30)">
+      <rect width="50" height="36" rx="6" fill="rgba(147,234,255,.06)" stroke="#93EAFF" stroke-width="1"></rect>
+      <text x="25" y="22" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#93EAFF">git</text>
+    </g>
+
+    
+    <g transform="translate(122 30)">
+      <rect width="50" height="36" rx="6" fill="rgba(0,134,255,.08)" stroke="#0086FF" stroke-width="1"></rect>
+      <text x="25" y="22" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#0086FF">flux</text>
+    </g>
+
+    
+    <g transform="translate(40 100)">
+      <polygon points="60,0 110,18 110,52 60,70 10,52 10,18" fill="rgba(50,108,229,.06)" stroke="#0086FF" stroke-width="1.2"></polygon>
+      <text x="60" y="40" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#93EAFF">k8s + helm</text>
+    </g>
+
+    
+    <g stroke="#93EAFF" stroke-width="1" fill="none" opacity=".7">
+      <path d="M78 48 H 122" marker-end="url(#tarrow)"></path>
+      <path d="M147 66 V 100" marker-end="url(#tarrow)"></path>
+      <path d="M70 138 Q 30 110 30 90 Q 30 60 50 50" marker-end="url(#tarrow)"></path>
+    </g>
+
+    <defs>
+      <marker id="tarrow" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M 0 0 L 8 4 L 0 8 z" fill="#93EAFF"></path>
+      </marker>
+    </defs>
+  </g>
+
+  <text x="40" y="338" font-family="ui-monospace, monospace" font-size="9" fill="#4B5873">// cluster api · helm · flux · aws</text>
+</svg>

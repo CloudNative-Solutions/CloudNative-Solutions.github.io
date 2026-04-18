@@ -2,7 +2,7 @@
 title: "Infrastructure Design"
 meta_title: "Services"
 description: "this is meta description"
-image: /images/services/infrastructure-design.png
+image: /images/services/infrastructure-design.svg
 draft: false
 ---
 

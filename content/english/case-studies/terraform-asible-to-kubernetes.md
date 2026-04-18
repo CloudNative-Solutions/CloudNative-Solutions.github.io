@@ -1,6 +1,6 @@
 ---
 title: "Terraform + Ansible to Kubernetes"
-image: /images/case-studies/terraform-ansible-to-kubernetes.png
+image: /images/case-studies/terraform-ansible-to-kubernetes.svg
 meta_title: "Case Studies"
 description: "Client outgrew Terraform + Ansible management. Migrated to Kubernetes on AWS with Cluster API, Helm, and Flux."
 short: "IaC Modernization"

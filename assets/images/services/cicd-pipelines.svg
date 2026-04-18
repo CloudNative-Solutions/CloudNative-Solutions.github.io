@@ -1,0 +1,45 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="cibg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#001B33"></stop><stop offset="100%" stop-color="#020617"></stop>
+    </linearGradient>
+    <pattern id="cigrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0086FF" stroke-width="0.4" opacity=".15"></path>
+    </pattern>
+  </defs>
+  <rect width="400" height="300" fill="url(#cibg)"></rect>
+  <rect width="400" height="300" fill="url(#cigrid)"></rect>
+
+  <text x="32" y="40" font-family="ui-monospace, monospace" font-size="9" fill="#0086FF" letter-spacing="2">CI / CD PIPELINES</text>
+
+  
+  <g transform="translate(40 110)">
+    
+    <line x1="0" y1="40" x2="320" y2="40" stroke="#0086FF" stroke-width="1.5"></line>
+
+    
+    <path d="M180 40 Q 200 40 200 20 L 280 20" stroke="#93EAFF" stroke-width="1.5" fill="none" stroke-dasharray="3 3"></path>
+    
+    <path d="M180 40 Q 200 40 200 60 L 280 60" stroke="#93EAFF" stroke-width="1.5" fill="none"></path>
+
+    
+    <g font-family="ui-monospace, monospace" font-size="7" fill="#94A3B8">
+      <g><circle cx="0" cy="40" r="9" fill="#020617" stroke="#93EAFF" stroke-width="1.5"></circle><text x="0" y="62" text-anchor="middle">commit</text></g>
+      <g><circle cx="60" cy="40" r="9" fill="#020617" stroke="#93EAFF" stroke-width="1.5"></circle><text x="60" y="62" text-anchor="middle">test</text></g>
+      <g><circle cx="120" cy="40" r="9" fill="#020617" stroke="#93EAFF" stroke-width="1.5"></circle><text x="120" y="62" text-anchor="middle">build</text></g>
+      <g><circle cx="180" cy="40" r="11" fill="#0086FF" stroke="#93EAFF" stroke-width="1.5"></circle><text x="180" y="64" text-anchor="middle">deploy</text></g>
+      <g><circle cx="280" cy="20" r="9" fill="#020617" stroke="#93EAFF" stroke-width="1.5"></circle><text x="280" y="6" text-anchor="middle">canary 5%</text></g>
+      <g><circle cx="280" cy="60" r="9" fill="#020617" stroke="#93EAFF" stroke-width="1.5"></circle><text x="280" y="82" text-anchor="middle">stable 95%</text></g>
+    </g>
+
+    
+    <g stroke="#93EAFF" stroke-width="1" fill="none">
+      <path d="M-3 40 h6 M0 37 v6"></path>           
+      <path d="M57 40 l3 3 4 -6"></path>             
+      <rect x="116" y="36" width="8" height="8" rx="1"></rect> 
+    </g>
+  </g>
+
+  <text x="32" y="280" font-family="ui-monospace, monospace" font-size="8" fill="#4B5873">// argocd · gh actions · argo rollouts</text>
+</svg>

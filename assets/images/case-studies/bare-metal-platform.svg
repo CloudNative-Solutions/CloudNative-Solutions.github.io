@@ -1,0 +1,116 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360">
+  <defs>
+    <linearGradient id="bm_bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#001B33"></stop><stop offset="100%" stop-color="#020617"></stop>
+    </linearGradient>
+    <pattern id="bm_grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#0086FF" stroke-width="0.4" opacity=".15"></path>
+    </pattern>
+  </defs>
+  <rect width="600" height="360" fill="url(#bm_bg)"></rect>
+  <rect width="600" height="360" fill="url(#bm_grid)"></rect>
+
+  <text x="40" y="44" font-family="ui-monospace, monospace" font-size="10" fill="#93EAFF" letter-spacing="2">CASE STUDY</text>
+  <text x="40" y="68" font-family="var(--font-sans), system-ui" font-size="22" fill="#E2E8F0" font-weight="700">84 apps · 3 nodes · zero cloud bills</text>
+
+  
+  <g transform="translate(80 150)">
+    <g>
+      
+      <rect width="120" height="80" rx="10" fill="#0A0F1C" stroke="#93EAFF" stroke-width="1.5"></rect>
+      <rect x="8" y="8" width="104" height="48" rx="6" fill="rgba(0,134,255,.05)" stroke="rgba(50,108,229,.3)"></rect>
+      
+      <g stroke="rgba(50,108,229,.4)" stroke-width="1">
+        <line x1="14" y1="16" x2="106" y2="16"></line>
+        <line x1="14" y1="22" x2="106" y2="22"></line>
+        <line x1="14" y1="28" x2="106" y2="28"></line>
+        <line x1="14" y1="34" x2="106" y2="34"></line>
+        <line x1="14" y1="40" x2="106" y2="40"></line>
+        <line x1="14" y1="46" x2="106" y2="46"></line>
+      </g>
+      
+      <circle cx="100" cy="68" r="3" fill="#22C55E"></circle>
+      <text x="14" y="72" font-family="ui-monospace, monospace" font-size="8" fill="#94A3B8">nuc-01</text>
+    </g>
+    <g transform="translate(160 0)">
+      <rect width="120" height="80" rx="10" fill="#0A0F1C" stroke="#93EAFF" stroke-width="1.5"></rect>
+      <rect x="8" y="8" width="104" height="48" rx="6" fill="rgba(0,134,255,.05)" stroke="rgba(50,108,229,.3)"></rect>
+      <g stroke="rgba(50,108,229,.4)" stroke-width="1">
+        <line x1="14" y1="16" x2="106" y2="16"></line><line x1="14" y1="22" x2="106" y2="22"></line><line x1="14" y1="28" x2="106" y2="28"></line>
+        <line x1="14" y1="34" x2="106" y2="34"></line><line x1="14" y1="40" x2="106" y2="40"></line><line x1="14" y1="46" x2="106" y2="46"></line>
+      </g>
+      <circle cx="100" cy="68" r="3" fill="#22C55E"></circle>
+      <text x="14" y="72" font-family="ui-monospace, monospace" font-size="8" fill="#94A3B8">nuc-02</text>
+    </g>
+    <g transform="translate(320 0)">
+      <rect width="120" height="80" rx="10" fill="#0A0F1C" stroke="#93EAFF" stroke-width="1.5"></rect>
+      <rect x="8" y="8" width="104" height="48" rx="6" fill="rgba(0,134,255,.05)" stroke="rgba(50,108,229,.3)"></rect>
+      <g stroke="rgba(50,108,229,.4)" stroke-width="1">
+        <line x1="14" y1="16" x2="106" y2="16"></line><line x1="14" y1="22" x2="106" y2="22"></line><line x1="14" y1="28" x2="106" y2="28"></line>
+        <line x1="14" y1="34" x2="106" y2="34"></line><line x1="14" y1="40" x2="106" y2="40"></line><line x1="14" y1="46" x2="106" y2="46"></line>
+      </g>
+      <circle cx="100" cy="68" r="3" fill="#22C55E"></circle>
+      <text x="14" y="72" font-family="ui-monospace, monospace" font-size="8" fill="#94A3B8">nuc-03</text>
+    </g>
+  </g>
+
+  
+  <g transform="translate(80 100)">
+    <g fill="#0086FF" opacity=".7">
+      <rect x="0" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="10" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="20" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="30" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="40" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="50" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="60" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="70" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="80" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="90" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="100" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="110" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="120" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="130" y="0" width="6" height="6" rx="1"></rect>
+    </g>
+    <g fill="#93EAFF" opacity=".8">
+      <rect x="160" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="170" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="180" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="190" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="200" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="210" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="220" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="230" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="240" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="250" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="260" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="270" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="280" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="290" y="0" width="6" height="6" rx="1"></rect>
+    </g>
+    <g fill="#0086FF" opacity=".9">
+      <rect x="320" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="330" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="340" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="350" y="0" width="6" height="6" rx="1"></rect>
+      <rect x="360" y="0" width="6" height="6" rx="1"></rect>
+    </g>
+    <text x="0" y="-8" font-family="ui-monospace, monospace" font-size="8" fill="#94A3B8">84 apps · helm + argocd</text>
+  </g>
+
+  
+  <g transform="translate(80 270)">
+    <text x="0" y="0" font-family="ui-monospace, monospace" font-size="8" fill="#4B5873" letter-spacing="2">RESULT</text>
+    <g font-family="var(--font-sans), system-ui" font-size="20" font-weight="700" fill="#93EAFF">
+      <text x="0" y="28">$0</text>
+      <text x="120" y="28">99.9%</text>
+      <text x="260" y="28">3×</text>
+    </g>
+    <g font-family="ui-monospace, monospace" font-size="8" fill="#94A3B8">
+      <text x="0" y="44">cloud bill</text>
+      <text x="120" y="44">uptime</text>
+      <text x="260" y="44">replication</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,74 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="idbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#001B33"></stop><stop offset="100%" stop-color="#020617"></stop>
+    </linearGradient>
+    <pattern id="idgrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0086FF" stroke-width="0.4" opacity=".15"></path>
+    </pattern>
+  </defs>
+  <rect width="400" height="300" fill="url(#idbg)"></rect>
+  <rect width="400" height="300" fill="url(#idgrid)"></rect>
+
+  <text x="32" y="40" font-family="ui-monospace, monospace" font-size="9" fill="#0086FF" letter-spacing="2">INFRASTRUCTURE DESIGN</text>
+
+  
+  <g transform="translate(32 60)" font-family="ui-monospace, monospace" font-size="8" fill="#94A3B8">
+    <rect width="336" height="200" rx="10" fill="none" stroke="rgba(147,234,255,.4)" stroke-width="1.2" stroke-dasharray="4 3"></rect>
+    <text x="10" y="-2" fill="#93EAFF">region · eu-central-1</text>
+
+    
+    <g transform="translate(14 14)">
+      <rect width="308" height="172" rx="8" fill="rgba(50,108,229,.04)" stroke="rgba(50,108,229,.4)" stroke-width="1"></rect>
+      <text x="8" y="14" fill="#0086FF">vpc · 10.0.0.0/16</text>
+
+      
+      <g transform="translate(8 24)">
+        <rect width="144" height="138" rx="6" fill="rgba(50,108,229,.03)" stroke="rgba(50,108,229,.25)"></rect>
+        <text x="6" y="12" fill="#94A3B8">az-a</text>
+
+        
+        <g transform="translate(6 18)">
+          <rect width="132" height="52" rx="4" fill="rgba(147,234,255,.05)" stroke="rgba(147,234,255,.3)"></rect>
+          <text x="4" y="10" font-size="7" fill="#93EAFF">public</text>
+          <rect x="6" y="16" width="22" height="22" rx="3" fill="#0A0F1C" stroke="#93EAFF"></rect>
+          <rect x="34" y="16" width="22" height="22" rx="3" fill="#0A0F1C" stroke="#93EAFF"></rect>
+          <text x="6" y="48" font-size="6" fill="#4B5873">alb · nat</text>
+        </g>
+        
+        <g transform="translate(6 76)">
+          <rect width="132" height="52" rx="4" fill="rgba(50,108,229,.06)" stroke="rgba(50,108,229,.3)"></rect>
+          <text x="4" y="10" font-size="7" fill="#0086FF">private</text>
+          <rect x="6" y="16" width="22" height="22" rx="3" fill="#0A0F1C" stroke="#0086FF"></rect>
+          <rect x="34" y="16" width="22" height="22" rx="3" fill="#0A0F1C" stroke="#0086FF"></rect>
+          <rect x="62" y="16" width="22" height="22" rx="3" fill="#0A0F1C" stroke="#0086FF"></rect>
+          <text x="6" y="48" font-size="6" fill="#4B5873">eks · rds</text>
+        </g>
+      </g>
+
+      
+      <g transform="translate(156 24)">
+        <rect width="144" height="138" rx="6" fill="rgba(50,108,229,.03)" stroke="rgba(50,108,229,.25)"></rect>
+        <text x="6" y="12" fill="#94A3B8">az-b</text>
+        <g transform="translate(6 18)">
+          <rect width="132" height="52" rx="4" fill="rgba(147,234,255,.05)" stroke="rgba(147,234,255,.3)"></rect>
+          <text x="4" y="10" font-size="7" fill="#93EAFF">public</text>
+          <rect x="6" y="16" width="22" height="22" rx="3" fill="#0A0F1C" stroke="#93EAFF"></rect>
+          <rect x="34" y="16" width="22" height="22" rx="3" fill="#0A0F1C" stroke="#93EAFF"></rect>
+          <text x="6" y="48" font-size="6" fill="#4B5873">alb · nat</text>
+        </g>
+        <g transform="translate(6 76)">
+          <rect width="132" height="52" rx="4" fill="rgba(50,108,229,.06)" stroke="rgba(50,108,229,.3)"></rect>
+          <text x="4" y="10" font-size="7" fill="#0086FF">private</text>
+          <rect x="6" y="16" width="22" height="22" rx="3" fill="#0A0F1C" stroke="#0086FF"></rect>
+          <rect x="34" y="16" width="22" height="22" rx="3" fill="#0A0F1C" stroke="#0086FF"></rect>
+          <rect x="62" y="16" width="22" height="22" rx="3" fill="#0A0F1C" stroke="#0086FF"></rect>
+          <text x="6" y="48" font-size="6" fill="#4B5873">eks · rds</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <text x="32" y="280" font-family="ui-monospace, monospace" font-size="8" fill="#4B5873">// landing zone · multi-az · least-priv IAM</text>
+</svg>

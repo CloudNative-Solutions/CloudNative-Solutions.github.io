@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="f2bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#001B33"></stop>
+      <stop offset="100%" stop-color="#020617"></stop>
+    </linearGradient>
+    <pattern id="f2grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#0086FF" stroke-width="0.4" opacity=".2"></path>
+    </pattern>
+  </defs>
+  <rect width="400" height="300" fill="url(#f2bg)"></rect>
+  <rect width="400" height="300" fill="url(#f2grid)"></rect>
+
+  
+  <text x="40" y="40" font-family="ui-monospace, monospace" font-size="10" fill="#93EAFF" letter-spacing="2">OBSERVABILITY</text>
+  <text x="40" y="55" font-family="var(--font-sans), system-ui" font-size="14" fill="#E2E8F0" font-weight="600">SLO-based alerts. Not cry-wolf thresholds.</text>
+
+  
+  <g transform="translate(40 80)">
+    
+    <rect x="0" y="0" width="320" height="180" rx="10" fill="#0A0F1C" stroke="rgba(50,108,229,.3)" stroke-width="1"></rect>
+    <rect x="0" y="0" width="320" height="22" rx="10" fill="rgba(50,108,229,.08)"></rect>
+    <rect x="0" y="12" width="320" height="10" fill="rgba(50,108,229,.08)"></rect>
+    <g transform="translate(10 11)">
+      <circle cx="0" cy="0" r="3" fill="#FF5F57"></circle>
+      <circle cx="10" cy="0" r="3" fill="#FEBC2E"></circle>
+      <circle cx="20" cy="0" r="3" fill="#28C840"></circle>
+    </g>
+    <text x="160" y="15" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#4B5873">grafana — slo dashboard</text>
+
+    
+    <g transform="translate(14 34)">
+      <rect width="90" height="42" rx="6" fill="rgba(50,108,229,.06)" stroke="rgba(50,108,229,.18)"></rect>
+      <text x="8" y="16" font-family="ui-monospace, monospace" font-size="7" fill="#4B5873" letter-spacing="1">UPTIME</text>
+      <text x="8" y="33" font-family="var(--font-sans), system-ui" font-size="14" fill="#93EAFF" font-weight="700">99.97%</text>
+    </g>
+    <g transform="translate(114 34)">
+      <rect width="90" height="42" rx="6" fill="rgba(147,234,255,.06)" stroke="rgba(147,234,255,.18)"></rect>
+      <text x="8" y="16" font-family="ui-monospace, monospace" font-size="7" fill="#4B5873" letter-spacing="1">MTTR</text>
+      <text x="8" y="33" font-family="var(--font-sans), system-ui" font-size="14" fill="#93EAFF" font-weight="700">11m</text>
+    </g>
+    <g transform="translate(214 34)">
+      <rect width="92" height="42" rx="6" fill="rgba(50,108,229,.06)" stroke="rgba(50,108,229,.18)"></rect>
+      <text x="8" y="16" font-family="ui-monospace, monospace" font-size="7" fill="#4B5873" letter-spacing="1">DEPLOYS</text>
+      <text x="8" y="33" font-family="var(--font-sans), system-ui" font-size="14" fill="#E2E8F0" font-weight="700">4.2k</text>
+    </g>
+
+    
+    <g transform="translate(14 90)">
+      <rect width="292" height="72" rx="6" fill="rgba(50,108,229,.04)" stroke="rgba(50,108,229,.15)"></rect>
+      
+      <g stroke="rgba(50,108,229,.08)" stroke-width="0.5">
+        <line x1="0" y1="18" x2="292" y2="18"></line>
+        <line x1="0" y1="36" x2="292" y2="36"></line>
+        <line x1="0" y1="54" x2="292" y2="54"></line>
+      </g>
+      
+      <rect x="0" y="12" width="292" height="10" fill="#93EAFF" opacity=".08"></rect>
+      
+      <polyline points="0,40 20,38 40,42 60,35 80,44 100,30 120,48 140,25 160,55 180,32 200,28 220,40 240,22 260,36 280,26 292,32" fill="none" stroke="#0086FF" stroke-width="1.5"></polyline>
+      <polyline points="0,40 20,38 40,42 60,35 80,44 100,30 120,48 140,25 160,55 180,32 200,28 220,40 240,22 260,36 280,26 292,32 292,72 0,72" fill="url(#f2area)" opacity=".3"></polyline>
+      <defs>
+        <linearGradient id="f2area" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0086FF" stop-opacity=".6"></stop>
+          <stop offset="100%" stop-color="#0086FF" stop-opacity="0"></stop>
+        </linearGradient>
+      </defs>
+      
+      <circle cx="160" cy="55" r="3" fill="#93EAFF"></circle>
+      <circle cx="160" cy="55" r="6" fill="none" stroke="#93EAFF" stroke-width="1" opacity=".5"></circle>
+    </g>
+  </g>
+
+  <text x="40" y="280" font-family="ui-monospace, monospace" font-size="9" fill="#4B5873">// grafana · mimir · loki · tempo</text>
+</svg>

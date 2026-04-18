@@ -2,7 +2,7 @@
 title: "Building an Enterprise Platform on Bare Metal — Part 2: Bootstrapping with Tinkerbell & Cluster API"
 date: 2026-03-22
 author: "Marius Oprin"
-image: "/images/services/infrastructure-design.png"
+image: "/images/services/infrastructure-design.svg"
 tags: ["kubernetes", "bare-metal", "tinkerbell", "cluster-api", "series"]
 draft: false
 description: "How we provision bare-metal Kubernetes nodes with zero manual steps — using Tinkerbell for PXE boot and Cluster API for declarative cluster lifecycle."

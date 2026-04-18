@@ -1,0 +1,61 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="kbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#001B33"></stop>
+      <stop offset="100%" stop-color="#020617"></stop>
+    </linearGradient>
+    <pattern id="kgrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0086FF" stroke-width="0.4" opacity=".15"></path>
+    </pattern>
+  </defs>
+  <rect width="400" height="300" fill="url(#kbg)"></rect>
+  <rect width="400" height="300" fill="url(#kgrid)"></rect>
+
+  <text x="32" y="40" font-family="ui-monospace, monospace" font-size="9" fill="#0086FF" letter-spacing="2">MANAGED KUBERNETES</text>
+
+  
+  <g transform="translate(160 70)">
+    <rect width="80" height="44" rx="8" fill="#0A0F1C" stroke="#93EAFF" stroke-width="1.5"></rect>
+    <polygon points="40,12 54,22 54,34 40,44 26,34 26,22" fill="none" stroke="#93EAFF" stroke-width="1.2"></polygon>
+    <circle cx="40" cy="28" r="3" fill="#93EAFF"></circle>
+    <text x="40" y="62" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#94A3B8">control-plane</text>
+  </g>
+
+  
+  <g stroke="#0086FF" stroke-width="1" fill="none" opacity=".5">
+    <path d="M180 120 Q 100 160 80 200"></path>
+    <path d="M200 120 L 200 200"></path>
+    <path d="M220 120 Q 300 160 320 200"></path>
+  </g>
+
+  
+  <g transform="translate(40 190)" font-family="ui-monospace, monospace" font-size="7" fill="#94A3B8">
+    <g>
+      <rect width="80" height="56" rx="6" fill="#0A0F1C" stroke="#0086FF" stroke-width="1"></rect>
+      <rect x="10" y="10" width="60" height="6" rx="2" fill="#0086FF" opacity=".4"></rect>
+      <rect x="10" y="20" width="46" height="6" rx="2" fill="#0086FF" opacity=".4"></rect>
+      <rect x="10" y="30" width="52" height="6" rx="2" fill="#0086FF" opacity=".4"></rect>
+      <circle cx="70" cy="46" r="3" fill="#22C55E"></circle>
+      <text x="10" y="50">node-1</text>
+    </g>
+    <g transform="translate(120 0)">
+      <rect width="80" height="56" rx="6" fill="#0A0F1C" stroke="#0086FF" stroke-width="1"></rect>
+      <rect x="10" y="10" width="48" height="6" rx="2" fill="#0086FF" opacity=".4"></rect>
+      <rect x="10" y="20" width="60" height="6" rx="2" fill="#0086FF" opacity=".4"></rect>
+      <rect x="10" y="30" width="40" height="6" rx="2" fill="#0086FF" opacity=".4"></rect>
+      <circle cx="70" cy="46" r="3" fill="#22C55E"></circle>
+      <text x="10" y="50">node-2</text>
+    </g>
+    <g transform="translate(240 0)">
+      <rect width="80" height="56" rx="6" fill="#0A0F1C" stroke="#0086FF" stroke-width="1"></rect>
+      <rect x="10" y="10" width="60" height="6" rx="2" fill="#0086FF" opacity=".4"></rect>
+      <rect x="10" y="20" width="36" height="6" rx="2" fill="#0086FF" opacity=".4"></rect>
+      <rect x="10" y="30" width="52" height="6" rx="2" fill="#0086FF" opacity=".4"></rect>
+      <circle cx="70" cy="46" r="3" fill="#22C55E"></circle>
+      <text x="10" y="50">node-3</text>
+    </g>
+  </g>
+
+  <text x="32" y="280" font-family="ui-monospace, monospace" font-size="8" fill="#4B5873">// EKS · GKE · AKS · self-hosted</text>
+</svg>

@@ -1,6 +1,6 @@
 ---
 title: "AWS ECS to AWS EKS migration"
-image: /images/case-studies/ecs-to-eks.png
+image: /images/case-studies/ecs-to-eks.svg
 meta_title: "Case Studies"
 description: "Container-based infrastructure moved from ECS + CloudWatch to Kubernetes with LGTM observability and Argo CD."
 short: "AWS ECS → EKS"

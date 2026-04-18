@@ -2,7 +2,7 @@
 title: "Building an Enterprise Platform on Bare Metal — Part 4: Observability with the LGTM Stack"
 date: 2026-03-26
 author: "Marius Oprin"
-image: "/images/services/monitoring-and-logs.png"
+image: "/images/services/monitoring-and-logs.svg"
 tags: ["kubernetes", "observability", "grafana", "mimir", "loki", "tempo", "series"]
 draft: false
 description: "Metrics, logs, traces, and continuous profiles for a whole production platform — running on the same three bare-metal nodes, with a single telemetry collector and multi-tenant storage."

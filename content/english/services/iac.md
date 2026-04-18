@@ -2,7 +2,7 @@
 title: "Infrastructure as a Code"
 meta_title: "Services"
 description: "Infrastructure as a Code"
-image: /images/services/iac.png
+image: /images/services/iac.svg
 draft: false
 ---
 

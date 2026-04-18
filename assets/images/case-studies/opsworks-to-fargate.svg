@@ -1,0 +1,88 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360">
+  <defs>
+    <linearGradient id="ow_bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#001B33"></stop><stop offset="100%" stop-color="#020617"></stop>
+    </linearGradient>
+    <pattern id="ow_grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#0086FF" stroke-width="0.4" opacity=".15"></path>
+    </pattern>
+  </defs>
+  <rect width="600" height="360" fill="url(#ow_bg)"></rect>
+  <rect width="600" height="360" fill="url(#ow_grid)"></rect>
+
+  <text x="40" y="44" font-family="ui-monospace, monospace" font-size="10" fill="#93EAFF" letter-spacing="2">CASE STUDY</text>
+  <text x="40" y="68" font-family="var(--font-sans), system-ui" font-size="22" fill="#E2E8F0" font-weight="700">OpsWorks → Fargate</text>
+
+  
+  <g transform="translate(60 130)" opacity=".7">
+    <text x="90" y="-8" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#94A3B8" letter-spacing="2">CHEF COOKBOOKS</text>
+    
+    <g fill="#0A0F1C" stroke="rgba(50,108,229,.5)" stroke-width="1">
+      <rect x="0" y="0" width="180" height="22" rx="3"></rect>
+      <rect x="0" y="28" width="180" height="22" rx="3"></rect>
+      <rect x="0" y="56" width="180" height="22" rx="3"></rect>
+      <rect x="0" y="84" width="180" height="22" rx="3"></rect>
+      <rect x="0" y="112" width="180" height="22" rx="3"></rect>
+      <rect x="0" y="140" width="180" height="22" rx="3"></rect>
+    </g>
+    <g font-family="ui-monospace, monospace" font-size="8" fill="#4B5873">
+      <text x="10" y="14">recipes/default.rb</text>
+      <text x="10" y="42">recipes/django.rb</text>
+      <text x="10" y="70">recipes/nginx.rb</text>
+      <text x="10" y="98">recipes/postgres.rb</text>
+      <text x="10" y="126">recipes/celery.rb</text>
+      <text x="10" y="154">recipes/deploy.rb</text>
+    </g>
+    
+    <g fill="#0086FF">
+      <circle cx="170" cy="11" r="2"></circle>
+      <circle cx="170" cy="39" r="2"></circle>
+      <circle cx="170" cy="67" r="2"></circle>
+      <circle cx="170" cy="95" r="2"></circle>
+      <circle cx="170" cy="123" r="2"></circle>
+      <circle cx="170" cy="151" r="2"></circle>
+    </g>
+  </g>
+
+  
+  <g transform="translate(280 220)">
+    <line x1="0" y1="0" x2="40" y2="0" stroke="#93EAFF" stroke-width="2"></line>
+    <polygon points="40,-7 52,0 40,7" fill="#93EAFF"></polygon>
+    <text x="26" y="-12" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#93EAFF" letter-spacing="1">CONTAINERIZE</text>
+  </g>
+
+  
+  <g transform="translate(360 130)">
+    <text x="90" y="-8" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#93EAFF" letter-spacing="2">CONTAINER · FARGATE</text>
+    
+    <rect width="180" height="170" rx="10" fill="#0A0F1C" stroke="#93EAFF" stroke-width="1.5"></rect>
+
+    
+    <g transform="translate(20 24)" font-family="ui-monospace, monospace" font-size="9">
+      <text fill="#93EAFF" y="0">FROM</text><text x="36" y="0" fill="#E2E8F0">python:slim</text>
+      <text fill="#93EAFF" y="14">COPY</text><text x="36" y="14" fill="#E2E8F0">. /app</text>
+      <text fill="#93EAFF" y="28">RUN</text><text x="36" y="28" fill="#E2E8F0">pip install</text>
+      <text fill="#93EAFF" y="42">CMD</text><text x="36" y="42" fill="#E2E8F0">gunicorn ...</text>
+    </g>
+
+    
+    <g transform="translate(20 100)">
+      <rect width="44" height="44" rx="6" fill="rgba(50,108,229,.1)" stroke="#0086FF"></rect>
+      <rect x="56" width="44" height="44" rx="6" fill="rgba(50,108,229,.1)" stroke="#0086FF"></rect>
+      <rect x="112" width="44" height="44" rx="6" fill="rgba(50,108,229,.1)" stroke="#0086FF"></rect>
+      <g fill="#93EAFF" font-family="ui-monospace, monospace" font-size="7" text-anchor="middle">
+        <text x="22" y="26">django</text>
+        <text x="78" y="26">django</text>
+        <text x="134" y="26">django</text>
+      </g>
+      <g fill="#22C55E">
+        <circle cx="38" cy="38" r="2"></circle>
+        <circle cx="94" cy="38" r="2"></circle>
+        <circle cx="150" cy="38" r="2"></circle>
+      </g>
+    </g>
+  </g>
+
+  <text x="40" y="338" font-family="ui-monospace, monospace" font-size="9" fill="#4B5873">// gitlab ci · terraform · ecr · custom base image</text>
+</svg>

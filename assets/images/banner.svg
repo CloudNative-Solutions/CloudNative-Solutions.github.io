@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <defs>
+    <radialGradient id="gb1" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#0086FF" stop-opacity=".35"></stop>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"></stop>
+    </radialGradient>
+    <linearGradient id="gb2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0086FF"></stop>
+      <stop offset="100%" stop-color="#93EAFF"></stop>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0086FF" stroke-width="0.5" opacity=".18"></path>
+    </pattern>
+    <filter id="glow"><feGaussianBlur stdDeviation="6"></feGaussianBlur></filter>
+  </defs>
+
+  <rect width="800" height="400" fill="#020617"></rect>
+  <rect width="800" height="400" fill="url(#grid)"></rect>
+  <rect width="800" height="400" fill="url(#gb1)"></rect>
+
+  
+  <g transform="translate(400 200)" opacity=".4">
+    <ellipse rx="320" ry="80" fill="none" stroke="#0086FF" stroke-width="1"></ellipse>
+    <ellipse rx="260" ry="65" fill="none" stroke="#0086FF" stroke-width="1" opacity=".7"></ellipse>
+    <ellipse rx="200" ry="50" fill="none" stroke="#0086FF" stroke-width="1" opacity=".5"></ellipse>
+  </g>
+
+  
+  <g transform="translate(400 200)">
+    
+    <polygon points="0,-70 60,-35 60,35 0,70 -60,35 -60,-35" fill="#020617" stroke="url(#gb2)" stroke-width="2.5"></polygon>
+    <polygon points="0,-70 60,-35 60,35 0,70 -60,35 -60,-35" fill="none" stroke="#93EAFF" stroke-width="1" opacity=".4" filter="url(#glow)"></polygon>
+
+    
+    <circle cx="0" cy="-32" r="6" fill="#93EAFF"></circle>
+    <circle cx="28" cy="-16" r="6" fill="#0086FF"></circle>
+    <circle cx="28" cy="16" r="6" fill="#93EAFF"></circle>
+    <circle cx="0" cy="32" r="6" fill="#0086FF"></circle>
+    <circle cx="-28" cy="16" r="6" fill="#93EAFF"></circle>
+    <circle cx="-28" cy="-16" r="6" fill="#0086FF"></circle>
+    <circle cx="0" cy="0" r="10" fill="#0086FF"></circle>
+    <circle cx="0" cy="0" r="10" fill="none" stroke="#93EAFF" stroke-width="1" opacity=".6"></circle>
+
+    
+    <g stroke="#0086FF" stroke-width="1" opacity=".5" fill="none">
+      <line x1="0" y1="0" x2="0" y2="-32"></line>
+      <line x1="0" y1="0" x2="28" y2="-16"></line>
+      <line x1="0" y1="0" x2="28" y2="16"></line>
+      <line x1="0" y1="0" x2="0" y2="32"></line>
+      <line x1="0" y1="0" x2="-28" y2="16"></line>
+      <line x1="0" y1="0" x2="-28" y2="-16"></line>
+    </g>
+  </g>
+
+  
+  <g fill="#93EAFF">
+    <circle cx="720" cy="200" r="5"></circle>
+    <circle cx="80" cy="200" r="5"></circle>
+  </g>
+  <g fill="#0086FF">
+    <circle cx="660" cy="140" r="4"></circle>
+    <circle cx="140" cy="260" r="4"></circle>
+    <circle cx="200" cy="130" r="3.5"></circle>
+    <circle cx="600" cy="270" r="3.5"></circle>
+  </g>
+
+  
+  <g transform="translate(400 200)" fill="none" stroke="#0086FF" stroke-width="1" stroke-dasharray="2 6" opacity=".5">
+    <ellipse rx="380" ry="100"></ellipse>
+  </g>
+
+  
+  <g font-family="ui-monospace, monospace" font-size="10" fill="#4B5873" letter-spacing="2">
+    <text x="30" y="40">CNCF · KUBERNETES</text>
+    <text x="770" y="40" text-anchor="end">v1.30 · GITOPS</text>
+    <text x="30" y="380">// cluster-ready</text>
+    <text x="770" y="380" text-anchor="end">84 apps · 3 nodes</text>
+  </g>
+</svg>
